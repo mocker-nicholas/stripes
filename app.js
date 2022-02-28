@@ -40,6 +40,15 @@ app.get("/user/login", (req, res) => {
   return res.render("users/userlogin");
 });
 
+app.get("/user/:id", (req, res) => {
+  res.render("users/usershow");
+});
+
+////////////// Product Routes //////////////////
+app.get("/products", (req, res) => {
+  res.render("products/productsindex");
+});
+
 ///////////// Listen for requests //////////////
 app.listen(3000, () => {
   console.log("Listening on Port 3000");
