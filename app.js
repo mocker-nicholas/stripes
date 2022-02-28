@@ -22,6 +22,9 @@ connectDb();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+////////// request Middlware ///////////////
+app.use(express.static(path.join(__dirname, "public")));
+
 //////////// Homepage Route ///////////////
 app.get("/", (req, res) => {
   res.render("landing");
