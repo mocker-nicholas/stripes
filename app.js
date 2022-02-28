@@ -27,8 +27,17 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //////////// Homepage Route ///////////////
 app.get("/", (req, res) => {
-  res.render("landing");
+  return res.render("landing");
   //// Change the store name to stripes!
+});
+
+//////////// User Routes /////////////////
+app.get("/user/register", (req, res) => {
+  return res.render("users/userregister");
+});
+
+app.get("/user/login", (req, res) => {
+  return res.render("users/userlogin");
 });
 
 ///////////// Listen for requests //////////////
