@@ -41,15 +41,25 @@ app.get("/user/login", (req, res) => {
 });
 
 app.get("/user/:id", (req, res) => {
-  res.render("users/usershow");
+  return res.render("users/usershow");
+});
+
+////////////// Shopping Cart ///////////////////
+app.get("/cart", (req, res) => {
+  return res.render("users/cart");
 });
 
 ////////////// Product Routes //////////////////
 app.get("/products", (req, res) => {
-  res.render("products/productsindex");
+  return res.render("products/productsindex");
+});
+
+///////////////// Checkout Route //////////////////
+app.get("/checkout", (req, res) => {
+  return res.render("checkout/checkout");
 });
 
 ///////////// Listen for requests //////////////
 app.listen(3000, () => {
-  console.log("Listening on Port 3000");
+  return console.log("Listening on Port 3000");
 });
