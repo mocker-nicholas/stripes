@@ -3,3 +3,52 @@
   padding: 0;
   font-family: PT Sans;
 }
+
+:root {
+  --dark: #333;
+  --pink: #ff6ec7;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:visited {
+  color: inherit;
+}
+
+/* Utility compenents and classes */
+
+.navbar-container {
+  background-color: var(--dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#navbar {
+  background-color: var(--dark);
+  color: var(--pink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: center;
+  max-width: 1200px;
+}
+
+.nav-ul {
+  display: flex;
+}
+
+.nav-item {
+  margin: 1rem;
+}
+
+.hide {
+  display: none;
+}

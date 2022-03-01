@@ -10,29 +10,7 @@
     <title>Stripes</title>
   </head>
   <body>
-    <header>
-      <nav id="navbar" class="navbar">
-        <div class="nav-flex-tem">
-          <ul class="nav-ul">
-            <li class="nav-item">STRIPES</li>
-          </ul>
-        </div>
-        <div class="nav-flex-item">
-          <ul class="nav-ul">
-            <li class="nav-item">
-              Shop!
-              <ul class="nest-nav">
-                <li class="nest-nav-item"><a href="/products">Products</a></li>
-                <li class="nest-nav-item"><a href="/checkout">Checkout</a></li>
-                <li class="nest-nav-item"><a href="/cart">Cart</a></li>
-              </ul>
-            </li>
-            <li class="nav-item"><a href="user/register">Sign Up</a></li>
-            <li class="nav-item"><a href="user/login">Login</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+    <header><%-include('./partials/navbar')%></header>
     <h1>Show Your Stripes</h1>
   </body>
 </html>
