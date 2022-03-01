@@ -45,8 +45,28 @@ a:visited {
   display: flex;
 }
 
+.nav-ul li a {
+  border-bottom: 2px solid transparent;
+}
+.nav-ul li a:hover {
+  border-bottom: 2px solid var(--pink);
+}
+
 .nav-item {
   margin: 1rem;
+  position: relative;
+}
+
+.nav-item .dropdown {
+  background-color: var(--dark);
+  position: absolute;
+  left: -1rem;
+  top: 1.5rem;
+  padding: 0.5rem;
+}
+
+.nav-item .dropdown li {
+  margin-bottom: 8px;
 }
 
 .hide {
