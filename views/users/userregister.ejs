@@ -9,5 +9,14 @@
   </head>
   <body>
     <h1>Create a user</h1>
+    <form action="/user/register" method="POST">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" />
+      <label for="email">Email Address</label>
+      <input type="email" name="email" id="email" />
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" />
+      <button>Submit</button>
+    </form>
   </body>
 </html>

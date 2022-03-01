@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //////////// Homepage Route ///////////////
 app.get("/", (req, res) => {
-  return res.render("landing");
+  return res.render("homeindex");
   //// Change the store name to stripes!
 });
 
