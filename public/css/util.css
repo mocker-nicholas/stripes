@@ -31,16 +31,9 @@ a:visited {
   color: inherit;
 }
 
-.hide {
-  display: none;
-}
-
 /* Utility compenents and classes */
 .navbar-container {
   background-color: var(--dark);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #navbar {
@@ -69,7 +62,11 @@ a:visited {
   background-image: var(--pink-gradient);
   font-weight: bold;
   padding: 0.5rem 3rem;
+  border: 0px;
+  border-radius: 10px;
+  outline: none;
 }
+
 .nav-ul li a:hover {
   border-bottom: 2px solid var(--pink);
 }
@@ -89,4 +86,62 @@ a:visited {
 
 .nav-item .dropdown li {
   margin-bottom: 8px;
+}
+
+.burger {
+  background-color: var(--pink);
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  padding: 8px;
+  border-radius: 8px;
+  display: none;
+  cursor: pointer;
+}
+
+.line {
+  background-color: var(--white);
+  height: 5px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.small-nav {
+  background-color: var(--dark);
+  color: var(--white);
+  padding: 2rem 0;
+  align-items: center;
+  display: block;
+  text-align: center;
+}
+
+.small-nav-item {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  #navbar {
+    justify-content: space-between;
+  }
+
+  .nav-flex-item {
+    margin: 0px;
+  }
+
+  .nav-flex-item:nth-of-type(2),
+  .nav-flex-item:nth-of-type(3) {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+/* Utility Classes */
+.hide {
+  display: none;
 }
