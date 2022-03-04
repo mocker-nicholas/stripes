@@ -5,8 +5,17 @@
 }
 
 :root {
-  --dark: #333;
-  --pink: #ff6ec7;
+  --dark: rgb(12, 15, 10);
+  --pink: rgb(255, 32, 110);
+  --yellow: rgb(251, 255, 18);
+  --blue: rgb(65, 234, 212);
+  --white: rgb(255, 255, 255);
+
+  --pink-gradient: linear-gradient(
+    45deg,
+    rgb(255, 32, 110),
+    rgb(255, 255, 255)
+  );
 }
 
 li {
@@ -22,8 +31,11 @@ a:visited {
   color: inherit;
 }
 
-/* Utility compenents and classes */
+.hide {
+  display: none;
+}
 
+/* Utility compenents and classes */
 .navbar-container {
   background-color: var(--dark);
   display: flex;
@@ -33,20 +45,30 @@ a:visited {
 
 #navbar {
   background-color: var(--dark);
-  color: var(--pink);
+  color: var(--white);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: center;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1600px;
+}
+
+.nav-flex-item {
+  display: flex;
+  align-items: center;
+  margin: 0 auto 0 auto;
 }
 
 .nav-ul {
   display: flex;
 }
 
-.nav-ul li a {
+#shop {
   border-bottom: 2px solid transparent;
+  background-image: var(--pink-gradient);
+  font-weight: bold;
+  padding: 0.5rem 3rem;
 }
 .nav-ul li a:hover {
   border-bottom: 2px solid var(--pink);
@@ -60,15 +82,11 @@ a:visited {
 .nav-item .dropdown {
   background-color: var(--dark);
   position: absolute;
-  left: -1rem;
-  top: 1.5rem;
-  padding: 0.5rem;
+  right: 0.2rem;
+  top: 2rem;
+  padding: 0.5rem 2rem;
 }
 
 .nav-item .dropdown li {
   margin-bottom: 8px;
-}
-
-.hide {
-  display: none;
 }
