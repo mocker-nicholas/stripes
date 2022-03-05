@@ -3,6 +3,7 @@ body {
   color: car(--white);
 }
 
+/* Hero */
 .hero-container {
   width: 100%;
   height: 60vh;
@@ -25,6 +26,7 @@ body {
   animation: gradient 5s infinite alternate;
 }
 
+/* Jump Links */
 #jump-to {
   padding: 0.5rem 2rem;
   width: 100%;
@@ -67,6 +69,33 @@ body {
   border-bottom: 2px solid var(--blue);
 }
 
+/* Rewards form */
+.rewards-container {
+  width: 100%;
+  display: flex;
+}
+
+.rewards-form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.rewards-form h2 {
+  margin-bottom: 0.5rem;
+}
+
+.rewards-image {
+  height: 40vh;
+  width: 50%;
+}
+
+.rewards-image img {
+  height: 100%;
+  width: 100%;
+}
 @keyframes gradient {
   0% {
     background-position: left;

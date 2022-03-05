@@ -130,3 +130,14 @@ a:visited {
 .hide {
   display: none;
 }
+
+.form-group label {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.form-group input {
+  width: 100%;
+  font-size: 1rem;
+  padding: 4px;
+}
