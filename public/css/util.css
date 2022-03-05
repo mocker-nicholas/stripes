@@ -38,7 +38,7 @@ a:visited {
   color: inherit;
 }
 
-/* Utility compenents */
+/* Generic page navbar */
 .navbar-container {
   background-color: var(--dark);
   width: 100%;
@@ -124,6 +124,20 @@ a:visited {
     flex-direction: column;
     justify-content: space-around;
   }
+}
+
+/* Generic Page footer */
+.footer-container {
+  background-color: var(--dark);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.footer-column {
+  margin: 0 3rem;
 }
 
 /* Utility Classes */
