@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   font-family: PT Sans;
+  box-sizing: border-box;
 }
 
 /* CSS variables for colors */
@@ -37,37 +38,27 @@ a:visited {
 /* Utility compenents */
 .navbar-container {
   background-color: var(--dark);
+  width: 100%;
 }
 
 #navbar {
   background-color: var(--dark);
   color: var(--white);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: center;
-  width: 100%;
   max-width: 1600px;
+  margin: 0 auto;
 }
 
 .nav-flex-item {
   display: flex;
   align-items: center;
-  margin: 0 auto 0 auto;
 }
 
 .nav-ul {
   display: flex;
-}
-
-#shop {
-  border-bottom: 2px solid transparent;
-  background-image: var(--pink-gradient);
-  font-weight: bold;
-  padding: 0.5rem 3rem;
-  border: 0px;
-  border-radius: 10px;
-  outline: none;
 }
 
 .nav-ul li a:hover {
@@ -77,18 +68,6 @@ a:visited {
 .nav-item {
   margin: 1rem;
   position: relative;
-}
-
-.nav-item .dropdown {
-  background-color: var(--dark);
-  position: absolute;
-  right: 0.2rem;
-  top: 2rem;
-  padding: 0.5rem 2rem;
-}
-
-.nav-item .dropdown li {
-  margin-bottom: 8px;
 }
 
 .burger {

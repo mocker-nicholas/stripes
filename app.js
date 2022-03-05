@@ -67,6 +67,8 @@ app.post("/user/register", async (req, res) => {
     return res.redirect("/user/login");
   } catch (e) {
     console.log(e);
+    req.flash("error", `${e}`);
+    return res.redirect("/user/register");
   }
   res.redirect("/");
 });

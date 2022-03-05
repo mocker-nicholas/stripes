@@ -11,7 +11,20 @@
   </head>
   <body>
     <header><%-include('./partials/navbar')%></header>
-    <h1>Show Your Stripes</h1>
+
+    <section id="hero">
+      <div class="hero-container">
+        <a href="/products" id="shop-button">Shop Now</a>
+      </div>
+    </section>
+
+    <section id="jump-to">
+      <ul class="jump-links">
+        <li class="jump-link-item"><a href="/products">Products</a></li>
+        <li class="jump-link-item"><a href="/checkout">Checkout</a></li>
+        <li class="jump-link-item"><a href="/cart">Cart</a></li>
+      </ul>
+    </section>
     <%-include('./partials/bodyscripts')%>
   </body>
 </html>
