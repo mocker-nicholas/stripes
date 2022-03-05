@@ -132,12 +132,45 @@ a:visited {
   color: var(--white);
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 1rem 0;
 }
 
 .footer-column {
   margin: 0 3rem;
+}
+
+.footer-column p {
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+
+.footer-column p span {
+  border-bottom: 2px solid var(--yellow);
+}
+
+.footer-column ul li {
+  margin-bottom: 2px;
+  transition: transform 0.5s;
+}
+
+.footer-column ul li span {
+  border-bottom: 2px solid transparent;
+}
+
+.footer-column ul li span:hover {
+  border-bottom: 2px solid var(--yellow);
+}
+
+.footer-column ul li span:active {
+  border-bottom: 2px solid var(--yellow);
+}
+
+.footer-column ul li:hover {
+  transform: scale(1.1) translateX(4px);
+}
+
+.footer-column ul li:active {
+  transform: scale(1.1);
 }
 
 /* Utility Classes */
