@@ -1,5 +1,5 @@
 body {
-  background-color: var(--dark);
+  background-color: var(--white);
   color: car(--white);
 }
 
@@ -26,19 +26,45 @@ body {
 }
 
 #jump-to {
-  color: var(--blue);
-  padding: 1rem 3rem;
+  padding: 0.5rem 2rem;
   width: 100%;
 }
 
 .jump-links {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  border-bottom: 2px solid transparent;
+  width: 100%;
 }
 
 .jump-links li {
-  margin: 0 3rem;
+  background-color: var(--pink);
+  padding: 0.5rem 3rem;
+  margin: 0 4px;
+  transition: all 0.5s;
+}
+
+.jump-links li:hover {
+  transform: translateY(-3px);
+}
+
+.jump-links li:active {
+  transform: translateY(-3px);
+}
+
+.jump-links li a {
+  color: var(--white);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.jump-links li a:hover {
+  border-bottom: 2px solid var(--blue);
+}
+
+.jump-links li a:active {
+  border-bottom: 2px solid var(--blue);
 }
 
 @keyframes gradient {
