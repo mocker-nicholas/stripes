@@ -3,25 +3,26 @@ body {
   color: car(--white);
 }
 
-#hero {
-  border: 1px solid red;
-}
-
 .hero-container {
   width: 100%;
-  height: 50vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: url("https://images.unsplash.com/photo-1514092135741-08b367214e27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1358&q=80")
+    no-repeat center;
+  background-size: 100% 100%;
 }
 
 .hero-container a {
   background-image: var(--pink-gradient);
+  background-size: 400%;
   color: var(--white);
   font-size: 1.5rem;
   padding: 1rem 2.5rem;
   border-radius: 8px;
+  animation: gradient 5s infinite alternate;
 }
 
 #jump-to {
@@ -38,4 +39,13 @@ body {
 
 .jump-links li {
   margin: 0 3rem;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
 }
