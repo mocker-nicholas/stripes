@@ -131,6 +131,9 @@ a:visited {
   margin-bottom: 2px;
   transition: transform 0.5s;
 }
+.footer-column ul li a {
+  color: var(--white);
+}
 
 .footer-column ul li span {
   border-bottom: 2px solid transparent;

@@ -5,20 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%- include('../partials/headerlinks')%>
-    <title>Stripes</title>
+    <link rel="stylesheet" href="/css/userregister.css" />
+    <title>Stripes Sign Up</title>
   </head>
   <body>
     <header><%-include('../partials/navbar')%></header>
-    <h1>Create a user</h1>
-    <form action="/user/register" method="POST">
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username" />
-      <label for="email">Email Address</label>
-      <input type="email" name="email" id="email" />
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" autocomplete="on" />
-      <button>Submit</button>
-    </form>
+    <main id="signup">
+      <div class="register-container">
+        <div class="register-content">
+          <div class="register-header">
+            <div><span id="logo">STRIPES.CO</span></div>
+            <div>Welcome to Stripes, show your colors!</div>
+          </div>
+          <div class="register-message">
+            <p>
+              Don't be afraid to show off your wild styles! Register for an
+              account to get exclusive offers!
+            </p>
+          </div>
+          <div class="register-ad">
+            <p>Register today for 10% off your order</p>
+          </div>
+          <div class="register-footer">
+            <ul>
+              <li><a href="/products/shirts"></a></li>
+              <li><a href="/products/pants"></a></li>
+              <li><a href="/products/sweaters"></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="register-form-space">
+          <div class="register-blurb"></div>
+          <div class="regiser-form">
+            <form action="/user/register" method="POST">
+              <h1>Create a user</h1>
+              <label for="username">Username</label>
+              <input type="text" name="username" id="username" />
+              <label for="email">Email Address</label>
+              <input type="email" name="email" id="email" />
+              <label for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                autocomplete="on"
+              />
+              <button>Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
     <%-include('../partials/footer')%> <%-include('../partials/bodyscripts')%>
     <script src="/js/pubregister.js"></script>
   </body>
