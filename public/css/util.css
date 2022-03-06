@@ -22,6 +22,12 @@
     rgb(255, 32, 110),
     rgb(255, 32, 110)
   );
+
+  --pink-fade: linear-gradient(
+    77.5deg,
+    rgba(255, 32, 110, 0.4),
+    rgba(255, 32, 110, 1)
+  );
 }
 
 /* General styles */
@@ -169,6 +175,33 @@ a:visited {
   width: 100%;
   font-size: 1rem;
   padding: 4px;
+}
+
+.form-group input:focus {
+  outline: 1px solid var(--yellow);
+  border: 1px solid var(--yellow);
+  border-color: none;
+}
+
+.btn-light {
+  background-color: var(--white);
+  color: var(--pink);
+  padding: 0.5rem 2.5rem;
+  font-size: 1rem;
+  outline: none;
+  border: 2px solid transparent;
+  transition: 0.2s all ease-out;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.btn-light:hover {
+  transform: translateY(-2px);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.btn-light:active {
+  transform: scale(0.9);
 }
 
 @media screen and (max-width: 768px) {
