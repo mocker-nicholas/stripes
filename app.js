@@ -43,6 +43,7 @@ app.use(flash());
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
+  res.locals.message = req.flash("message");
   next();
 });
 
@@ -66,7 +67,7 @@ app.post("/user/register", async (req, res) => {
     req.flash("success", `${newUser.username}: Account created!`);
     return res.redirect("/user/login");
   } catch (e) {
-    console.log(e);
+    // res.json(e.errors);
     req.flash("error", `${e}`);
     return res.redirect("/user/register");
   }
