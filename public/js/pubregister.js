@@ -17,17 +17,20 @@ formbtn.addEventListener("click", (e) => {
   const emailRegex =
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+  username.setAttribute("style", "border: 2px solid transparent");
   if (!username.value.match(usernameRegex)) {
     e.preventDefault();
     let message =
       "Username must be 9 characters long, can include letters, numbers, and dashes";
     return showError(username, message);
   }
+  email.setAttribute("style", "border: 2px solid transparent");
   if (!email.value.match(emailRegex)) {
     e.preventDefault();
     let message = "Must be a valid email address";
     return showError(email, message);
   }
+  password.setAttribute("style", "border: 2px solid transparent");
   if (!password.value.match(passwordRegex)) {
     e.preventDefault();
     let message =

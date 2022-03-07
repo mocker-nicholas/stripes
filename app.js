@@ -44,6 +44,8 @@ app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.message = req.flash("message");
+  res.locals.currentUser = req.user;
+  console.log(req.user);
   next();
 });
 
@@ -71,11 +73,15 @@ app.post("/user/register", async (req, res) => {
     req.flash("error", `${e}`);
     return res.redirect("/user/register");
   }
-  res.redirect("/");
 });
 
 app.get("/user/login", (req, res) => {
   return res.render("users/userlogin");
+});
+
+app.get("/user/logout", (req, res) => {
+  console.log("logged out");
+  return;
 });
 
 app.get("/user/:id", (req, res) => {
