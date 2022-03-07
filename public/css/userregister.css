@@ -71,6 +71,8 @@
 .register-form {
   padding: 1rem;
   background-color: rgba(255, 32, 110, 0.2);
+  min-width: 70%;
+  max-width: 95%;
 }
 
 .register-form form {
