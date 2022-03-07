@@ -22,7 +22,7 @@
 .login-form {
   background-color: var(--white);
   color: var(--pink);
-  min-width: 50vw;
+  min-width: 40vw;
   padding: 1rem;
   overflow: hidden;
   margin: 1rem;
@@ -41,5 +41,43 @@
 }
 
 .btn-dark {
-  margin-top: 1rem;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.login-form h1 {
+  text-align: center;
+}
+
+.login-form h2 {
+  text-align: center;
+  font-weight: 400;
+}
+
+.alternative {
+  background-color: var(--white);
+  color: var(--pink);
+  border: 2px solid var(--pink);
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.alternative span {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .login-container {
+    flex-direction: column-reverse;
+  }
+
+  .login-form {
+    min-width: 80vw;
+  }
+
+  .login-form::before {
+    top: -20rem;
+    left: 15rem;
+    transform: rotate(22.5deg);
+  }
 }
