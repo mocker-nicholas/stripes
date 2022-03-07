@@ -1,0 +1,45 @@
+#login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.login-container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-img img {
+  max-width: 100%;
+}
+
+.login-form {
+  background-color: var(--white);
+  color: var(--pink);
+  min-width: 50vw;
+  padding: 1rem;
+  overflow: hidden;
+  margin: 1rem;
+}
+
+.login-form::before {
+  content: "";
+  top: -10rem;
+  left: 15rem;
+  height: 200%;
+  width: 100%;
+  background-color: rgba(255, 32, 110, 0.5);
+  position: absolute;
+  transform: rotate(22.5deg);
+  z-index: -1;
+}
+
+.btn-dark {
+  margin-top: 1rem;
+}

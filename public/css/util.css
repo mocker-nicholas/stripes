@@ -212,6 +212,27 @@ a:visited {
   transform: scale(0.9);
 }
 
+.btn-dark {
+  background-color: var(--pink);
+  color: var(--white);
+  padding: 0.5rem 2.5rem;
+  font-size: 1rem;
+  outline: none;
+  border: 2px solid transparent;
+  transition: 0.2s all ease-out;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.btn-dark:hover {
+  transform: translateY(-2px);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.btn-dark:active {
+  transform: scale(0.9);
+}
+
 @media screen and (max-width: 768px) {
   #navbar {
     justify-content: space-between;
