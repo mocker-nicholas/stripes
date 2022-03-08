@@ -44,7 +44,7 @@ app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.message = req.flash("message");
-  res.locals.currentUser = req.user;
+  res.locals.currentUser = req.session.user;
   next();
 });
 
@@ -68,7 +68,6 @@ app.post("/user/register", async (req, res) => {
     req.flash("success", `${newUser.username}: Account created!`);
     return res.redirect("/user/login");
   } catch (e) {
-    // res.json(e.errors);
     req.flash("error", `${e}`);
     return res.redirect("/user/register");
   }
@@ -78,9 +77,20 @@ app.get("/user/login", (req, res) => {
   return res.render("users/userlogin");
 });
 
+app.post("/user/login", async (req, res) => {
+  const { username, password } = req.body;
+  const user = await User.findOne({ username });
+  if (!user) {
+    req.flash("error", "Invalid username or password");
+    return res.render("/user/login");
+  }
+  req.session.user = user;
+  return res.redirect("/");
+});
+
 app.get("/user/logout", (req, res) => {
-  console.log("logged out");
-  return;
+  req.session.user = null;
+  return res.redirect("/");
 });
 
 app.get("/user/:id", (req, res) => {
