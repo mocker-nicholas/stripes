@@ -82,7 +82,7 @@ app.post("/user/login", async (req, res) => {
   const user = await User.findOne({ username });
   if (!user) {
     req.flash("error", "Invalid username or password");
-    return res.render("/user/login");
+    return res.redirect("/user/login");
   }
   req.session.user = user;
   return res.redirect("/");
