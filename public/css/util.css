@@ -168,10 +168,11 @@ a:visited {
 
 .error {
   border: 2px solid red;
-  padding: 0.5rem;
+  padding: 0.25rem;
+  margin: 4px 0px;
   color: red;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: 6px;
 }
 
 .form-group label {
