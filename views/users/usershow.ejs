@@ -9,9 +9,49 @@
   </head>
   <body>
     <header><%-include('../partials/navbar')%></header>
-    <h1>Check out your user info</h1>
+    <section id="user-info">
+      <h1>The wild child...</h1>
+      <div class="user-info-container">
+        <div class="grid-item">
+          <h2>General info</h2>
+          <ul>
+            <li>Username: <%=currentUser.username%></li>
+            <li>Email Address: <%=currentUser.email%></li>
+            <li><a href="#">Update Info</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="user-info-container">
+        <div class="grid-item">
+          <h2>Billing Information</h2>
+          <ul>
+            <li>Street Address: <%=currentUser.billaddress.street%></li>
+            <li>Apt # / Suite #: <%=currentUser.billaddress.street2%></li>
+            <li>Country: <%=currentUser.billaddress.country%></li>
+            <li>City: <%=currentUser.billaddress.city%></li>
+            <li>State: <%=currentUser.billaddress.state%></li>
+            <li>Postal Code: <%=currentUser.billaddress.postal%></li>
+            <li><a href="#">Update Billing</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="user-info-container">
+        <div class="grid-item">
+          <h2>Shipping Information</h2>
+          <ul>
+            <li>Street Address: <%=currentUser.shipaddress.street%></li>
+            <li>Apt # / Suite #: <%=currentUser.shipaddress.street2%></li>
+            <li>Country: <%=currentUser.shipaddress.country%></li>
+            <li>City: <%=currentUser.shipaddress.city%></li>
+            <li>State: <%=currentUser.shipaddress.state%></li>
+            <li>Postal Code: <%=currentUser.shipaddress.postal%></li>
+            <li><a href="#">Update Shipping</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
     <%if(currentUser){%>
-    <h2><%=currentUser.email%></h2>
+    <h2><%=currentUser%></h2>
     <%}%> <%-include('../partials/footer')%>
     <%-include('../partials/bodyscripts')%>
   </body>
