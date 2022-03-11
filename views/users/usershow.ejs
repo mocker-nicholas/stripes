@@ -19,10 +19,6 @@
             <li>Username: <%=currentUser.username%></li>
             <li>Email Address: <%=currentUser.email%></li>
           </ul>
-          <a class="btn-update" href="#">Update Info</a>
-          <a class="btn-delete" id="accountdelete" href="#"
-            >Delete my Account</a
-          >
         </div>
         <div class="grid-item">
           <h2>Billing Information</h2>
@@ -34,7 +30,6 @@
             <li>State: <%=currentUser.billaddress.state%></li>
             <li>Postal Code: <%=currentUser.billaddress.postal%></li>
           </ul>
-          <a class="btn-update" href="#">Update Billing</a>
         </div>
         <div class="grid-item">
           <h2>Shipping Information</h2>
@@ -46,8 +41,11 @@
             <li>State: <%=currentUser.shipaddress.state%></li>
             <li>Postal Code: <%=currentUser.shipaddress.postal%></li>
           </ul>
-          <a class="btn-update" href="#">Update Shipping</a>
         </div>
+      </div>
+      <div class="grid-item buttons">
+        <a class="btn-update" href="#">Update Info</a>
+        <a class="btn-delete" id="accountdelete" href="#">Delete my Account</a>
       </div>
     </section>
     <section class="modal hide">
@@ -58,7 +56,12 @@
             action="/user/<%=currentUser._id%>/delete?_method=DELETE"
             method="POST"
           >
-            <button class="btn-update">Delete Account</button>
+            <div>
+              <button class="btn-delete">Delete Account</button>
+            </div>
+            <div class="back-btn">
+              <a class="btn-update" id="modalBack" href="#">No, take me back</a>
+            </div>
           </form>
         </div>
       </div>

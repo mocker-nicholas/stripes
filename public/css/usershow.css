@@ -27,6 +27,12 @@
   margin: 0.25rem 0;
 }
 
+.buttons {
+  border: none;
+  max-width: 60vw;
+  margin: 0 auto;
+}
+
 /* Modal Styling */
 .modal {
   position: absolute;
@@ -57,11 +63,21 @@
   margin-bottom: 0.75rem;
 }
 
+.modal-message form {
+  display: flex;
+  justify-content: column;
+}
+
 .modal-message form button {
   outline: none;
   border: none;
+  margin-bottom: 0.5rem;
 }
 
+.back-btn {
+  display: flex;
+  flex-direction: column;
+}
 @media screen and (max-width: 1046px) {
   .user-info-container {
     padding: 1rem;

@@ -74,6 +74,11 @@ button:hover {
   display: flex;
 }
 
+.nav-ul li a {
+  border-bottom: 2px solid transparent;
+  color: var(--white);
+}
+
 .nav-ul li a:hover {
   border-bottom: 2px solid var(--pink);
 }
