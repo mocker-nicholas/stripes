@@ -54,9 +54,12 @@
       <div class="modal-container">
         <div class="modal-content">
           <p class="modal-message error"></p>
-          <a class="btn-update" href="/user/<%=currentUser._id%>/delete"
-            >Continue</a
+          <form
+            action="/user/<%=currentUser._id%>/delete?_method=DELETE"
+            method="POST"
           >
+            <button class="btn-update">Delete Account</button>
+          </form>
         </div>
       </div>
     </section>

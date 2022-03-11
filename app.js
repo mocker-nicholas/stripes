@@ -5,6 +5,7 @@ import { fileURLToPath } from "url";
 import ejs from "ejs";
 import session from "express-session";
 import flash from "connect-flash";
+import methodOverride from "method-override";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -28,6 +29,7 @@ app.set("views", path.join(__dirname, "views"));
 ////////// request Middlware ///////////////
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 app.use(
   session({
     secret: "mysuperbadsecret",
@@ -55,7 +57,9 @@ app.get("/", (req, res) => {
 });
 
 import User from "./models/userschema.js";
-//////////// User Routes /////////////////
+/////////////////////////////////////////////////////////////
+///////////////////////// User Routes ///////////////////////
+/////////////////////////////////////////////////////////////
 app.get("/user/register", (req, res) => {
   return res.render("users/userregister");
 });
@@ -95,6 +99,19 @@ app.get("/user/logout", (req, res) => {
 
 app.get("/user/:id", (req, res) => {
   return res.render("users/usershow");
+});
+
+app.delete("/user/:id/delete", async (req, res) => {
+  const { username, _id } = req.session.user;
+  const user = await User.findOne({ username });
+  if (!user) {
+    req.flash("error", "Unable to find requested user");
+    console.log("no user");
+    return res.redirect(`${req.originalUrl.replace("/delete", "")}`);
+  }
+  const deletedUser = await User.deleteOne({ _id });
+  req.flash("success", "Your account was successfully deleted");
+  return res.redirect("/user/register");
 });
 
 ////////////// Shopping Cart ///////////////////

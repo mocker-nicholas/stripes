@@ -32,6 +32,8 @@
               <h3>Sign up for free</h3>
               <%if(error[0] !== undefined) {%>
               <div class="error"><%=error%></div>
+              <%}%> <%if(success[0] !== undefined) {%>
+              <div class="success"><%=success%></div>
               <%}%>
               <div class="form-group">
                 <label for="username">Username</label>

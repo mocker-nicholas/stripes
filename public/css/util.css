@@ -44,6 +44,10 @@ a:visited {
   color: inherit;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 /* Generic page navbar */
 .navbar-container {
   background-color: var(--dark);

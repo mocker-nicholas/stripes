@@ -57,6 +57,11 @@
   margin-bottom: 0.75rem;
 }
 
+.modal-message form button {
+  outline: none;
+  border: none;
+}
+
 @media screen and (max-width: 1046px) {
   .user-info-container {
     padding: 1rem;
