@@ -1,0 +1,21 @@
+#user-info h1 {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 3rem;
+}
+
+.user-info-container {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info-container li {
+  margin: 0.25rem 0;
+}

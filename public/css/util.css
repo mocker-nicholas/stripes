@@ -175,6 +175,51 @@ a:visited {
   border-radius: 6px;
 }
 
+.btn-update {
+  background-color: rgb(65, 105, 225);
+  color: var(--white);
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.btn-update:hover {
+  transform: translateY(-3px);
+  background-color: rgba(65, 105, 225, 0.6);
+}
+
+.btn-update:active {
+  transform: scale(0.9);
+}
+
+.btn-update:visited {
+  color: var(--white);
+}
+
+.btn-delete {
+  background-color: red;
+  color: var(--white);
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  margin: 0.25rem 0;
+  transition: all 0.2s;
+}
+
+.btn-delete:hover {
+  transform: translateY(-3px);
+  background-color: rgba(255, 0, 0, 0.6);
+}
+
+.btn-delete:active {
+  transform: scale(0.9);
+}
+
+.btn-delete:visited {
+  color: var(--white);
+}
+
 .form-group label {
   font-size: 1.5rem;
   margin-bottom: 4px;
