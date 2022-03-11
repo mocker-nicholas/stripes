@@ -101,6 +101,10 @@ app.get("/user/:id", (req, res) => {
   return res.render("users/usershow");
 });
 
+app.get("/user/:id/update", (req, res) => {
+  return res.render("users/userupdate");
+});
+
 app.delete("/user/:id/delete", async (req, res) => {
   const { username, _id } = req.session.user;
   const user = await User.findOne({ username });

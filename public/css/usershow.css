@@ -23,13 +23,15 @@
   text-align: center;
 }
 
-.user-info-container li {
-  margin: 0.25rem 0;
+.grid-item ul li {
+  background-color: rgba(100, 100, 100, 0.1);
+  padding: 0.25rem;
+  margin: 1rem 0;
 }
 
 .buttons {
   border: none;
-  max-width: 60vw;
+  max-width: 70vw;
   margin: 0 auto;
 }
 
