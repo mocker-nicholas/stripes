@@ -6,6 +6,7 @@ import ejs from "ejs";
 import session from "express-session";
 import flash from "connect-flash";
 import methodOverride from "method-override";
+import bcrypt from "bcrypt";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -66,7 +67,8 @@ app.get("/user/register", (req, res) => {
 
 app.post("/user/register", async (req, res) => {
   try {
-    const { email, username, password } = req.body;
+    const { email, username } = req.body;
+    const password = await bcrypt.hash(req.body.password, 12);
     const user = await new User({ email, username, password });
     const newUser = await user.save();
     req.flash("success", `${newUser.username}: Account created!`);
@@ -82,14 +84,24 @@ app.get("/user/login", (req, res) => {
 });
 
 app.post("/user/login", async (req, res) => {
-  const { username, password } = req.body;
-  const user = await User.findOne({ username });
-  if (!user) {
-    req.flash("error", "Invalid username or password");
-    return res.redirect("/user/login");
+  try {
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
+    if (!user) {
+      req.flash("error", "Invalid username or password");
+      return res.redirect("/user/login");
+    }
+    const validPass = await bcrypt.compare(password, user.password);
+    if (!validPass) {
+      req.flash("error", "Invalid username or password");
+      return res.redirect("/user/login");
+    }
+    req.session.user = user;
+    return res.redirect("/");
+  } catch (e) {
+    req.flash("error", `${e}`);
+    return res.render("/");
   }
-  req.session.user = user;
-  return res.redirect("/");
 });
 
 app.get("/user/logout", (req, res) => {
