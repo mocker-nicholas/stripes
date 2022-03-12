@@ -111,16 +111,39 @@ app.get("/user/logout", (req, res) => {
   return res.redirect("/");
 });
 
-app.get("/user/:id", (req, res) => {
-  return res.render("users/usershow");
+app.get("/user/:id", async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findById(id);
+  return res.render("users/usershow", { user });
 });
 
-app.patch("/user/:id", (req, res) => {
-  return res.json(req.body);
+app.patch("/user/:id", async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findByIdAndUpdate(id, {
+    billaddress: {
+      street: req.body.billstreet,
+      street2: req.body.billstreet2,
+      country: req.body.billcountry,
+      city: req.body.billcity,
+      state: req.body.billstate,
+      postal: req.body.billpostal,
+    },
+    shipaddress: {
+      street: req.body.shipstreet,
+      street2: req.body.shipstreet2,
+      country: req.body.shipcountry,
+      city: req.body.shipcity,
+      state: req.body.shipstate,
+      postal: req.body.shippostal,
+    },
+  });
+  return res.redirect(`/user/${id}`);
 });
 
-app.get("/user/:id/update", (req, res) => {
-  return res.render("users/userupdate");
+app.get("/user/:id/update", async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findById(id);
+  return res.render("users/userupdate", { user });
 });
 
 app.delete("/user/:id", async (req, res) => {

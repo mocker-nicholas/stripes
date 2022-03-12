@@ -20,26 +20,22 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
   },
 
-  billaddress: [
-    {
-      street: String,
-      street2: String,
-      country: String,
-      city: String,
-      state: String,
-      postal: String,
-    },
-  ],
-  shipaddress: [
-    {
-      street: String,
-      street2: String,
-      country: String,
-      city: String,
-      state: String,
-      postal: String,
-    },
-  ],
+  billaddress: {
+    street: String,
+    street2: String,
+    country: String,
+    city: String,
+    state: String,
+    postal: String,
+  },
+  shipaddress: {
+    street: String,
+    street2: String,
+    country: String,
+    city: String,
+    state: String,
+    postal: String,
+  },
 });
 
 const User = mongoose.model("User", userSchema);
