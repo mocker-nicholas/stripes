@@ -7,6 +7,7 @@ import session from "express-session";
 import flash from "connect-flash";
 import methodOverride from "method-override";
 import bcrypt from "bcrypt";
+import ExpressError from "./util/expresserror.js";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -150,6 +151,17 @@ app.get("/checkout", (req, res) => {
   return res.render("checkout/checkout");
 });
 
+////// Add a catch all for misc errors ///////////
+app.all("*", (req, res) => {
+  return res.render("pagenotfound");
+});
+
+app.use((err, req, res, next) => {
+  const { statusCode = 500, message = "Not found" } = err;
+  // the destructured default wont get passed through to our err object, so set that default manually.
+  if (!err.message) err.message = "Oh No! Something went wrong!";
+  res.status(statusCode).render("error", { err });
+});
 ///////////// Listen for requests //////////////
 app.listen(3000, () => {
   return console.log("Listening on Port 3000");

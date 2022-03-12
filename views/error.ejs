@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('./partials/headerlinks')%>
+    <link rel="stylesheet" href="/css/homepage.css" />
+    <script src="/js/pubhomepage.js"></script>
+    <title>Stripes</title>
+  </head>
+  <body>
+    <header><%-include('./partials/navbar')%></header>
+    <div class="error">
+        <p><%=err.message%></p>
+        <p><% if (process.env.NODE_ENV !== "production") { %>
+            <p style="overflow-wrap: break-word"><%=err.stack%></p>
+            <%}%></p>
+    </div>
+    <section id="hero">
+      <div class="hero-container">
+        <a href="/products" id="shop-button">Shop Now</a>
+      </div>
+    </section>
+
+    <section id="jump-to">
+      <ul class="jump-links">
+        <li class="jump-link-item"><a href="/products/shoes">Shoes</a></li>
+        <li class="jump-link-item"><a href="/products/pants">Pants</a></li>
+        <li class="jump-link-item"><a href="/products/socks">Socks</a></li>
+        <li class="jump-link-item"><a href="/products/seaters">Sweaters</a></li>
+        <li class="jump-link-item"><a href="/products/shirts">Shirts</a></li>
+      </ul>
+    </section>
+
+    <section id="rewards">
+      <div class="rewards-container">
+        <div class="rewards-form">
+          <form action="" id="reward-form" method="">
+            <h2>Get rewarded for being wild!</h2>
+            <div class="form-group">
+              <div>
+                <label for="firstname">First Name</label>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="firstname"
+                  placeholder="First Name"
+                  id="firstname"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div>
+                <label for="lastname">Last Name</label>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="lastname"
+                  placeholder="Last Name"
+                  id="lastname"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div>
+                <label for="email">Email</label>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="Email Address"
+                  id="email"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="rewards-image">
+          <img
+            src="https://images.unsplash.com/photo-1586957469525-7850e7bef283?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGp1bmdsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+    <section id="divider">
+      <h3>A new season has just arrived!</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero repellat
+        et deserunt obcaecati ipsum iure sed doloribus, eius ullam commodi
+        quisquam voluptatum, quo maxime quis id asperiores quas. Deleniti, sint
+        quam. Asperiores nemo ducimus doloribus ipsam distinctio iure alias
+        officiis.
+      </p>
+    </section>
+    <section id="image-grid">
+      <div class="image-grid">
+        <div class="grid-img">
+          <img
+            src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y2xvdGhpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
+            alt=""
+          />
+        </div>
+        <div class="grid-img">
+          <img
+            src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c2hpcnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+            alt=""
+          />
+        </div>
+        <div class="grid-img">
+          <img
+            src="https://images.unsplash.com/photo-1626497764746-6dc36546b388?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHNoaXJ0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60"
+            alt=""
+          />
+        </div>
+        <div class="grid-img">
+          <img
+            src="https://images.unsplash.com/photo-1590159983013-d4ff5fc71c1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHBhbnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+            alt=""
+          />
+        </div>
+        <div class="grid-img">
+          <img
+            src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHNob2VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+            alt=""
+          />
+        </div>
+        <div class="grid-img">
+          <img
+            src="https://images.unsplash.com/photo-1567966456076-905a50a06d8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZHJlc3Nlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+    <%-include('./partials/footer')%> <%-include('./partials/bodyscripts')%>
+  </body>
+</html>
