@@ -184,6 +184,14 @@ button:hover {
   border-radius: 6px;
 }
 
+.success {
+  color: rgb(25, 135, 84);
+  background-color: var(--white);
+  border: 2px solid rgb(25, 135, 84);
+  padding: 0.25rem;
+  margin: 4px 0;
+}
+
 .btn-update {
   background-color: rgb(65, 105, 225);
   color: var(--white);

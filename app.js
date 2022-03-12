@@ -101,12 +101,12 @@ app.get("/user/:id", (req, res) => {
   return res.render("users/usershow");
 });
 
-app.get("/user/:id/update", (req, res) => {
-  return res.render("users/userupdate");
-});
-
 app.patch("/user/:id", (req, res) => {
   return res.json(req.body);
+});
+
+app.get("/user/:id/update", (req, res) => {
+  return res.render("users/userupdate");
 });
 
 app.delete("/user/:id", async (req, res) => {
