@@ -8,6 +8,7 @@ import flash from "connect-flash";
 import methodOverride from "method-override";
 import bcrypt from "bcrypt";
 import ExpressError from "./util/expresserror.js";
+import { validateUser } from "./util/middleware.js";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -66,7 +67,7 @@ app.get("/user/register", (req, res) => {
   return res.render("users/userregister");
 });
 
-app.post("/user/register", async (req, res) => {
+app.post("/user/register", validateUser, async (req, res) => {
   try {
     const { email, username } = req.body;
     const password = await bcrypt.hash(req.body.password, 12);
