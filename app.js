@@ -105,7 +105,11 @@ app.get("/user/:id/update", (req, res) => {
   return res.render("users/userupdate");
 });
 
-app.delete("/user/:id/delete", async (req, res) => {
+app.patch("/user/:id", (req, res) => {
+  return res.json(req.body);
+});
+
+app.delete("/user/:id", async (req, res) => {
   const { username, _id } = req.session.user;
   const user = await User.findOne({ username });
   if (!user) {
@@ -114,6 +118,7 @@ app.delete("/user/:id/delete", async (req, res) => {
     return res.redirect(`${req.originalUrl.replace("/delete", "")}`);
   }
   const deletedUser = await User.deleteOne({ _id });
+  req.session.user = null;
   req.flash("success", "Your account was successfully deleted");
   return res.redirect("/user/register");
 });

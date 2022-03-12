@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/usershow.css" />
+    <link rel="stylesheet" href="/css/userupdate.css" />
     <%- include('../partials/headerlinks')%>
     <title>Stripes</title>
   </head>
@@ -12,61 +12,177 @@
     <header><%-include('../partials/navbar')%></header>
     <section id="user-info">
       <h1>...Update...</h1>
-      <div class="user-info-container">
-        <div class="grid-item">
-          <h2>General info</h2>
-          <ul>
-            <li>Username: <%=currentUser.username%></li>
-            <li>Email Address: <%=currentUser.email%></li>
-          </ul>
-        </div>
-        <div class="grid-item">
-          <h2>Billing Information</h2>
-          <ul>
-            <li>Street Address: <%=currentUser.billaddress.street%></li>
-            <li>Apt # / Suite #: <%=currentUser.billaddress.street2%></li>
-            <li>Country: <%=currentUser.billaddress.country%></li>
-            <li>City: <%=currentUser.billaddress.city%></li>
-            <li>State: <%=currentUser.billaddress.state%></li>
-            <li>Postal Code: <%=currentUser.billaddress.postal%></li>
-          </ul>
-        </div>
-        <div class="grid-item">
-          <h2>Shipping Information</h2>
-          <ul>
-            <li>Street Address: <%=currentUser.shipaddress.street%></li>
-            <li>Apt # / Suite #: <%=currentUser.shipaddress.street2%></li>
-            <li>Country: <%=currentUser.shipaddress.country%></li>
-            <li>City: <%=currentUser.shipaddress.city%></li>
-            <li>State: <%=currentUser.shipaddress.state%></li>
-            <li>Postal Code: <%=currentUser.shipaddress.postal%></li>
-          </ul>
-        </div>
-      </div>
-      <div class="grid-item buttons">
-        <a class="btn-update" href="#">Update Info</a>
-        <a class="btn-delete" id="accountdelete" href="#">Delete my Account</a>
-      </div>
-    </section>
-    <section class="modal hide">
-      <div class="modal-container">
-        <div class="modal-content">
-          <p class="modal-message error"></p>
-          <form
-            action="/user/<%=currentUser._id%>/delete?_method=DELETE"
-            method="POST"
-          >
-            <div>
-              <button class="btn-delete">Delete Account</button>
+      <form action="/user/<%=currentUser._id%>?_method=PATCH" method="POST">
+        <div class="user-info-container">
+          <div class="grid-item">
+            <h2>Billing Information</h2>
+            <div class="form-group">
+              <div>
+                <label for="billstreet">Street Address</label>
+              </div>
+              <div>
+                <input
+                  placeholder="<%=currentUser.billaddress.street%>"
+                  type="text"
+                  name="billstreet"
+                  id="billstreet"
+                />
+              </div>
             </div>
-            <div class="back-btn">
-              <a class="btn-update" id="modalBack" href="#">No, take me back</a>
+            <div class="form-group">
+              <div>
+                <label for="billstreet2">Apt # / Suite #</label>
+              </div>
+              <div>
+                <input
+                  placeholder="<%=currentUser.billaddress.street2%>"
+                  type="text"
+                  name="billstreet2"
+                  id="billstreet2"
+                />
+              </div>
             </div>
-          </form>
+            <div class="form-group">
+              <div>
+                <label for="billcountry">Country</label>
+              </div>
+              <div>
+                <input
+                  placeholder="<%=currentUser.billaddress.country%>"
+                  type="text"
+                  name="billcountry"
+                  id="billcountry"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div>
+                <label for="billcity">City</label>
+              </div>
+              <div>
+                <input
+                  placeholder="<%=currentUser.billaddress.city%>"
+                  type="text"
+                  name="billcity"
+                  id="billcity"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div>
+                <label for="billstate">State</label>
+              </div>
+              <div>
+                <input
+                  placeholder="<%=currentUser.billaddress.state%>"
+                  type="text"
+                  name="billstate"
+                  id="billstate"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div>
+                <label for="billpostal">Postal Code</label>
+              </div>
+              <div>
+                <input
+                  placeholder="<%=currentUser.billaddress.postal%>"
+                  type="text"
+                  name="billpostal"
+                  id="billpostal"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="grid-item">
+            <h2>Shipping Information</h2>
+            <div class="form-group">
+              <div>
+                <label for="billstreet">Street Address</label>
+              </div>
+              <div>
+                <input
+                  placeholder="<%=currentUser.shipaddress.street%>"
+                  type="text"
+                  name="shipstreet"
+                  id="shipstreet"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div>
+                <label for="shipstreet2">Apt # / Suite #</label>
+              </div>
+              <div>
+                <input
+                  placeholder="<%=currentUser.shipaddress.street2%>"
+                  type="text"
+                  name="shipstreet2"
+                  id="shipstreet2"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div>
+                <label for="shipcountry">Country</label>
+              </div>
+              <div>
+                <input
+                  placeholder="<%=currentUser.shipaddress.country%>"
+                  type="text"
+                  name="shipcountry"
+                  id="shipcountry"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div>
+                <label for="shipcity">City</label>
+              </div>
+              <div>
+                <input
+                  placeholder="<%=currentUser.shipaddress.city%>"
+                  type="text"
+                  name="shipcity"
+                  id="shipcity"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div>
+                <label for="shipstate">State</label>
+              </div>
+              <div>
+                <input
+                  placeholder="<%=currentUser.shipaddress.state%>"
+                  type="text"
+                  name="shipstate"
+                  id="shipstate"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div>
+                <label for="shippostal">Postal Code</label>
+              </div>
+              <div>
+                <input
+                  placeholder="<%=currentUser.shipaddress.postal%>"
+                  type="text"
+                  name="shippostal"
+                  id="shippostal"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+        <div class="grid-item buttons">
+          <button class="btn-update">Update Info</button>
+        </div>
+      </form>
     </section>
     <%-include('../partials/footer')%> <%-include('../partials/bodyscripts')%>
-    <script src="/js/pubusershow.js"></script>
+    <script src="/js/pubuserupdate.js"></script>
   </body>
 </html>
