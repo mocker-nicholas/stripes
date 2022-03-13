@@ -139,6 +139,7 @@ app.patch(
         postal: req.body.shippostal,
       },
     });
+    req.flash("success", "Your user was updated!");
     return res.redirect(`/user/${id}`);
   })
 );

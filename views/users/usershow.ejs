@@ -12,6 +12,9 @@
     <header><%-include('../partials/navbar')%></header>
     <section id="user-info">
       <h1>...The wild child...</h1>
+      <%if(success[0] !== undefined) {%>
+      <div class="success contained"><p><%=success%></p></div>
+      <%}%>
       <div class="user-info-container">
         <div class="grid-item">
           <h2>General info</h2>

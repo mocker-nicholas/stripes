@@ -214,6 +214,12 @@ button:hover {
   margin: 4px 0;
 }
 
+.contained {
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: center;
+}
+
 .btn-update {
   background-color: rgb(65, 105, 225);
   color: var(--white);
