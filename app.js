@@ -8,7 +8,12 @@ import flash from "connect-flash";
 import methodOverride from "method-override";
 import bcrypt from "bcrypt";
 import ExpressError from "./util/expresserror.js";
-import { catchAsync, validateUser, validateUpdate } from "./util/middleware.js";
+import {
+  catchAsync,
+  validateUser,
+  validateUpdate,
+  isLoggedIn,
+} from "./util/middleware.js";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -110,6 +115,7 @@ app.get("/user/logout", (req, res) => {
 
 app.get(
   "/user/:id",
+  isLoggedIn,
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const user = await User.findById(id);
@@ -119,6 +125,7 @@ app.get(
 
 app.patch(
   "/user/:id",
+  isLoggedIn,
   validateUpdate,
   catchAsync(async (req, res) => {
     const { id } = req.params;
@@ -147,6 +154,7 @@ app.patch(
 
 app.get(
   "/user/:id/update",
+  isLoggedIn,
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const user = await User.findById(id);
@@ -156,6 +164,7 @@ app.get(
 
 app.delete(
   "/user/:id",
+  isLoggedIn,
   catchAsync(async (req, res) => {
     const { username, _id } = req.session.user;
     const user = await User.findOne({ username });

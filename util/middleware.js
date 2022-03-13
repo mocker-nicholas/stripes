@@ -1,5 +1,14 @@
 import { joiUserSchema } from "../schemas/joischema.js";
 
+export const isLoggedIn = (req, res, next) => {
+  if (!req.session.user) {
+    req.flash("error", "You must be signed in");
+    return res.redirect("/user/login");
+  }
+
+  return next();
+};
+
 export const catchAsync = (func) => {
   return (req, res, next) => {
     func(req, res, next).catch((e) => next(e));
