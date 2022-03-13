@@ -1,1 +1,26 @@
-<h1>Page not found</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('./partials/headerlinks')%>
+    <link rel="stylesheet" href="/css/homepage.css" />
+    <title>Stripeshop</title>
+  </head>
+  <body>
+    <%-include('./partials/navbar')%>
+    <section id="notfound">
+      <div class="notfound-container">
+        <div class="notfound-content">
+          <h1>It looks like your lost!</h1>
+          <h2>This page may not exist anymore....</h2>
+        </div>
+        <div>
+          <img src="/img/pagenotfound.svg" alt="page not found" />
+        </div>
+      </div>
+    </section>
+    <%-include('./partials/footer')%> <%-include('./partials/bodyscripts')%>
+  </body>
+</html>

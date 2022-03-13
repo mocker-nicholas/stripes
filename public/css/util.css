@@ -170,6 +170,28 @@ button:hover {
   transform: scale(1.1);
 }
 
+/* 404 page */
+#notfound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  min-height: 60vh;
+}
+
+.notfound-container {
+  position: relative;
+}
+
+.notfound-content {
+  position: absolute;
+  top: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  text-align: center;
+}
+
 /* Utility Classes */
 .hide {
   display: none;
@@ -335,5 +357,14 @@ button:hover {
   }
   .footer-column label {
     font-size: 1.25rem;
+  }
+
+  #notfound img {
+    max-width: 100vw;
+    height: 60vh;
+  }
+
+  .notfound-content {
+    top: 10%;
   }
 }
