@@ -7,6 +7,15 @@ export const catchAsync = (func) => {
 };
 
 export const validateUser = (req, res, next) => {
+  const { error } = joiUserSchema.validate(req.body);
+  if (error) {
+    req.flash("error", `${error.message}`);
+    return res.redirect(`${req.originalUrl}`);
+  }
+  return next();
+};
+
+export const validateUpdate = (req, res, next) => {
   const { username, email } = req.session.user;
   const data = {
     username: username,
@@ -28,9 +37,7 @@ export const validateUser = (req, res, next) => {
       postal: req.body.shippostal,
     },
   };
-  console.log(data);
   const { error } = joiUserSchema.validate(data);
-  console.log(error);
   if (error) {
     req.flash("error", `${error.message}`);
     return res.redirect(`${req.originalUrl}`);

@@ -8,7 +8,7 @@ import flash from "connect-flash";
 import methodOverride from "method-override";
 import bcrypt from "bcrypt";
 import ExpressError from "./util/expresserror.js";
-import { catchAsync, validateUser } from "./util/middleware.js";
+import { catchAsync, validateUser, validateUpdate } from "./util/middleware.js";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -119,7 +119,7 @@ app.get(
 
 app.patch(
   "/user/:id",
-  validateUser,
+  validateUpdate,
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const user = await User.findByIdAndUpdate(id, {
