@@ -202,6 +202,9 @@ app.all("*", (req, res) => {
 
 ///////////////////// Error Handler ////////////////////
 app.use((err, req, res, next) => {
+  if (err.code === 11000) {
+    err.message = "Username or email is already being used";
+  }
   const { statusCode = 500, message = "Not found" } = err;
   // the destructured default wont get passed through to our err object, so set that default manually.
   if (!err.message) err.message = "Oh No! Something went wrong!";
