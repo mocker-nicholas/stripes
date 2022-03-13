@@ -14,6 +14,8 @@
       <h1>...The wild child...</h1>
       <%if(success[0] !== undefined) {%>
       <div class="success contained"><p><%=success%></p></div>
+      <%}%> <%if(error[0] !== undefined) {%>
+      <div class="error contained"><p><%=error%></p></div>
       <%}%>
       <div class="user-info-container">
         <div class="grid-item">

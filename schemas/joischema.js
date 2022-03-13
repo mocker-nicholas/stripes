@@ -35,4 +35,20 @@ export const joiUserSchema = Joi.object({
     .escapeHTML(),
   password: Joi.string().min(8),
   email: Joi.string().email().lowercase().trim(),
+  billaddress: Joi.object({
+    street: Joi.string().min(0).max(30).trim(),
+    street2: Joi.string().min(0).max(20).trim(),
+    city: Joi.string().min(0).max(20).trim(),
+    country: Joi.string().min(0).max(4).uppercase().trim(),
+    state: Joi.string().min(0).max(2).uppercase().trim(),
+    postal: Joi.string().min(0).max(9).trim(),
+  }),
+  shipaddress: Joi.object({
+    street: Joi.string().min(0).max(30).trim(),
+    street2: Joi.string().min(0).max(20).trim(),
+    city: Joi.string().min(0).max(20).trim(),
+    country: Joi.string().min(0).max(4).uppercase().trim(),
+    state: Joi.string().min(0).max(2).uppercase().trim(),
+    postal: Joi.string().min(0).max(9).trim(),
+  }),
 });

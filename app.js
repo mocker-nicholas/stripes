@@ -119,6 +119,7 @@ app.get(
 
 app.patch(
   "/user/:id",
+  validateUser,
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const user = await User.findByIdAndUpdate(id, {

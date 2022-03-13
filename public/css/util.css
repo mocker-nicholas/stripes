@@ -276,6 +276,18 @@ button:hover {
   padding: 4px;
 }
 
+.form-group select {
+  width: 100%;
+  font-size: 1rem;
+  padding: 4px;
+}
+
+.select-divide {
+  text-align: center;
+  background-color: rgba(65, 105, 225, 0.2);
+  border-radius: 10px;
+}
+
 .form-group input:focus {
   outline: 1px solid var(--yellow);
   border: 1px solid var(--yellow);
