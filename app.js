@@ -8,7 +8,7 @@ import flash from "connect-flash";
 import methodOverride from "method-override";
 import bcrypt from "bcrypt";
 import ExpressError from "./util/expresserror.js";
-import { validateUser } from "./util/middleware.js";
+import { catchAsync, validateUser } from "./util/middleware.js";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -67,26 +67,26 @@ app.get("/user/register", (req, res) => {
   return res.render("users/userregister");
 });
 
-app.post("/user/register", validateUser, async (req, res) => {
-  try {
+app.post(
+  "/user/register",
+  validateUser,
+  catchAsync(async (req, res) => {
     const { email, username } = req.body;
     const password = await bcrypt.hash(req.body.password, 12);
     const user = await new User({ email, username, password });
     const newUser = await user.save();
     req.flash("success", `${newUser.username}: Account created!`);
     return res.redirect("/user/login");
-  } catch (e) {
-    req.flash("error", `${e}`);
-    return res.redirect("/user/register");
-  }
-});
+  })
+);
 
 app.get("/user/login", (req, res) => {
   return res.render("users/userlogin");
 });
 
-app.post("/user/login", async (req, res) => {
-  try {
+app.post(
+  "/user/login",
+  catchAsync(async (req, res) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
     if (!user) {
@@ -100,65 +100,74 @@ app.post("/user/login", async (req, res) => {
     }
     req.session.user = user;
     return res.redirect("/");
-  } catch (e) {
-    req.flash("error", `${e}`);
-    return res.render("/");
-  }
-});
+  })
+);
 
 app.get("/user/logout", (req, res) => {
   req.session.user = null;
   return res.redirect("/");
 });
 
-app.get("/user/:id", async (req, res) => {
-  const { id } = req.params;
-  const user = await User.findById(id);
-  return res.render("users/usershow", { user });
-});
+app.get(
+  "/user/:id",
+  catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    return res.render("users/usershow", { user });
+  })
+);
 
-app.patch("/user/:id", async (req, res) => {
-  const { id } = req.params;
-  const user = await User.findByIdAndUpdate(id, {
-    billaddress: {
-      street: req.body.billstreet,
-      street2: req.body.billstreet2,
-      country: req.body.billcountry,
-      city: req.body.billcity,
-      state: req.body.billstate,
-      postal: req.body.billpostal,
-    },
-    shipaddress: {
-      street: req.body.shipstreet,
-      street2: req.body.shipstreet2,
-      country: req.body.shipcountry,
-      city: req.body.shipcity,
-      state: req.body.shipstate,
-      postal: req.body.shippostal,
-    },
-  });
-  return res.redirect(`/user/${id}`);
-});
+app.patch(
+  "/user/:id",
+  catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const user = await User.findByIdAndUpdate(id, {
+      billaddress: {
+        street: req.body.billstreet,
+        street2: req.body.billstreet2,
+        country: req.body.billcountry,
+        city: req.body.billcity,
+        state: req.body.billstate,
+        postal: req.body.billpostal,
+      },
+      shipaddress: {
+        street: req.body.shipstreet,
+        street2: req.body.shipstreet2,
+        country: req.body.shipcountry,
+        city: req.body.shipcity,
+        state: req.body.shipstate,
+        postal: req.body.shippostal,
+      },
+    });
+    return res.redirect(`/user/${id}`);
+  })
+);
 
-app.get("/user/:id/update", async (req, res) => {
-  const { id } = req.params;
-  const user = await User.findById(id);
-  return res.render("users/userupdate", { user });
-});
+app.get(
+  "/user/:id/update",
+  catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    return res.render("users/userupdate", { user });
+  })
+);
 
-app.delete("/user/:id", async (req, res) => {
-  const { username, _id } = req.session.user;
-  const user = await User.findOne({ username });
-  if (!user) {
-    req.flash("error", "Unable to find requested user");
-    console.log("no user");
-    return res.redirect(`${req.originalUrl.replace("/delete", "")}`);
-  }
-  const deletedUser = await User.deleteOne({ _id });
-  req.session.user = null;
-  req.flash("success", "Your account was successfully deleted");
-  return res.redirect("/user/register");
-});
+app.delete(
+  "/user/:id",
+  catchAsync(async (req, res) => {
+    const { username, _id } = req.session.user;
+    const user = await User.findOne({ username });
+    if (!user) {
+      req.flash("error", "Unable to find requested user");
+      console.log("no user");
+      return res.redirect(`${req.originalUrl.replace("/delete", "")}`);
+    }
+    const deletedUser = await User.deleteOne({ _id });
+    req.session.user = null;
+    req.flash("success", "Your account was successfully deleted");
+    return res.redirect("/user/register");
+  })
+);
 
 ////////////// Shopping Cart ///////////////////
 app.get("/cart", (req, res) => {
@@ -180,12 +189,15 @@ app.all("*", (req, res) => {
   return res.render("pagenotfound");
 });
 
+///////////////////// Error Handler ////////////////////
 app.use((err, req, res, next) => {
   const { statusCode = 500, message = "Not found" } = err;
   // the destructured default wont get passed through to our err object, so set that default manually.
   if (!err.message) err.message = "Oh No! Something went wrong!";
-  res.status(statusCode).render("error", { err });
+  req.flash("error", `${err.message}`);
+  res.status(statusCode).redirect(`${req.originalUrl}`);
 });
+
 ///////////// Listen for requests //////////////
 app.listen(3000, () => {
   return console.log("Listening on Port 3000");
