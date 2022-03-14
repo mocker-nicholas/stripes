@@ -25,6 +25,7 @@
               </div>
               <div>
                 <input
+                  class="validate"
                   value="<%=user.billaddress.street%>"
                   type="text"
                   name="billstreet"
@@ -50,7 +51,7 @@
                 <label for="billcountry">Country</label>
               </div>
               <div>
-                <select name="billcountry" id="billcountry">
+                <select class="validate" name="billcountry" id="billcountry">
                   <option selected value="US">United States</option>
                   <option value="CA">Canada</option>
                 </select>
@@ -62,6 +63,7 @@
               </div>
               <div>
                 <input
+                  class="validate"
                   value="<%=user.billaddress.city%>"
                   type="text"
                   name="billcity"
@@ -74,7 +76,7 @@
                 <label for="billstate">State</label>
               </div>
               <div>
-                <select name="billstate" id="billstate">
+                <select class="validate" name="billstate" id="billstate">
                   <option value="" selected="selected">
                     Select your State / Province
                   </option>
@@ -157,6 +159,7 @@
               </div>
               <div>
                 <input
+                  class="validate"
                   value="<%=user.billaddress.postal%>"
                   type="text"
                   name="billpostal"
@@ -173,6 +176,7 @@
               </div>
               <div>
                 <input
+                  class="validate"
                   value="<%=user.shipaddress.street%>"
                   type="text"
                   name="shipstreet"
@@ -198,7 +202,7 @@
                 <label for="shipcountry">Country</label>
               </div>
               <div>
-                <select name="shipcountry" id="shipcountry">
+                <select class="validate" name="shipcountry" id="shipcountry">
                   <option value="US">United States</option>
                   <option value="CA">Canada</option>
                 </select>
@@ -210,6 +214,7 @@
               </div>
               <div>
                 <input
+                  class="validate"
                   value="<%=user.shipaddress.city%>"
                   type="text"
                   name="shipcity"
@@ -222,7 +227,7 @@
                 <label for="shipstate">State</label>
               </div>
               <div>
-                <select name="shipstate" id="shipstate">
+                <select class="validate" name="shipstate" id="shipstate">
                   <option value="" selected="selected">
                     Select your State / Province
                   </option>
@@ -305,6 +310,7 @@
               </div>
               <div>
                 <input
+                  class="validate"
                   value="<%=user.shipaddress.postal%>"
                   type="text"
                   name="shippostal"
@@ -315,7 +321,7 @@
           </div>
         </div>
         <div class="grid-item buttons">
-          <button class="btn-update">Update Info</button>
+          <button id="update" class="btn-update">Update Info</button>
         </div>
       </form>
     </section>
