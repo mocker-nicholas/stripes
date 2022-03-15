@@ -8,6 +8,8 @@ import flash from "connect-flash";
 import methodOverride from "method-override";
 import bcrypt from "bcrypt";
 import ExpressError from "./util/expresserror.js";
+import User from "./models/userschema.js";
+import userRouter from "./routers/userrouter.js";
 import {
   catchAsync,
   validateUser,
@@ -58,127 +60,13 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/user", userRouter);
+
 //////////// Homepage Route ///////////////
 app.get("/", (req, res) => {
   return res.render("homeindex");
   //// Change the store name to stripes!
 });
-
-import User from "./models/userschema.js";
-/////////////////////////////////////////////////////////////
-///////////////////////// User Routes ///////////////////////
-/////////////////////////////////////////////////////////////
-app.get("/user/register", (req, res) => {
-  return res.render("users/userregister");
-});
-
-app.post(
-  "/user/register",
-  validateUser,
-  catchAsync(async (req, res) => {
-    const { email, username } = req.body;
-    const password = await bcrypt.hash(req.body.password, 12);
-    const user = await new User({ email, username, password });
-    const newUser = await user.save();
-    req.flash("success", `${newUser.username}: Account created!`);
-    return res.redirect("/user/login");
-  })
-);
-
-app.get("/user/login", (req, res) => {
-  return res.render("users/userlogin");
-});
-
-app.post(
-  "/user/login",
-  catchAsync(async (req, res) => {
-    const { username, password } = req.body;
-    const user = await User.findOne({ username });
-    if (!user) {
-      req.flash("error", "Invalid username or password");
-      return res.redirect("/user/login");
-    }
-    const validPass = await bcrypt.compare(password, user.password);
-    if (!validPass) {
-      req.flash("error", "Invalid username or password");
-      return res.redirect("/user/login");
-    }
-    req.session.user = user;
-    return res.redirect("/");
-  })
-);
-
-app.get("/user/logout", (req, res) => {
-  req.session.user = null;
-  return res.redirect("/");
-});
-
-app.get(
-  "/user/:id",
-  isLoggedIn,
-  catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const user = await User.findById(id);
-    return res.render("users/usershow", { user });
-  })
-);
-
-app.patch(
-  "/user/:id",
-  isLoggedIn,
-  validateUpdate,
-  catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const user = await User.findByIdAndUpdate(id, {
-      billaddress: {
-        street: req.body.billstreet,
-        street2: req.body.billstreet2,
-        country: req.body.billcountry,
-        city: req.body.billcity,
-        state: req.body.billstate,
-        postal: req.body.billpostal,
-      },
-      shipaddress: {
-        street: req.body.shipstreet,
-        street2: req.body.shipstreet2,
-        country: req.body.shipcountry,
-        city: req.body.shipcity,
-        state: req.body.shipstate,
-        postal: req.body.shippostal,
-      },
-    });
-    req.flash("success", "Your user was updated!");
-    return res.redirect(`/user/${id}`);
-  })
-);
-
-app.get(
-  "/user/:id/update",
-  isLoggedIn,
-  catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const user = await User.findById(id);
-    return res.render("users/userupdate", { user });
-  })
-);
-
-app.delete(
-  "/user/:id",
-  isLoggedIn,
-  catchAsync(async (req, res) => {
-    const { username, _id } = req.session.user;
-    const user = await User.findOne({ username });
-    if (!user) {
-      req.flash("error", "Unable to find requested user");
-      console.log("no user");
-      return res.redirect(`${req.originalUrl.replace("/delete", "")}`);
-    }
-    const deletedUser = await User.deleteOne({ _id });
-    req.session.user = null;
-    req.flash("success", "Your account was successfully deleted");
-    return res.redirect("/user/register");
-  })
-);
 
 ////////////// Shopping Cart ///////////////////
 app.get("/cart", (req, res) => {
