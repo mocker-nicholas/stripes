@@ -20,6 +20,11 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
   },
 
+  isadmin: {
+    type: Boolean,
+    default: false,
+  },
+
   billaddress: {
     street: String,
     street2: String,

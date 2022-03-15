@@ -8,14 +8,19 @@
     <div class="nav-flex-item">
       <div class="nav-ul">
         <% if(!currentUser) { %>
+        <li class="nav-item"><a href="/products">Products</a></li>
         <li class="nav-item"><a href="/cart">Cart</a></li>
         <li class="nav-item"><a href="/user/register">Sign Up</a></li>
         <li class="nav-item"><a href="/user/login">Login</a></li>
         <%} else {%>
+        <li class="nav-item"><a href="/products">Products</a></li>
         <li class="nav-item"><a href="/cart">Cart</a></li>
         <li class="nav-item"><a href="/user/logout">Logout</a></li>
         <li class="nav-item">
-          <a href="/user/<%=currentUser._id%>"><%=currentUser.username%></a>
+          <a href="/user/<%=currentUser._id%>"
+            ><%=currentUser.username%> <% if(currentUser.isadmin === true){ %>
+            ADMIN <%}%>
+          </a>
         </li>
         <%}%>
       </div>
@@ -35,7 +40,10 @@
       <li class="small-nav-item"><a href="/user/login">Login</a></li>
       <%} else {%>
       <li class="small-nav-item">
-        <a href="/user/<%=currentUser._id%>">Account</a>
+        <a href="/user/<%=currentUser._id%>"
+          ><%=currentUser.username%> <% if(currentUser.isadmin === true){ %>
+          ADMIN <%}%></a
+        >
       </li>
       <li class="small-nav-item"><a href="/user/logout">Logout</a></li>
       <%}%>
