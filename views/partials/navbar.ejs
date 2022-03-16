@@ -49,4 +49,11 @@
       <%}%>
     </ul>
   </nav>
+  <% if(currentUser && currentUser.isadmin === true) {%>
+  <nav class="admin-nav">
+    <ul>
+      <li><a href="/products/new">Add a product</a></li>
+    </ul>
+  </nav>
+  <%}%>
 </section>

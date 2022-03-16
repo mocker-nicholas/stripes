@@ -78,6 +78,10 @@ app.get("/products", (req, res) => {
   return res.render("products/productsindex");
 });
 
+app.get("/products/new", (req, res) => {
+  return res.render("products/productscreate");
+});
+
 ///////////////// Checkout Route //////////////////
 app.get("/checkout", (req, res) => {
   return res.render("checkout/checkout");

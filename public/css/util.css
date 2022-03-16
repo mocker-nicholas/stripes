@@ -121,6 +121,24 @@ button:hover {
   margin-bottom: 2.5rem;
 }
 
+.admin-nav {
+  background-color: rgba(124, 124, 124, 0.2);
+  max-width: 100%;
+  padding: 0.5rem 1rem;
+}
+
+.admin-nav ul {
+  display: flex;
+  align-items: center;
+}
+
+.admin-nav ul li a {
+  background-color: var(--blue);
+  margin: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 10px;
+}
+
 /* Generic Page footer */
 .footer-container {
   background-color: var(--dark);
