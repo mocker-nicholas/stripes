@@ -11,6 +11,12 @@ const productSchema = new mongoose.Schema({
     required: [true, "Products must have a price"],
   },
 
+  category: {
+    type: String,
+    enum: ["shoes", "pants", "socks", "sweaters", "shirts"],
+    required: [true, "please choose a category"],
+  },
+
   description: {
     type: String,
   },
@@ -26,6 +32,11 @@ const productSchema = new mongoose.Schema({
   largeinstock: {
     type: Number,
     required: true,
+  },
+
+  featured: {
+    type: Boolean,
+    default: false,
   },
 });
 

@@ -10,6 +10,7 @@
 :root {
   --dark: rgb(12, 15, 10);
   --pink: rgb(255, 32, 110);
+  --opink: rgba(255, 32, 110, 0.5);
   --yellow: rgb(251, 255, 18);
   --blue: rgb(65, 234, 212);
   --white: rgb(255, 255, 255);
@@ -330,7 +331,6 @@ button:hover {
   padding: 0.5rem 2.5rem;
   font-size: 1rem;
   outline: none;
-  border: 2px solid transparent;
   transition: 0.2s all ease-out;
   border-bottom: 2px solid transparent;
   cursor: pointer;

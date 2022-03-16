@@ -5,11 +5,95 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%- include('../partials/headerlinks')%>
+    <link rel="stylesheet" href="/css/products.css" />
     <title>Stripes</title>
   </head>
   <body>
     <header><%-include('../partials/navbar')%></header>
-    <h1>Check Out these products</h1>
+    <section id="products">
+      <div class="products-content">
+        <div class="featured-message"><h1>Featured this season!</h1></div>
+        <div class="featured-products"></div>
+      </div>
+      <div class="products-grid">
+        <div class="product">
+          <div class="prod-img">
+            <img
+              src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHN0cmlwcGVkJTIwc2hpcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+              alt=""
+            />
+          </div>
+          <div class="prod-content">
+            <div>
+              <p class="prod-title">Light Spring Flowers</p>
+              <div class="divide"></div>
+              <p>A light, fun, floral embroddered blouse</p>
+            </div>
+            <div class="hover-info">
+              <p class="price">$19.00</p>
+              <a class="view-prod" href="/product/:id">Shop</a>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <div class="prod-img">
+            <img
+              src="https://images.unsplash.com/photo-1494228766058-1430438d10fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHN0cmlwcGVkJTIwc2hpcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+              alt=""
+            />
+          </div>
+          <div class="prod-content">
+            <div>
+              <p class="prod-title">Light Spring Flowers</p>
+              <div class="divide"></div>
+              <p>A light, fun, floral embroddered blouse</p>
+            </div>
+            <div class="hover-info">
+              <p class="price">$19.00</p>
+              <a class="view-prod" href="/product/:id">Shop</a>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <div class="prod-img">
+            <img
+              src="https://images.unsplash.com/photo-1494228766058-1430438d10fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHN0cmlwcGVkJTIwc2hpcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+              alt=""
+            />
+          </div>
+          <div class="prod-content">
+            <div>
+              <p class="prod-title">Light Spring Flowers</p>
+              <div class="divide"></div>
+              <p>A light, fun, floral embroddered blouse</p>
+            </div>
+            <div class="hover-info">
+              <p class="price">$19.00</p>
+              <a class="view-prod" href="/product/:id">Shop</a>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <div class="prod-img">
+            <img
+              src="https://images.unsplash.com/photo-1494228766058-1430438d10fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHN0cmlwcGVkJTIwc2hpcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+              alt=""
+            />
+          </div>
+          <div class="prod-content">
+            <div>
+              <p class="prod-title">Light Spring Flowers</p>
+              <div class="divide"></div>
+              <p>A light, fun, floral embroddered blouse</p>
+            </div>
+            <div class="hover-info">
+              <p class="price">$19.00</p>
+              <a class="view-prod" href="/product/:id">Shop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <%-include('../partials/footer')%> <%-include('../partials/bodyscripts')%>
   </body>
 </html>
