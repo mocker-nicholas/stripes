@@ -15,6 +15,7 @@ import {
   validateUser,
   validateUpdate,
   isLoggedIn,
+  isAdmin,
 } from "./util/middleware.js";
 
 const app = express();
@@ -78,7 +79,7 @@ app.get("/products", (req, res) => {
   return res.render("products/productsindex");
 });
 
-app.get("/products/new", (req, res) => {
+app.get("/products/new", isAdmin, (req, res) => {
   return res.render("products/productscreate");
 });
 
@@ -100,8 +101,15 @@ app.use((err, req, res, next) => {
   const { statusCode = 500, message = "Not found" } = err;
   // the destructured default wont get passed through to our err object, so set that default manually.
   if (!err.message) err.message = "Oh No! Something went wrong!";
+  if (req.session.user.isadmin && req.session.user.isadmin === false) {
+    req.flash(
+      "error",
+      "You do not have the permission needed to perform that action"
+    );
+    return res.redirect("/user/login");
+  }
   req.flash("error", `${err.message}`);
-  res.status(statusCode).redirect(`${req.originalUrl}`);
+  return res.status(statusCode).redirect(`${req.originalUrl}`);
 });
 
 ///////////// Listen for requests //////////////

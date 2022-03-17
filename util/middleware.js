@@ -9,6 +9,15 @@ export const isLoggedIn = (req, res, next) => {
   return next();
 };
 
+export const isAdmin = (req, res, next) => {
+  if (req.session.user.isadmin === false) {
+    req.flash("error", "User does not have admin permission");
+    return res.redirect("/user/login");
+  }
+
+  return next();
+};
+
 export const catchAsync = (func) => {
   return (req, res, next) => {
     func(req, res, next).catch((e) => next(e));
