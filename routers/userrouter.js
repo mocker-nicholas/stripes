@@ -29,7 +29,7 @@ router.route("/login").get(loginForm).post(catchAsync(loginUser));
 
 router.route("/logout").get(logoutUser);
 
-router.route("/email/join").post(emailMe);
+router.route("/email/join").post(catchAsync(emailMe));
 
 router
   .route("/:id")

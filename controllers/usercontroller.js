@@ -41,8 +41,23 @@ export const logoutUser = (req, res) => {
 };
 
 export const emailMe = async (req, res) => {
-  console.log("Email me!");
-  return res.send("got it!");
+  if (!req.session.user) {
+    req.flash("success", "Sign in to to join the club for exclusive deals!");
+    return res.redirect("/user/login");
+  }
+  const id = req.session.user._id;
+  const { first, last, email } = req.body;
+  const user = await User.findByIdAndUpdate(
+    id,
+    { $set: { emailme: true } },
+    { new: true }
+  );
+  console.log(user);
+  req.flash(
+    "success",
+    `Congrats ${first}! You will now recieve exclusive offers at ${email}!`
+  );
+  res.redirect(`/user/${id}`);
 };
 
 export const showUser = async (req, res) => {
