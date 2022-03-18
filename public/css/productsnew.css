@@ -6,9 +6,32 @@
 }
 
 .product-form-container {
-  border: 2px solid red;
+  background-color: var(--pink);
   padding: 1rem;
   min-width: 50vw;
+}
+
+.product-form {
+  padding: 0.25rem;
+  background-color: var(--white);
+}
+
+.product-form h2,
+.product-form h3 {
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.current-stock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stock-group input {
+  max-width: 4rem;
+  padding: 0.25rem;
 }
 
 .form-group textarea {

@@ -10,8 +10,12 @@ export const isLoggedIn = (req, res, next) => {
 };
 
 export const isAdmin = (req, res, next) => {
+  if (!req.session.user) {
+    req.flash("error", "You must be signed in");
+    return res.redirect("/user/login");
+  }
   if (req.session.user.isadmin === false) {
-    req.flash("error", "User does not have admin permission");
+    req.flash("error", "Current user does not have admin permission");
     return res.redirect("/user/login");
   }
 

@@ -101,7 +101,7 @@ app.use((err, req, res, next) => {
   const { statusCode = 500, message = "Not found" } = err;
   // the destructured default wont get passed through to our err object, so set that default manually.
   if (!err.message) err.message = "Oh No! Something went wrong!";
-  if (req.session.user.isadmin && req.session.user.isadmin === false) {
+  if (req.session.user && req.session.user.isadmin === false) {
     req.flash(
       "error",
       "You do not have the permission needed to perform that action"

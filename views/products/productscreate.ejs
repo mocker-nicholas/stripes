@@ -42,10 +42,21 @@
               ></textarea>
             </div>
           </div>
+          <div class="form-group">
+            <div>
+              <label for="featured">Feature this Item?</label>
+            </div>
+            <div>
+              <select name="featured" id="featured">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+          </div>
           <div>
             <h3>Current Stock</h3>
           </div>
-          <div stock="current-stock">
+          <div class="current-stock">
             <div class="stock-group">
               <label for="small">Small</label>
               <input type="number" name="small" id="small" />
@@ -57,17 +68,6 @@
             <div class="stock-group">
               <label for="large">Large</label>
               <input type="number" name="large" id="large" />
-            </div>
-          </div>
-          <div class="form-group">
-            <div>
-              <label for="featured">Feature this Item?</label>
-            </div>
-            <div>
-              <select name="featured" id="featured">
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-              </select>
             </div>
           </div>
           <button class="btn-update">Create</button>
