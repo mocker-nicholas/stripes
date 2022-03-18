@@ -11,6 +11,7 @@ import {
   loginForm,
   loginUser,
   logoutUser,
+  emailMe,
   showUser,
   updateUser,
   userUpdateForm,
@@ -27,6 +28,8 @@ router
 router.route("/login").get(loginForm).post(catchAsync(loginUser));
 
 router.route("/logout").get(logoutUser);
+
+router.route("/email/join").post(emailMe);
 
 router
   .route("/:id")

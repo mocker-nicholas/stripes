@@ -40,6 +40,11 @@ export const logoutUser = (req, res) => {
   return res.redirect("/");
 };
 
+export const emailMe = async (req, res) => {
+  console.log("Email me!");
+  return res.send("got it!");
+};
+
 export const showUser = async (req, res) => {
   const { id } = req.params;
   const user = await User.findById(id);

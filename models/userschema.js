@@ -20,6 +20,11 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
   },
 
+  emailme: {
+    type: Boolean,
+    default: false,
+  },
+
   isadmin: {
     type: Boolean,
     default: false,
