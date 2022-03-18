@@ -9,6 +9,7 @@ import methodOverride from "method-override";
 import bcrypt from "bcrypt";
 import ExpressError from "./util/expresserror.js";
 import User from "./models/userschema.js";
+import Product from "./models/producschema.js";
 import userRouter from "./routers/userrouter.js";
 import {
   catchAsync,
@@ -81,6 +82,13 @@ app.get("/products", (req, res) => {
 
 app.get("/products/new", isAdmin, (req, res) => {
   return res.render("products/productscreate");
+});
+
+app.post("/products/new", async (req, res) => {
+  const product = await new Product(req.body);
+  const newProduct = await product.save();
+  console.log(newProduct);
+  return res.send(newProduct);
 });
 
 ///////////////// Checkout Route //////////////////

@@ -6,6 +6,11 @@ const productSchema = new mongoose.Schema({
     required: [true, "products must have a name"],
     trim: true,
   },
+
+  imgurl: {
+    type: String,
+  },
+
   price: {
     type: Number,
     required: [true, "Products must have a price"],

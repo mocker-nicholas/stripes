@@ -12,7 +12,7 @@
     <header><%-include('../partials/navbar')%></header>
     <section id="create-product">
       <div class="product-form-container">
-        <form action="/products/new" class="product-form">
+        <form action="/products/new" class="product-form" method="POST">
           <h2>Create a new Product</h2>
           <div class="form-group">
             <div><label for="name">Product Name</label></div>
@@ -20,7 +20,7 @@
           </div>
           <div class="form-group">
             <div><label for="price">Price</label></div>
-            <div><input type="text" name="number" id="number" /></div>
+            <div><input type="text" name="price" id="number" /></div>
           </div>
           <div class="form-group">
             <label for="category">Category</label>
@@ -59,15 +59,15 @@
           <div class="current-stock">
             <div class="stock-group">
               <label for="small">Small</label>
-              <input type="number" name="small" id="small" />
+              <input type="number" name="smallinstock" id="small" />
             </div>
             <div class="stock-group">
               <label for="medium">Medium</label>
-              <input type="number" name="medium" id="medium" />
+              <input type="number" name="mediuminstock" id="medium" />
             </div>
             <div class="stock-group">
               <label for="large">Large</label>
-              <input type="number" name="large" id="large" />
+              <input type="number" name="largeinstock" id="large" />
             </div>
           </div>
           <button class="btn-update">Create</button>
