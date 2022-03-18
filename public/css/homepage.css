@@ -89,6 +89,32 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.rewards-form .emailme {
+  background-color: var(--blue);
+  color: var(--white);
+  border: 2px solid transparent;
+  outline: none;
+  margin-top: 0.5rem;
+  padding: 0.25rem 2rem;
+  width: 100%;
+  font-size: 2rem;
+  transition: all 0.2s;
+}
+
+.rewards-form .emailme:hover {
+  border: 2px solid var(--yellow);
+  transform: translateY(-4px);
+}
+
+.rewards-form .emailme:active {
+  border: 2px solid var(--yellow);
+  transform: scale(0.9);
+}
+
+.rewards-form .emailme:visited {
+  color: var(--white);
+}
+
 .rewards-image {
   height: 40vh;
   width: 50%;
