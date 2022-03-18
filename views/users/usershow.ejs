@@ -24,6 +24,12 @@
             <li>Username: <%=user.username%></li>
             <li>Email Address: <%=user.email%></li>
           </ul>
+          <%if(currentUser.emailme === false) {%>
+          <div class="offers">
+            <p>Would you like to sign up to recieve exclusive deals?</p>
+            <p>Sign up: <a class="here" href="/#rewards">Here</a></p>
+          </div>
+          <%}%>
         </div>
         <div class="grid-item">
           <h2>Billing Information</h2>

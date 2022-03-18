@@ -35,6 +35,19 @@
   margin: 0 auto;
 }
 
+.offers {
+  text-align: center;
+  margin: 1rem auto;
+  border: 2px solid var(--pink);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.offers .here {
+  color: blue;
+  text-decoration: underline wavy;
+}
+
 /* Modal Styling */
 .modal {
   position: absolute;

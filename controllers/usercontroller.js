@@ -46,16 +46,15 @@ export const emailMe = async (req, res) => {
     return res.redirect("/user/login");
   }
   const id = req.session.user._id;
-  const { first, last, email } = req.body;
+  const { firstname, lastname, email } = req.body;
   const user = await User.findByIdAndUpdate(
     id,
     { $set: { emailme: true } },
     { new: true }
   );
-  console.log(user);
   req.flash(
     "success",
-    `Congrats ${first}! You will now recieve exclusive offers at ${email}!`
+    `Congrats ${firstname}! You will now recieve exclusive offers at ${email}!`
   );
   res.redirect(`/user/${id}`);
 };
