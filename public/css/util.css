@@ -49,6 +49,10 @@ button:hover {
   cursor: pointer;
 }
 
+form button {
+  margin-top: 1rem;
+}
+
 /* Generic page navbar */
 .navbar-container {
   background-color: var(--dark);

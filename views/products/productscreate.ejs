@@ -5,12 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%- include('../partials/headerlinks')%>
-    <link rel="stylesheet" href="/css/products.css" />
+    <link rel="stylesheet" href="/css/productsnew.css" />
     <title>Stripes</title>
   </head>
   <body>
     <header><%-include('../partials/navbar')%></header>
-    <section id="create-product"></section>
+    <section id="create-product">
+      <div class="product-form-container">
+        <form action="/products/new" class="product-form">
+          <h2>Create a new Product</h2>
+          <div class="form-group">
+            <div><label for="name">Product Name</label></div>
+            <div><input type="text" name="name" id="name" /></div>
+          </div>
+          <div class="form-group">
+            <div><label for="price">Price</label></div>
+            <div><input type="text" name="number" id="number" /></div>
+          </div>
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select name="category" id="category">
+              <option value="shirts">Shirts</option>
+              <option value="sweaters">Sweaters</option>
+              <option value="pants">Pants</option>
+              <option value="socks">Socks</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="description">Product Description</label>
+            <div>
+              <textarea
+                name="description"
+                id="description"
+                cols="20"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+          <div>
+            <h3>Current Stock</h3>
+          </div>
+          <div stock="current-stock">
+            <div class="stock-group">
+              <label for="small">Small</label>
+              <input type="number" name="small" id="small" />
+            </div>
+            <div class="stock-group">
+              <label for="medium">Medium</label>
+              <input type="number" name="medium" id="medium" />
+            </div>
+            <div class="stock-group">
+              <label for="large">Large</label>
+              <input type="number" name="large" id="large" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div>
+              <label for="featured">Feature this Item?</label>
+            </div>
+            <div>
+              <select name="featured" id="featured">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn-update">Create</button>
+        </form>
+      </div>
+    </section>
     <%-include('../partials/footer')%> <%-include('../partials/bodyscripts')%>
   </body>
 </html>
