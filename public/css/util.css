@@ -253,6 +253,10 @@ form button {
   text-align: center;
 }
 
+.mt {
+  margin-top: 0.25rem;
+}
+
 .btn-update {
   background-color: rgb(65, 105, 225);
   color: var(--white);
