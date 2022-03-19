@@ -10,12 +10,13 @@
 
 .product {
   overflow-y: hidden;
-  width: 360px;
-  max-height: 450px;
+  width: 300px;
+  max-height: 400px;
   background-color: #fff;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
   border-radius: 0.5rem;
   cursor: pointer;
+  margin: 0 auto;
 }
 
 .prod-img {
@@ -79,6 +80,12 @@
 
 .view-prod:visited {
   color: var(--pink);
+}
+
+@media screen and (max-width: 1300px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media screen and (max-width: 1046px) {
