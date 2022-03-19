@@ -76,9 +76,13 @@ app.get("/cart", (req, res) => {
 });
 
 ////////////// Product Routes //////////////////
-app.get("/products", (req, res) => {
-  return res.render("products/productsindex");
-});
+app.get(
+  "/products",
+  catchAsync(async (req, res) => {
+    const products = await Product.find({});
+    return res.render("products/productsindex", { products });
+  })
+);
 
 app.get("/products/new", isAdmin, (req, res) => {
   return res.render("products/productscreate");
@@ -116,8 +120,7 @@ app.use((err, req, res, next) => {
     );
     return res.redirect("/user/login");
   }
-  req.flash("error", `${err.message}`);
-  return res.status(statusCode).redirect(`${req.originalUrl}`);
+  return res.status(statusCode).render("error", { err });
 });
 
 ///////////// Listen for requests //////////////
