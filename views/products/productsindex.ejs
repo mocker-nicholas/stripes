@@ -12,8 +12,35 @@
     <header><%-include('../partials/navbar')%></header>
     <section id="products">
       <div class="products-content">
-        <div class="featured-message"><h1>Featured this season!</h1></div>
-        <div class="featured-products"></div>
+        <div class="featured-message">
+          <div class="divide-dark"></div>
+          <h1>Featured this season!</h1>
+          <div class="divide-dark"></div>
+        </div>
+        <div class="featured-products">
+          <% for(let product of products) {%> <%if(product.featured === true){%>
+          <div class="product">
+            <div class="prod-img">
+              <img src="<%=product.imgurl%>" alt="" />
+            </div>
+            <div class="prod-content-blue">
+              <div>
+                <p class="prod-title"><%=product.name%></p>
+                <div class="divide"></div>
+                <p><%=product.description%></p>
+                <div class="divide"></div>
+              </div>
+              <div class="hover-info">
+                <p class="price">$<%=parseFloat(product.price).toFixed(2)%></p>
+                <a class="view-prod" href="products/<%=product._id%>">Shop</a>
+              </div>
+            </div>
+          </div>
+          <%}%> <%}%>
+        </div>
+        <div class="divide-dark"></div>
+        <h2>All Products</h2>
+        <div class="divide-dark"></div>
       </div>
       <div class="products-grid">
         <% for(let product of products) {%>
@@ -26,10 +53,11 @@
               <p class="prod-title"><%=product.name%></p>
               <div class="divide"></div>
               <p><%=product.description%></p>
+              <div class="divide"></div>
             </div>
             <div class="hover-info">
-              <p class="price"><%=product.price%></p>
-              <a class="view-prod" href="/product/:id">Shop</a>
+              <p class="price">$<%=parseFloat(product.price).toFixed(2)%></p>
+              <a class="view-prod" href="products/<%=product._id%>">Shop</a>
             </div>
           </div>
         </div>

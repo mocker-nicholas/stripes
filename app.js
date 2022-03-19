@@ -95,6 +95,12 @@ app.post("/products/new", async (req, res) => {
   return res.send(newProduct);
 });
 
+app.get("/products/:id", async (req, res) => {
+  const { id } = req.params;
+  const product = await Product.findById(id);
+  return res.send(product);
+});
+
 ///////////////// Checkout Route //////////////////
 app.get("/checkout", (req, res) => {
   return res.render("checkout/checkout");

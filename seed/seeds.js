@@ -31,7 +31,12 @@ const imgurl = [
   "https://images.unsplash.com/photo-1594938291221-94f18cbb5660?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHNoaXJ0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
 ];
 const category = ["pants", "shirts", "socks", "sweaters"];
-const description = ["pants", "shirts", "socks", "sweaters"];
+const description = [
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, libero.",
+  "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga modi ut corporis id possimus aperiam illum autem consequuntur ab animi.",
+  "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias temporibus iusto consequuntur asperiores, accusamus facere dolores ex rem sapiente voluptate quo amet delectus illum necessitatibus natus, unde totam cum nihil.",
+];
+
 const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const bool = [true, false, false, false, false, false];
 
