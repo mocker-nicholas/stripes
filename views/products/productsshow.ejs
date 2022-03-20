@@ -55,7 +55,7 @@
               <%if(currentUser && currentUser.isadmin === true){%>
               <div>
                 <form
-                  action="products/<%=product._id%>/delete?_method=DELETE"
+                  action="/products/<%=product._id%>?_method=DELETE"
                   method="POST"
                 >
                   <button id="deleteProduct">Delete Product</button>

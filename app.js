@@ -101,6 +101,13 @@ app.get("/products/:id", async (req, res) => {
   return res.render("products/productsshow", { product });
 });
 
+app.delete("/products/:id", isAdmin, async (req, res) => {
+  const { id } = req.params;
+  const product = await Product.findByIdAndRemove(id);
+  req.flash("success", `${product.name} has been deleted`);
+  res.redirect("/products");
+});
+
 ///////////////// Checkout Route //////////////////
 app.get("/checkout", (req, res) => {
   return res.render("checkout/checkout");

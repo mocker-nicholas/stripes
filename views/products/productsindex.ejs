@@ -13,6 +13,11 @@
     <section id="products">
       <div class="products-content">
         <div class="featured-message">
+          <%if(success && success.length > 0) {%>
+          <div class="success"><%=success%></div>
+          <%}%> <%if(error && error.length > 0) {%>
+          <div class="error"><%=error%></div>
+          <%}%>
           <div class="divide-dark"></div>
           <h1>Featured this season!</h1>
           <div class="divide-dark"></div>
