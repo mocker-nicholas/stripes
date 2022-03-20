@@ -5,12 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%- include('../partials/headerlinks')%>
-    <link rel="stylesheet" href="/css/products.css" />
+    <link rel="stylesheet" href="/css/productshow.css" />
     <title>Stripes</title>
   </head>
   <body>
     <header><%-include('../partials/navbar')%></header>
-    <section id="create-product"></section>
+    <section id="create-product">
+      <div class="product-flex">
+        <div class="prod-img">
+          <img src="<%=product.imgurl%>" alt="" />
+        </div>
+        <div class="prod-info">
+          <div class="mb">
+            <h2 class="title"><%=product.name%></h2>
+            <div class="dark-divide"></div>
+            <p class="description"><%=product.description%></p>
+          </div>
+
+          <div>
+            <%if((product.smallinstock+product.mediuminstock+product.larginstock)
+            > 1){%>
+            <div class="stock">
+              Availability: <span class="underline-warning">OUT OF STOCK</span>
+            </div>
+            <%}%>
+            <div class="stock mb">
+              Availability: <span class="underline-okay">IN STOCK</span>
+            </div>
+            <div class="mb">
+              <p class="price">
+                Price: $<%=parseFloat(product.price).toFixed(2)%>
+              </p>
+            </div>
+            <div class="order mb">
+              <select name="size" id="size">
+                <%if(product.smallinstock > 0) {%>
+                <option value="small">Small</option>
+                <%}%>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+              </select>
+            </div>
+            <a class="btn-update" href="" id="addToCart">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+    </section>
     <%-include('../partials/footer')%> <%-include('../partials/bodyscripts')%>
   </body>
 </html>

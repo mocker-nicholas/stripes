@@ -65,8 +65,8 @@ export const joiProductSchema = Joi.object({
   price: Joi.number().greater(0).less(999).positive(),
   category: Joi.string().required().min(5).max(9).trim(),
   description: Joi.string().trim().max(255),
-  smallinstock: Joi.number().required().positive().greater(0).less(999),
-  mediuminstock: Joi.number().required().positive().greater(0).less(999),
-  largeinstock: Joi.number().required().positive().greater(0).less(999),
+  smallinstock: Joi.number().required().greater(-1).less(999),
+  mediuminstock: Joi.number().required().greater(-1).less(999),
+  largeinstock: Joi.number().required().greater(-1).less(999),
   featured: Joi.boolean().required(),
 });

@@ -325,6 +325,23 @@ form button {
   border-radius: 10px;
 }
 
+.dark-divide {
+  height: 4px;
+  width: 100%;
+  background-color: var(--pink);
+}
+
+.mb {
+  margin-bottom: 1rem;
+}
+
+.underline-warning {
+  border-bottom: 2px solid red;
+}
+.underline-okay {
+  border-bottom: 2px solid green;
+}
+
 .form-group input:focus {
   outline: 1px solid var(--yellow);
   border: 1px solid var(--yellow);

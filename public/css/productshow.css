@@ -1,0 +1,27 @@
+#create-product {
+  padding: 1rem 2rem;
+}
+
+.prod-img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.product-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prod-info {
+  padding: 1rem;
+}
+
+@media screen and (max-width: 1046px) {
+  #create-product {
+    padding: 1rem 1rem;
+  }
+  .product-flex {
+    flex-direction: column;
+  }
+}

@@ -98,7 +98,7 @@ app.post("/products/new", validateProduct, async (req, res) => {
 app.get("/products/:id", async (req, res) => {
   const { id } = req.params;
   const product = await Product.findById(id);
-  return res.send(product);
+  return res.render("products/productsshow", { product });
 });
 
 ///////////////// Checkout Route //////////////////
