@@ -13,3 +13,14 @@ createBtn.addEventListener("click", (e) => {
     }
   }
 });
+
+const priceInput = document.getElementById("price");
+
+const checkPrice = (price) => {
+  const displayNum = (Math.round(price * 100) / 100).toFixed(2);
+  return (priceInput.value = displayNum);
+};
+
+priceInput.addEventListener("blur", (e) => {
+  return checkPrice(e.target.value);
+});
