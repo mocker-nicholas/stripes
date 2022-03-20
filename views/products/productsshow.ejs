@@ -41,9 +41,11 @@
               <select name="size" id="size">
                 <%if(product.smallinstock > 0) {%>
                 <option value="small">Small</option>
+                <%}%> <%if(product.mediuminstock > 0) {%>
+                <option value="small">Medium</option>
+                <%}%> <%if(product.largeinstock > 0) {%>
+                <option value="small">Large</option>
                 <%}%>
-                <option value="medium">Medium</option>
-                <option value="large">Large</option>
               </select>
             </div>
             <a class="btn-update" href="" id="addToCart">Add to Cart</a>
