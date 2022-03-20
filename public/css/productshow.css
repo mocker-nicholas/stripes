@@ -26,6 +26,31 @@
   max-width: 50%;
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+#deleteProduct {
+  margin-left: 1rem;
+  font-size: 1rem;
+  margin-top: 0;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: var(--white);
+  padding: 0.5rem;
+  transition: 0.2s;
+}
+
+#deleteProduct:hover {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+#deleteProduct:active {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
 @media screen and (max-width: 1046px) {
   #create-product {
     padding: 1rem 1rem;

@@ -48,7 +48,21 @@
                 <%}%>
               </select>
             </div>
-            <a class="btn-update" href="" id="addToCart">Add to Cart</a>
+            <div class="buttons">
+              <div class="button">
+                <a class="btn-update" href="" id="addToCart">Add to Cart</a>
+              </div>
+              <%if(currentUser && currentUser.isadmin === true){%>
+              <div>
+                <form
+                  action="products/<%=product._id%>/delete?_method=DELETE"
+                  method="POST"
+                >
+                  <button id="deleteProduct">Delete Product</button>
+                </form>
+              </div>
+              <%}%>
+            </div>
           </div>
         </div>
       </div>
