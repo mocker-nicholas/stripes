@@ -1,4 +1,4 @@
-import { joiUserSchema } from "../schemas/joischema.js";
+import { joiUserSchema, joiEmailFormSchema } from "../schemas/joischema.js";
 
 export const isLoggedIn = (req, res, next) => {
   if (!req.session.user) {
@@ -33,6 +33,15 @@ export const validateUser = (req, res, next) => {
   if (error) {
     req.flash("error", `${error.message}`);
     return res.redirect(`${req.originalUrl}`);
+  }
+  return next();
+};
+
+export const validateEmailForm = (req, res, next) => {
+  const { error } = joiEmailFormSchema.validate(req.body);
+  if (error) {
+    req.flash("error", `${error.message}`);
+    return res.redirect("/#jump-to");
   }
   return next();
 };

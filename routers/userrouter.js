@@ -4,6 +4,7 @@ import {
   isLoggedIn,
   validateUser,
   validateUpdate,
+  validateEmailForm,
 } from "../util/middleware.js";
 import {
   registerForm,
@@ -29,7 +30,7 @@ router.route("/login").get(loginForm).post(catchAsync(loginUser));
 
 router.route("/logout").get(logoutUser);
 
-router.route("/email/join").post(catchAsync(emailMe));
+router.route("/email/join").post(validateEmailForm, catchAsync(emailMe));
 
 router
   .route("/:id")

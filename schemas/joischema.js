@@ -33,22 +33,28 @@ export const joiUserSchema = Joi.object({
     .lowercase()
     .trim()
     .escapeHTML(),
-  password: Joi.string().min(8),
-  email: Joi.string().email().lowercase().trim(),
+  password: Joi.string().min(8).escapeHTML(),
+  email: Joi.string().email().lowercase().trim().escapeHTML(),
   billaddress: Joi.object({
-    street: Joi.string().min(0).max(30).trim(),
-    street2: Joi.string().min(0).max(20).trim(),
+    street: Joi.string().min(0).max(30).trim().escapeHTML(),
+    street2: Joi.string().min(0).max(20).trim().escapeHTML(),
     city: Joi.string().min(0).max(20).trim(),
-    country: Joi.string().min(0).max(4).uppercase().trim(),
-    state: Joi.string().min(0).max(2).uppercase().trim(),
-    postal: Joi.string().min(0).max(9).trim(),
+    country: Joi.string().min(0).max(4).uppercase().trim().escapeHTML(),
+    state: Joi.string().min(0).max(2).uppercase().trim().escapeHTML(),
+    postal: Joi.string().min(0).max(9).trim().escapeHTML(),
   }),
   shipaddress: Joi.object({
-    street: Joi.string().min(0).max(30).trim(),
-    street2: Joi.string().min(0).max(20).trim(),
-    city: Joi.string().min(0).max(20).trim(),
-    country: Joi.string().min(0).max(4).uppercase().trim(),
-    state: Joi.string().min(0).max(2).uppercase().trim(),
-    postal: Joi.string().min(0).max(9).trim(),
+    street: Joi.string().min(0).max(30).trim().escapeHTML(),
+    street2: Joi.string().min(0).max(20).trim().escapeHTML(),
+    city: Joi.string().min(0).max(20).trim().escapeHTML(),
+    country: Joi.string().min(0).max(4).uppercase().trim().escapeHTML(),
+    state: Joi.string().min(0).max(2).uppercase().trim().escapeHTML(),
+    postal: Joi.string().min(0).max(9).trim().escapeHTML(),
   }),
+});
+
+export const joiEmailFormSchema = Joi.object({
+  firstname: Joi.string().min(0).max(20).trim().escapeHTML(),
+  lastname: Joi.string().min(0).max(20).trim().escapeHTML(),
+  email: Joi.string().email().required().min(0).max(50).trim().escapeHTML(),
 });
