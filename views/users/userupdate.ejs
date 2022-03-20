@@ -12,11 +12,11 @@
     <header><%-include('../partials/navbar')%></header>
     <section id="user-info">
       <h1>...Update...</h1>
+      <%if(error[0] !== undefined) {%>
+      <div class="error contained"><%=error%></div>
+      <%}%>
       <form action="/user/<%=currentUser._id%>?_method=PATCH" method="POST">
         <div class="user-info-container">
-          <%if(error[0] !== undefined) {%>
-          <div class="error"><%=error%></div>
-          <%}%>
           <div class="grid-item">
             <h2>Billing Information</h2>
             <div class="form-group">

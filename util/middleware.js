@@ -58,7 +58,7 @@ export const validateUser = (req, res, next) => {
 };
 
 export const validateUpdate = (req, res, next) => {
-  const { username, email } = req.session.user;
+  const { username, email, _id } = req.session.user;
   const data = {
     username: username,
     email: email,
@@ -82,7 +82,7 @@ export const validateUpdate = (req, res, next) => {
   const { error } = joiUserSchema.validate(data);
   if (error) {
     req.flash("error", `${error.message}`);
-    return res.redirect(`${req.originalUrl}`);
+    return res.redirect(`/user/${_id}/update`);
   }
   return next();
 };
