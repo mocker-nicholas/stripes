@@ -17,6 +17,7 @@ import {
   validateUpdate,
   isLoggedIn,
   isAdmin,
+  validateProduct,
 } from "./util/middleware.js";
 
 const app = express();
@@ -88,10 +89,9 @@ app.get("/products/new", isAdmin, (req, res) => {
   return res.render("products/productscreate");
 });
 
-app.post("/products/new", async (req, res) => {
+app.post("/products/new", validateProduct, async (req, res) => {
   const product = await new Product(req.body);
   const newProduct = await product.save();
-  console.log(newProduct);
   return res.send(newProduct);
 });
 

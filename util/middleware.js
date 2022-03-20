@@ -1,4 +1,12 @@
-import { joiUserSchema, joiEmailFormSchema } from "../schemas/joischema.js";
+import {
+  joiUserSchema,
+  joiEmailFormSchema,
+  joiProductSchema,
+} from "../schemas/joischema.js";
+
+////////////////////////////////////////////////////
+///////////////// Route Protection /////////////////
+////////////////////////////////////////////////////
 
 export const isLoggedIn = (req, res, next) => {
   if (!req.session.user) {
@@ -28,20 +36,23 @@ export const catchAsync = (func) => {
   };
 };
 
-export const validateUser = (req, res, next) => {
-  const { error } = joiUserSchema.validate(req.body);
-  if (error) {
-    req.flash("error", `${error.message}`);
-    return res.redirect(`${req.originalUrl}`);
-  }
-  return next();
-};
-
+///////////////////////////////////////////////////////
+///////////////// User Joi middleware /////////////////
+///////////////////////////////////////////////////////
 export const validateEmailForm = (req, res, next) => {
   const { error } = joiEmailFormSchema.validate(req.body);
   if (error) {
     req.flash("error", `${error.message}`);
     return res.redirect("/#jump-to");
+  }
+  return next();
+};
+
+export const validateUser = (req, res, next) => {
+  const { error } = joiUserSchema.validate(req.body);
+  if (error) {
+    req.flash("error", `${error.message}`);
+    return res.redirect(`${req.originalUrl}`);
   }
   return next();
 };
@@ -69,6 +80,18 @@ export const validateUpdate = (req, res, next) => {
     },
   };
   const { error } = joiUserSchema.validate(data);
+  if (error) {
+    req.flash("error", `${error.message}`);
+    return res.redirect(`${req.originalUrl}`);
+  }
+  return next();
+};
+
+///////////////////////////////////////////////////////
+///////////////// Product middleware //////////////////
+///////////////////////////////////////////////////////
+export const validateProduct = (req, res, next) => {
+  const { error } = joiProductSchema.validate(req.body);
   if (error) {
     req.flash("error", `${error.message}`);
     return res.redirect(`${req.originalUrl}`);
