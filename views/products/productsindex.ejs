@@ -11,6 +11,25 @@
   <body>
     <header><%-include('../partials/navbar')%></header>
     <section id="products">
+      <div class="prod-filter">
+        <ul class="filter-links">
+          <li class="jump-link-item">
+            <a href="/products/category/dresses">Dresses</a>
+          </li>
+          <li class="jump-link-item">
+            <a href="/products/category/pants">Pants</a>
+          </li>
+          <li class="jump-link-item">
+            <a href="/products/category/socks">Socks</a>
+          </li>
+          <li class="jump-link-item">
+            <a href="/products/category/sweaters">Sweaters</a>
+          </li>
+          <li class="jump-link-item">
+            <a href="/products/category/shirts">Shirts</a>
+          </li>
+        </ul>
+      </div>
       <div class="products-content">
         <div class="featured-message">
           <%if(success && success.length > 0) {%>
@@ -37,7 +56,7 @@
               </div>
               <div class="hover-info">
                 <p class="price">$<%=parseFloat(product.price).toFixed(2)%></p>
-                <a class="view-prod" href="products/<%=product._id%>">Shop</a>
+                <a class="view-prod" href="/products/<%=product._id%>">Shop</a>
               </div>
             </div>
           </div>
@@ -62,7 +81,7 @@
             </div>
             <div class="hover-info">
               <p class="price">$<%=parseFloat(product.price).toFixed(2)%></p>
-              <a class="view-prod" href="products/<%=product._id%>">Shop</a>
+              <a class="view-prod" href="/products/<%=product._id%>">Shop</a>
             </div>
           </div>
         </div>
@@ -70,5 +89,6 @@
       </div>
     </section>
     <%-include('../partials/footer')%> <%-include('../partials/bodyscripts')%>
+    <script src="/js/pubproductindex.js"></script>
   </body>
 </html>

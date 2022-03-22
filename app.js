@@ -95,16 +95,16 @@ app.post("/products/new", validateProduct, async (req, res) => {
   return res.send(newProduct);
 });
 
-app.get("/products/:id", async (req, res) => {
-  const { id } = req.params;
-  const product = await Product.findById(id);
-  return res.render("products/productsshow", { product });
-});
-
 app.get("/products/category/:cat", async (req, res) => {
   const { cat } = req.params;
   const products = await Product.find({ category: cat });
   return res.render("products/productsindex", { products });
+});
+
+app.get("/products/:id", async (req, res) => {
+  const { id } = req.params;
+  const product = await Product.findById(id);
+  return res.render("products/productsshow", { product });
 });
 
 app.delete("/products/:id", isAdmin, async (req, res) => {
