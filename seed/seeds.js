@@ -14,7 +14,7 @@ const pickRand = (arr) => {
   const index = Math.floor(Math.random() * arr.length);
   return arr[index];
 };
-const name = ["pants", "shirts", "socks", "sweaters"];
+const name = ["pants", "shirts", "socks", "sweaters", "dresses"];
 const price = [1.0, 2.0, 234.0, 7.34, 89.75, 100, 15.0];
 const imgurl = [
   "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFudHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",

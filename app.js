@@ -101,6 +101,12 @@ app.get("/products/:id", async (req, res) => {
   return res.render("products/productsshow", { product });
 });
 
+app.get("/products/category/:cat", async (req, res) => {
+  const { cat } = req.params;
+  const products = await Product.find({ category: cat });
+  return res.render("products/productsindex", { products });
+});
+
 app.delete("/products/:id", isAdmin, async (req, res) => {
   const { id } = req.params;
   const product = await Product.findByIdAndRemove(id);
