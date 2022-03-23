@@ -14,3 +14,8 @@ const showError = (element, message) => {
   errorDiv.innerText = `${message}`;
   return;
 };
+
+const pickRand = (arr) => {
+  const index = Math.floor(Math.random() * arr.length);
+  return arr[index];
+};

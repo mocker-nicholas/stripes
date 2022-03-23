@@ -54,6 +54,11 @@
               </div>
               <%if(currentUser && currentUser.isadmin === true){%>
               <div>
+                <form action="/products/<%=product._id%>/update" method="GET">
+                  <button id="updateProduct">Update Product</button>
+                </form>
+              </div>
+              <div>
                 <form
                   action="/products/<%=product._id%>?_method=DELETE"
                   method="POST"

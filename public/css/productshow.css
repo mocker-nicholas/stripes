@@ -26,6 +26,10 @@
   max-width: 50%;
 }
 
+.button {
+  min-width: 6rem;
+}
+
 .buttons {
   display: flex;
   align-items: center;
@@ -49,6 +53,26 @@
 
 #deleteProduct:active {
   background-color: rgba(255, 0, 0, 0.5);
+}
+
+#updateProduct {
+  margin-left: 1rem;
+  font-size: 1rem;
+  margin-top: 0;
+  border: none;
+  outline: none;
+  background-color: green;
+  color: var(--white);
+  padding: 0.5rem;
+  transition: 0.2s;
+}
+
+#updateProduct:hover {
+  background-color: rgba(0, 255, 0, 0.7);
+}
+
+#updateProduct:active {
+  background-color: rgba(0, 255, 0, 0.7);
 }
 
 @media screen and (max-width: 1046px) {

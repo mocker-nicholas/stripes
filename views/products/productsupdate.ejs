@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('../partials/headerlinks')%>
+    <link rel="stylesheet" href="/css/productsnew.css" />
+    <title>Stripes</title>
+  </head>
+  <body>
+    <header><%-include('../partials/navbar')%></header>
+    <section id="create-product">
+      <div class="product-form-container">
+        <form
+          action="/products/:id/?_method=PATCH"
+          class="product-form"
+          method="POST"
+        >
+          <h2>Update Product</h2>
+          <%if(error && error.length > 0){%>
+          <p class="error"><%=error%></p>
+          <%}%>
+          <div class="form-group">
+            <div><label for="name">Product Name</label></div>
+            <div>
+              <input
+                class="validate"
+                type="text"
+                name="name"
+                id="name"
+                maxlength="50"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <div><label for="price">Price</label></div>
+            <div>
+              <input
+                class="validate"
+                type="text"
+                name="price"
+                id="price"
+                maxlength="8"
+                placeholder="0.00"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select name="category" id="category">
+              <option value="shirts">Shirts</option>
+              <option value="sweaters">Sweaters</option>
+              <option value="pants">Pants</option>
+              <option value="socks">Socks</option>
+              <option value="dresses">Dresses</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <div><label for="imgurl">Image Url</label></div>
+            <div><input type="text" name="imgurl" id="imgurl" max="255" /></div>
+          </div>
+          <div class="form-group">
+            <label for="description">Product Description</label>
+            <div>
+              <textarea
+                name="description"
+                id="description"
+                cols="20"
+                rows="5"
+                maxlength="255"
+              ></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <div>
+              <label for="featured">Feature this Item?</label>
+            </div>
+            <div>
+              <select name="featured" id="featured">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <h3>Current Stock</h3>
+          </div>
+          <div class="current-stock">
+            <div class="stock-group">
+              <label for="small">Small</label>
+              <input
+                class="validate"
+                type="number"
+                name="smallinstock"
+                id="small"
+                min="0"
+                max="999"
+              />
+            </div>
+            <div class="stock-group">
+              <label for="medium">Medium</label>
+              <input
+                class="validate"
+                type="number"
+                name="mediuminstock"
+                id="medium"
+                min="0"
+                max="999"
+              />
+            </div>
+            <div class="stock-group">
+              <label for="large">Large</label>
+              <input
+                class="validate"
+                type="number"
+                name="largeinstock"
+                id="large"
+                min="0"
+                max="999"
+              />
+            </div>
+          </div>
+          <button class="btn-update" id="createBtn">Update</button>
+        </form>
+      </div>
+    </section>
+    <%-include('../partials/footer')%> <%-include('../partials/bodyscripts')%>
+    <script src="/js/pubproductnew.js"></script>
+  </body>
+</html>

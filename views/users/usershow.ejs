@@ -11,7 +11,7 @@
   <body>
     <header><%-include('../partials/navbar')%></header>
     <section id="user-info">
-      <h1>...The wild child...</h1>
+      <h1 id="typewrite" data-wait="2000"></h1>
       <%if(success[0] !== undefined) {%>
       <div class="success contained"><p><%=success%></p></div>
       <%}%> <%if(error[0] !== undefined) {%>
