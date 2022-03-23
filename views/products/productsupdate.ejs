@@ -25,6 +25,7 @@
             <div><label for="name">Product Name</label></div>
             <div>
               <input
+                value="<%=product.name%>"
                 class="validate"
                 type="text"
                 name="name"
@@ -37,6 +38,7 @@
             <div><label for="price">Price</label></div>
             <div>
               <input
+                value="<%=parseInt(product.price).toFixed(2)%>"
                 class="validate"
                 type="text"
                 name="price"
@@ -49,10 +51,25 @@
           <div class="form-group">
             <label for="category">Category</label>
             <select name="category" id="category">
+              <%if(product.category === "shirts"){%>
+              <option selected value="shirts">Shirts</option>
+              <%}%>
               <option value="shirts">Shirts</option>
+              <%if(product.category === "sweaters"){%>
+              <option selected value="sweaters">Sweaters</option>
+              <%}%>
               <option value="sweaters">Sweaters</option>
+              <%if(product.category === "pants"){%>
+              <option selected value="pants">Pants</option>
+              <%}%>
               <option value="pants">Pants</option>
+              <%if(product.category === 'socks'){%>
+              <option selected value="socks">Socks</option>
+              <%}%>
               <option value="socks">Socks</option>
+              <%if(product.category === "dresses"){%>
+              <option selected value="dresses">Dresses</option>
+              <%}%>
               <option value="dresses">Dresses</option>
             </select>
           </div>

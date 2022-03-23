@@ -109,7 +109,7 @@ app.get(
   })
 );
 
-app.get("/products/:id/update", async (req, res) => {
+app.get("/products/:id/update", isAdmin, async (req, res) => {
   const { id } = req.params;
   const product = await Product.findById(id);
   return res.render("products/productsupdate", { product });
@@ -124,11 +124,16 @@ app.get(
   })
 );
 
-app.patch("/products/:id", async (req, res) => {
-  const { id } = req.params;
-  const product = await Product.findById(id);
-  return res.send(product);
-});
+app.patch(
+  "/products/:id",
+  isAdmin,
+  validateProduct,
+  catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    return res.send(product);
+  })
+);
 
 app.delete(
   "/products/:id",
