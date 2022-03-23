@@ -89,30 +89,45 @@ app.get("/products/new", isAdmin, (req, res) => {
   return res.render("products/productscreate");
 });
 
-app.post("/products/new", validateProduct, async (req, res) => {
-  const product = await new Product(req.body);
-  const newProduct = await product.save();
-  return res.send(newProduct);
-});
+app.post(
+  "/products/new",
+  isAdmin,
+  validateProduct,
+  catchAsync(async (req, res) => {
+    const newProduct = await new Product(req.body);
+    const product = await newProduct.save();
+    return res.render("products/productsshow", { product });
+  })
+);
 
-app.get("/products/category/:cat", async (req, res) => {
-  const { cat } = req.params;
-  const products = await Product.find({ category: cat });
-  return res.render("products/productsindex", { products });
-});
+app.get(
+  "/products/category/:cat",
+  catchAsync(async (req, res) => {
+    const { cat } = req.params;
+    const products = await Product.find({ category: cat });
+    return res.render("products/productsindex", { products });
+  })
+);
 
-app.get("/products/:id", async (req, res) => {
-  const { id } = req.params;
-  const product = await Product.findById(id);
-  return res.render("products/productsshow", { product });
-});
+app.get(
+  "/products/:id",
+  catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    return res.render("products/productsshow", { product });
+  })
+);
 
-app.delete("/products/:id", isAdmin, async (req, res) => {
-  const { id } = req.params;
-  const product = await Product.findByIdAndRemove(id);
-  req.flash("success", `${product.name} has been deleted`);
-  res.redirect("/products");
-});
+app.delete(
+  "/products/:id",
+  isAdmin,
+  catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const product = await Product.findByIdAndRemove(id);
+    req.flash("success", `${product.name} has been deleted`);
+    res.redirect("/products");
+  })
+);
 
 ///////////////// Checkout Route //////////////////
 app.get("/checkout", (req, res) => {
