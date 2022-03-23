@@ -13,7 +13,7 @@
     <section id="create-product">
       <div class="product-form-container">
         <form
-          action="/products/:id/?_method=PATCH"
+          action="/products/<%=product._id%>/?_method=PATCH"
           class="product-form"
           method="POST"
         >
@@ -75,7 +75,15 @@
           </div>
           <div class="form-group">
             <div><label for="imgurl">Image Url</label></div>
-            <div><input type="text" name="imgurl" id="imgurl" max="255" /></div>
+            <div>
+              <input
+                value="<%=product.imgurl%>"
+                type="text"
+                name="imgurl"
+                id="imgurl"
+                max="255"
+              />
+            </div>
           </div>
           <div class="form-group">
             <label for="description">Product Description</label>
@@ -86,7 +94,9 @@
                 cols="20"
                 rows="5"
                 maxlength="255"
-              ></textarea>
+              >
+<%=product.description%></textarea
+              >
             </div>
           </div>
           <div class="form-group">
@@ -107,6 +117,7 @@
             <div class="stock-group">
               <label for="small">Small</label>
               <input
+                value="<%=product.smallinstock%>"
                 class="validate"
                 type="number"
                 name="smallinstock"
@@ -118,6 +129,7 @@
             <div class="stock-group">
               <label for="medium">Medium</label>
               <input
+                value="<%=product.mediuminstock%>"
                 class="validate"
                 type="number"
                 name="mediuminstock"
@@ -129,6 +141,7 @@
             <div class="stock-group">
               <label for="large">Large</label>
               <input
+                value="<%=product.largeinstock%>"
                 class="validate"
                 type="number"
                 name="largeinstock"

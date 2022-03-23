@@ -16,6 +16,9 @@
           <img src="<%=product.imgurl%>" alt="" />
         </div>
         <div class="prod-info">
+          <%if(success && success.length > 0) {%>
+          <div class="success"><%=success%></div>
+          <%}%>
           <div class="mb">
             <h2 class="title"><%=product.name%></h2>
             <div class="dark-divide"></div>

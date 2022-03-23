@@ -130,8 +130,11 @@ app.patch(
   validateProduct,
   catchAsync(async (req, res) => {
     const { id } = req.params;
-    const product = await Product.findById(id);
-    return res.send(product);
+    const product = await Product.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    req.flash("success", `${product.name} was updated!`);
+    return res.redirect(`/products/${id}`);
   })
 );
 
