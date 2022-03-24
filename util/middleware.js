@@ -94,7 +94,10 @@ export const validateProduct = (req, res, next) => {
   const { error } = joiProductSchema.validate(req.body);
   if (error) {
     req.flash("error", `${error.message}`);
-    return res.redirect(`${req.originalUrl}`);
+    if (req.method === "POST") {
+      return res.redirect(`${req.originalUrl}`);
+    }
+    return res.redirect(`/products/${req.params.id}/update`);
   }
   return next();
 };
