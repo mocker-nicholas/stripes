@@ -37,12 +37,13 @@ export const loginUser = async (req, res) => {
 
 export const logoutUser = (req, res) => {
   req.session.user = null;
-  return res.redirect("/");
+  req.flash("success", "You have successfully logged out");
+  return res.redirect("/user/login");
 };
 
 export const emailMe = async (req, res) => {
   if (!req.session.user) {
-    req.flash("success", "Sign in to to join the club for exclusive deals!");
+    req.flash("success", "Sign in to join the club for exclusive deals!");
     return res.redirect("/user/login");
   }
   const id = req.session.user._id;

@@ -28,7 +28,7 @@ router
 
 router.route("/login").get(loginForm).post(catchAsync(loginUser));
 
-router.route("/logout").get(logoutUser);
+router.route("/logout").get(isLoggedIn, logoutUser);
 
 router.route("/email/join").post(validateEmailForm, catchAsync(emailMe));
 

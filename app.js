@@ -86,7 +86,7 @@ app.get(
 );
 
 app.get("/products/new", isAdmin, (req, res) => {
-  return res.render("products/productscreate");
+  return res.render("products/productsnew");
 });
 
 app.post(
