@@ -120,6 +120,9 @@ app.get(
   catchAsync(async (req, res) => {
     const { id } = req.params;
     const product = await Product.findById(id);
+    if (!product) {
+      return res.redirect("/pagenotfound");
+    }
     return res.render("products/productsshow", { product });
   })
 );
@@ -167,6 +170,10 @@ app.use((err, req, res, next) => {
   const { statusCode = 500, message = "Not found" } = err;
   // the destructured default wont get passed through to our err object, so set that default manually.
   if (!err.message) err.message = "Oh No! Something went wrong!";
+  if (err.name === "CastError") {
+    console.log(err.message);
+    return res.redirect("/pagenotfound");
+  }
   if (req.session.user && req.session.user.isadmin === false) {
     req.flash(
       "error",
