@@ -18,9 +18,19 @@ const priceInput = document.getElementById("price");
 
 const checkPrice = (price) => {
   const displayNum = (Math.round(price * 100) / 100).toFixed(2);
+  console.log(displayNum);
+  if (displayNum == "NaN") {
+    priceInput.classList.add("required");
+    return (priceInput.value = "Please Input a valid price");
+  }
   return (priceInput.value = displayNum);
 };
 
 priceInput.addEventListener("blur", (e) => {
+  console.log(e.target.value);
   return checkPrice(e.target.value);
+});
+
+priceInput.addEventListener("focus", (e) => {
+  e.target.classList.remove("required");
 });
