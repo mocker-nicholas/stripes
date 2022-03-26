@@ -76,6 +76,21 @@ app.get("/cart", (req, res) => {
   return res.render("users/cart");
 });
 
+app.get("/cart/:id", isLoggedIn, async (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  const product = await Product.findById(id);
+  console.log(product);
+  const user = await User.findByIdAndUpdate(
+    req.session.user._id,
+    { $push: { cart: product } },
+    { new: true }
+  );
+  console.log(user);
+  req.flash("success", "Product added");
+  return res.redirect(`/products/${id}`);
+});
+
 ////////////// Product Routes //////////////////
 app.get(
   "/products",
