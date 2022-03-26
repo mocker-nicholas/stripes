@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Product from "./producschema.js";
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -46,8 +47,24 @@ const userSchema = new mongoose.Schema({
     state: String,
     postal: String,
   },
+
+  cart: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+    },
+  ],
 });
 
 const User = mongoose.model("User", userSchema);
+
+const test = async () => {
+  const muser = await User.findById("623e6d5148c7b9ce1e4b6c1a").populate(
+    "cart"
+  );
+  console.log(muser);
+};
+
+test();
 
 export default User;
