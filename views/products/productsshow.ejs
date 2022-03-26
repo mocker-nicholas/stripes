@@ -9,6 +9,11 @@
     <title>Stripes</title>
   </head>
   <body>
+    <script>
+      const productId = "<%=product._id%>";
+      const productName = "<%=product.name%>";
+      const productPrice = "<%=product.price%>";
+    </script>
     <header><%-include('../partials/navbar')%></header>
     <section id="create-product">
       <div class="product-flex">
@@ -19,6 +24,7 @@
           <%if(success && success.length > 0) {%>
           <div class="success"><%=success%></div>
           <%}%>
+          <div id="addedMsg" class="success hide"></div>
           <div class="mb">
             <h2 class="title"><%=product.name%></h2>
             <div class="dark-divide"></div>
@@ -53,12 +59,7 @@
             </div>
             <div class="buttons">
               <div class="button">
-                <a
-                  class="btn-update"
-                  href="/cart/<%=product._id%>"
-                  id="addToCart"
-                  >Add to Cart</a
-                >
+                <a class="btn-update" href="#" id="addToCart">Add to Cart</a>
               </div>
               <%if(currentUser && currentUser.isadmin === true){%>
               <div>
@@ -81,5 +82,6 @@
       </div>
     </section>
     <%-include('../partials/footer')%> <%-include('../partials/bodyscripts')%>
+    <script src="/js/pubproductshow.js"></script>
   </body>
 </html>

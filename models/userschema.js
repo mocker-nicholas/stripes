@@ -58,19 +58,19 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
-const test = async () => {
-  // const muser = await User.findById("623e6d5148c7b9ce1e4b6c1a").populate(
-  //   "cart"
-  // );
-  // console.log(muser);
-  // const user = await User.findByIdAndUpdate(
-  //   "622fd8af60f96e086522a68b",
-  //   { $pull: { cart: null } },
-  //   { new: true }
-  // );
-  // console.log(user);
-};
+// const test = async () => {
+// const muser = await User.findById("623e6d5148c7b9ce1e4b6c1a").populate(
+//   "cart"
+// );
+// console.log(muser);
+// const user = await User.findByIdAndUpdate(
+//   "622fd8af60f96e086522a68b",
+//   { $pull: { cart: null } },
+//   { new: true }
+// );
+// console.log(user);
+// };
 
-test();
+// test();
 
 export default User;
