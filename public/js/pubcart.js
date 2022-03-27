@@ -50,5 +50,10 @@ addEventListener("DOMContentLoaded", async (e) => {
     sizeP.classList.add("size", "mb");
     sizeP.innerText = `Size: ${product.size}`;
     namePriceDiv.appendChild(sizeP);
+    // Bring in description
+    const descriptionDiv = document.createElement("div");
+    descriptionDiv.classList.add("description");
+    descriptionDiv.innerText = `${product.description}`;
+    itemInfo.appendChild(descriptionDiv);
   }
 });

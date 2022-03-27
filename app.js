@@ -143,6 +143,7 @@ app.get(
     if (!product) {
       return res.redirect("/pagenotfound");
     }
+    console.log(product);
     return res.render("products/productsshow", { product });
   })
 );
