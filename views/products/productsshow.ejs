@@ -14,7 +14,8 @@
       const productName = "<%=product.name%>";
       const productPrice = "<%=product.price%>";
       const prodImgurl = "<%=product.imgurl%>";
-      const prodDescription = "<%=product.description%>";
+      /// JSON.stringify removes line break characters that are added in to db from textarea
+      const prodDescription = "<%=JSON.stringify(product.description)%>";
     </script>
     <header><%-include('../partials/navbar')%></header>
     <section id="create-product">

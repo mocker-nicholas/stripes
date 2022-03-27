@@ -6,7 +6,6 @@ addEventListener("DOMContentLoaded", async (e) => {
   cart = cart.map((index) => {
     return prodArr.push(JSON.parse(index));
   });
-  console.log(prodArr);
   for (let product of prodArr) {
     const cartItems = document.querySelector(".cart-items");
     // const response = await fetch(`/api/products/${product.id}`);

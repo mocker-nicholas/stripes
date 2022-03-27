@@ -72,8 +72,8 @@ app.get("/", (req, res) => {
 });
 
 ////////////// Shopping Cart ///////////////////
-app.get("/cart", (req, res) => {
-  return res.render("users/cart");
+app.get("/products/cart", (req, res) => {
+  return res.render("products/productscart");
 });
 
 // If we want the cart on the user you can use this code. I will use local storage for now
@@ -143,7 +143,6 @@ app.get(
     if (!product) {
       return res.redirect("/pagenotfound");
     }
-    console.log(product);
     return res.render("products/productsshow", { product });
   })
 );
