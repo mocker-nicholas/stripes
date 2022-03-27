@@ -15,11 +15,13 @@ addToCartBtn.addEventListener("click", (e) => {
   const size = document.querySelector("#size").value;
   const id = productId;
   const price = productPrice;
+  const imgurl = prodImgurl;
   const newItem = JSON.stringify({
     name: name,
     size: size,
     id: id,
     price: parseInt(price).toFixed(2),
+    imgurl: imgurl,
   });
   messageDiv.classList.add("hide");
   cart.push(newItem);
