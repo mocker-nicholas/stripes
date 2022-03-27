@@ -5,18 +5,38 @@
 .cart-container {
   padding: 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .cart-items {
   background-color: var(--white);
-  border: 1px solid red;
   gap: 1rem;
   display: flex;
   flex-direction: column;
 }
 
 .item {
-  border: 1px solid blue;
+  background-color: rgba(220, 220, 220, 0.5);
+  max-width: 60vw;
   margin: 0.5rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.item-img {
+  min-width: 300px;
+  max-width: 600px;
+  height: 400px;
+}
+
+.item-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

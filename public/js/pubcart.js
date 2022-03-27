@@ -6,12 +6,21 @@ addEventListener("DOMContentLoaded", async (e) => {
     return JSON.parse(index);
   });
   for (let product of cart) {
-    const items = document.querySelector(".cart-items");
+    const cartItems = document.querySelector(".cart-items");
     const response = await fetch(`/api/products/${product.id}`);
     const data = await response.json();
     console.log(data);
-    // const productDiv = document.createElement("div");
-    // productDiv.innerText = data.name;
-    // items.appendChild(productDiv);
+    // Create div for the item
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add("item");
+    cartItems.appendChild(itemDiv);
+    // add image div
+    const imgDiv = document.createElement("div");
+    imgDiv.classList.add("item-img");
+    itemDiv.appendChild(imgDiv);
+    // bring in image element
+    const img = document.createElement("img");
+    img.setAttribute("src", `${data.imgurl}`);
+    imgDiv.appendChild(img);
   }
 });
