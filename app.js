@@ -147,6 +147,14 @@ app.get(
   })
 );
 
+app.get("/api/products/:id", async (req, res) => {
+  const { id } = req.params;
+  const product = await Product.findById(id);
+  if (product) {
+    return res.json(product);
+  } else res.json(null);
+});
+
 app.patch(
   "/products/:id",
   isAdmin,

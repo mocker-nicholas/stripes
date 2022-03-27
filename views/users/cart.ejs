@@ -5,11 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%- include('../partials/headerlinks')%>
+    <link rel="stylesheet" href="/css/pubcart.css" />
     <title>Stripes</title>
   </head>
   <body>
     <header><%-include('../partials/navbar')%></header>
     <h1>This is your shopping cart</h1>
+    <section id="cart-display">
+      <div class="cart-container">
+        <div class="cart-items">
+          <div class="item">
+            <div>
+              <p class="title">Product Name</p>
+              <p class="price">Product Price</p>
+            </div>
+            <div class="description">
+              <p>Product Description</p>
+            </div>
+          </div>
+        </div>
+        <div class="checkout-info">
+          <div class="total">Total: <span id="totalDue">$50.00</span></div>
+          <div class="checkout">
+            <form action="">
+              <button class="btn-dark">Checkout</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
     <%-include('../partials/footer')%> <%-include('../partials/bodyscripts')%>
+    <script src="/js/pubcart.js"></script>
   </body>
 </html>

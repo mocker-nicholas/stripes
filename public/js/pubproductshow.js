@@ -9,6 +9,7 @@ addToCartBtn.addEventListener("mouseover", () => {
 });
 
 addToCartBtn.addEventListener("click", (e) => {
+  const messageDiv = document.getElementById("addedMsg");
   const cart = JSON.parse(localStorage.getItem("cart"));
   const name = productName;
   const size = document.querySelector("#size").value;
@@ -20,7 +21,10 @@ addToCartBtn.addEventListener("click", (e) => {
     id: id,
     price: parseInt(price).toFixed(2),
   });
+  messageDiv.classList.add("hide");
   cart.push(newItem);
   localStorage.setItem("cart", JSON.stringify(cart));
   console.log(cart);
+  messageDiv.innerText = `${name} has been added to cart`;
+  messageDiv.classList.toggle("hide");
 });
