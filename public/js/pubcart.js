@@ -49,10 +49,25 @@ addEventListener("DOMContentLoaded", async (e) => {
     sizeP.classList.add("size", "mb");
     sizeP.innerText = `Size: ${product.size}`;
     namePriceDiv.appendChild(sizeP);
+    // Add in divider
+    const divide = document.createElement("div");
+    divide.classList.add("dark-divide");
+    itemInfo.appendChild(divide);
     // Bring in description
     const descriptionDiv = document.createElement("div");
-    descriptionDiv.classList.add("description");
+    descriptionDiv.classList.add("description", "mb");
     descriptionDiv.innerText = `${product.description}`;
     itemInfo.appendChild(descriptionDiv);
+    // Bring in button
+    const btnDiv = document.createElement("div");
+    btnDiv.classList.add("mb");
+    itemInfo.appendChild(btnDiv);
+    const deleteBtn = document.createElement("a");
+    deleteBtn.classList.add("btn-delete");
+    deleteBtn.innerText = "Remove Item";
+    btnDiv.appendChild(deleteBtn);
+    btnDiv.addEventListener("click", (e) => {
+      console.log("got me");
+    });
   }
 });
