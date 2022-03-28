@@ -11,9 +11,11 @@ addEventListener("DOMContentLoaded", async (e) => {
     });
   }
   // Generate the UI for the items in the cart
+  let indexNum = -1;
   for (let product of prodArr) {
+    indexNum++;
     const cartItems = document.querySelector(".cart-items");
-    // const response = await fetch(`/api/products/${product.id}`);
+    // const response = await fetch(`/api/products/${product.id}`); Use this if you want the cart on the user
     // const data = await response.json();
     // console.log(data);
     // Create div for the item
@@ -70,21 +72,23 @@ addEventListener("DOMContentLoaded", async (e) => {
     const deleteBtn = document.createElement("a");
     deleteBtn.classList.add("btn-delete");
     deleteBtn.setAttribute("data-id", `${product.id}`);
+    deleteBtn.setAttribute("data-index", `${indexNum}`);
     deleteBtn.innerText = "Remove Item";
     btnDiv.appendChild(deleteBtn);
     // Add event handler for removing an item from cart
     deleteBtn.addEventListener("click", (e) => {
       const id = e.target.getAttribute("data-id");
+      const itemArrIndex = e.target.getAttribute("data-index");
       let items = JSON.parse(localStorage.getItem("cart"));
       let itemArr = [];
       items.map((index) => {
         return itemArr.push(JSON.parse(index));
       });
-      itemArr = itemArr.filter((item) => item.id !== id);
+      // itemArr = itemArr.filter((item) => item.id !== id); This method removes every cart item with the same Id
+      itemArr.splice(itemArrIndex, 1);
       itemArr = itemArr.map((item) => JSON.stringify(item));
-      console.log(itemArr);
       localStorage.setItem("cart", JSON.stringify(itemArr));
-      // location.reload();
+      e.target.parentElement.parentElement.parentElement.remove();
     });
   }
 });
