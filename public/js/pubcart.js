@@ -3,9 +3,14 @@ console.log("inside pub cart js");
 addEventListener("DOMContentLoaded", async (e) => {
   let cart = JSON.parse(localStorage.getItem("cart"));
   let prodArr = [];
-  cart = cart.map((index) => {
-    return prodArr.push(JSON.parse(index));
-  });
+
+  // Check to see if there are items in the cart
+  if (cart) {
+    cart = cart.map((index) => {
+      return prodArr.push(JSON.parse(index));
+    });
+  }
+  // Generate the UI for the items in the cart
   for (let product of prodArr) {
     const cartItems = document.querySelector(".cart-items");
     // const response = await fetch(`/api/products/${product.id}`);
@@ -64,10 +69,22 @@ addEventListener("DOMContentLoaded", async (e) => {
     itemInfo.appendChild(btnDiv);
     const deleteBtn = document.createElement("a");
     deleteBtn.classList.add("btn-delete");
+    deleteBtn.setAttribute("data-id", `${product.id}`);
     deleteBtn.innerText = "Remove Item";
     btnDiv.appendChild(deleteBtn);
-    btnDiv.addEventListener("click", (e) => {
-      console.log("got me");
+    // Add event handler for removing an item from cart
+    deleteBtn.addEventListener("click", (e) => {
+      const id = e.target.getAttribute("data-id");
+      let items = JSON.parse(localStorage.getItem("cart"));
+      let itemArr = [];
+      items.map((index) => {
+        return itemArr.push(JSON.parse(index));
+      });
+      itemArr = itemArr.filter((item) => item.id !== id);
+      itemArr = itemArr.map((item) => JSON.stringify(item));
+      console.log(itemArr);
+      localStorage.setItem("cart", JSON.stringify(itemArr));
+      // location.reload();
     });
   }
 });
