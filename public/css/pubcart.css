@@ -52,6 +52,17 @@
   margin-top: 4rem;
 }
 
+.nothing {
+  margin-bottom: 0.25rem;
+}
+
+.center-all {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width: 1046px) {
   .cart-container {
     flex-direction: column-reverse;

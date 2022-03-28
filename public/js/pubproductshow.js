@@ -18,14 +18,14 @@ addToCartBtn.addEventListener("click", (e) => {
   const imgurl = prodImgurl;
   // using JSON.stringify on the ejs variable leaves you with the HTML special entity for the " characters. Parse those out before storing them in your cart
   const description = prodDescription.replaceAll("&#34;", "");
-  const newItem = JSON.stringify({
+  const newItem = {
     name: name,
     size: size,
     id: id,
     price: parseInt(price).toFixed(2),
     imgurl: imgurl,
     description: description,
-  });
+  };
   messageDiv.classList.add("hide");
   cart.push(newItem);
   localStorage.setItem("cart", JSON.stringify(cart));

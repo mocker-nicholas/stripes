@@ -7,11 +7,31 @@ addEventListener("DOMContentLoaded", async (e) => {
   // Check to see if there are items in the cart
   if (cart) {
     cart = cart.map((index) => {
-      return prodArr.push(JSON.parse(index));
+      return prodArr.push(index);
     });
   }
   // Generate the UI for the items in the cart
   let indexNum = -1;
+  console.log(prodArr);
+  if (prodArr.length < 1) {
+    console.log("hey");
+    const cartDisplay = document.querySelector("#cart-display");
+    cartDisplay.classList.add("center-all");
+    const checkOutInfo = document.querySelector(".cart-container");
+    checkOutInfo.classList.add("hide");
+    const nothingDiv = document.createElement("div");
+    nothingDiv.textContent = "Looks like there is nothing in here";
+    nothingDiv.classList.add("nothing");
+    cartDisplay.appendChild(nothingDiv);
+    // add a shop button
+    const shopBtn = document.createElement("a");
+    shopBtn.classList.add("btn-dark");
+    shopBtn.innerText = "Go to Shop";
+    shopBtn.setAttribute("href", "/products");
+    cartDisplay.appendChild(shopBtn);
+    return;
+  }
+
   for (let product of prodArr) {
     indexNum++;
     const cartItems = document.querySelector(".cart-items");
@@ -82,13 +102,11 @@ addEventListener("DOMContentLoaded", async (e) => {
       let items = JSON.parse(localStorage.getItem("cart"));
       let itemArr = [];
       items.map((index) => {
-        return itemArr.push(JSON.parse(index));
+        return itemArr.push(index);
       });
-      // itemArr = itemArr.filter((item) => item.id !== id); This method removes every cart item with the same Id
       itemArr.splice(itemArrIndex, 1);
-      itemArr = itemArr.map((item) => JSON.stringify(item));
       localStorage.setItem("cart", JSON.stringify(itemArr));
-      e.target.parentElement.parentElement.parentElement.remove();
+      location.reload();
     });
   }
 });
