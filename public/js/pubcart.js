@@ -12,7 +12,6 @@ addEventListener("DOMContentLoaded", async (e) => {
   }
   // Generate the UI for the items in the cart
   let indexNum = -1;
-  console.log(prodArr);
   if (prodArr.length < 1) {
     console.log("hey");
     const cartDisplay = document.querySelector("#cart-display");
@@ -32,8 +31,12 @@ addEventListener("DOMContentLoaded", async (e) => {
     return;
   }
 
+  let checkoutPrice = 0;
   for (let product of prodArr) {
     indexNum++;
+    // Calculate checkout total
+    checkoutPrice += parseFloat(product.price);
+
     const cartItems = document.querySelector(".cart-items");
     // const response = await fetch(`/api/products/${product.id}`); Use this if you want the cart on the user
     // const data = await response.json();
@@ -109,4 +112,6 @@ addEventListener("DOMContentLoaded", async (e) => {
       location.reload();
     });
   }
+  const totalSpan = document.querySelector("#totalDue");
+  totalSpan.innerText = parseFloat(checkoutPrice).toFixed(2);
 });

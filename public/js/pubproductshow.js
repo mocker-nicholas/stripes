@@ -22,7 +22,7 @@ addToCartBtn.addEventListener("click", (e) => {
     name: name,
     size: size,
     id: id,
-    price: parseInt(price).toFixed(2),
+    price: price,
     imgurl: imgurl,
     description: description,
   };
