@@ -71,7 +71,7 @@ addEventListener("DOMContentLoaded", async (e) => {
     priceP.innerText = "Product Price: ";
     namePriceDiv.appendChild(priceP);
     const priceSpan = document.createElement("span");
-    priceSpan.innerText = `$${product.price}`;
+    priceSpan.innerText = `$${parseFloat(product.price).toFixed(2)}`;
     priceSpan.classList.add("success");
     priceP.appendChild(priceSpan);
     // Bring in Size
