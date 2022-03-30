@@ -11,6 +11,7 @@ import ExpressError from "./util/expresserror.js";
 import User from "./models/userschema.js";
 import Product from "./models/producschema.js";
 import userRouter from "./routers/userrouter.js";
+import productsRouter from "./routers/productrouter.js";
 import {
   catchAsync,
   validateUser,
@@ -64,6 +65,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/user", userRouter);
+app.use("/products", productsRouter);
 
 //////////// Homepage Route ///////////////
 app.get("/", (req, res) => {
@@ -96,57 +98,7 @@ app.get("/products/cart", (req, res) => {
 //   }
 // });
 
-////////////// Product Routes //////////////////
-app.get(
-  "/products",
-  catchAsync(async (req, res) => {
-    const products = await Product.find({});
-    return res.render("products/productsindex", { products });
-  })
-);
-
-app.get("/products/new", isAdmin, (req, res) => {
-  return res.render("products/productsnew");
-});
-
-app.post(
-  "/products/new",
-  isAdmin,
-  validateProduct,
-  catchAsync(async (req, res) => {
-    const newProduct = await new Product(req.body);
-    const product = await newProduct.save();
-    return res.render("products/productsshow", { product });
-  })
-);
-
-app.get(
-  "/products/category/:cat",
-  catchAsync(async (req, res) => {
-    const { cat } = req.params;
-    const products = await Product.find({ category: cat });
-    return res.render("products/productsindex", { products });
-  })
-);
-
-app.get("/products/:id/update", isAdmin, async (req, res) => {
-  const { id } = req.params;
-  const product = await Product.findById(id);
-  return res.render("products/productsupdate", { product });
-});
-
-app.get(
-  "/products/:id",
-  catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const product = await Product.findById(id);
-    if (!product) {
-      return res.redirect("/pagenotfound");
-    }
-    return res.render("products/productsshow", { product });
-  })
-);
-
+////////////// Product API Routes //////////////////
 app.get("/api/products/:id", async (req, res) => {
   const { id } = req.params;
   const product = await Product.findById(id);
@@ -154,31 +106,6 @@ app.get("/api/products/:id", async (req, res) => {
     return res.json(product);
   } else res.json(null);
 });
-
-app.patch(
-  "/products/:id",
-  isAdmin,
-  validateProduct,
-  catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const product = await Product.findByIdAndUpdate(id, req.body, {
-      new: true,
-    });
-    req.flash("success", `${product.name} was updated!`);
-    return res.redirect(`/products/${id}`);
-  })
-);
-
-app.delete(
-  "/products/:id",
-  isAdmin,
-  catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const product = await Product.findByIdAndRemove(id);
-    req.flash("success", `${product.name} has been deleted`);
-    res.redirect("/products");
-  })
-);
 
 ///////////////// Checkout Route //////////////////
 app.get("/checkout", (req, res) => {
