@@ -3,13 +3,13 @@ console.log("inside pub cart js");
 addEventListener("DOMContentLoaded", async (e) => {
   let cart = JSON.parse(localStorage.getItem("cart"));
   let prodArr = [];
-
   // Check to see if there are items in the cart
   if (cart) {
     cart = cart.map((index) => {
       return prodArr.push(index);
     });
   }
+
   // Generate the UI for the items in the cart
   let indexNum = -1;
   if (prodArr.length < 1) {
