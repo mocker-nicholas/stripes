@@ -5,13 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%- include('../partials/headerlinks')%>
+    <script src="https://js.stripe.com/v3/"></script>
     <title>Stripes</title>
   </head>
   <body>
     <header><%-include('../partials/navbar')%></header>
     <section id="checkout">
       <h1>Checkout Form!!!</h1>
+      <form id="payment-form">
+        <div id="payment-element"></div>
+        <button id="submit">
+          <div class="spinner hidden" id="spinner"></div>
+          <span id="button-text">Pay now</span>
+        </button>
+        <div id="payment-message" class="hidden"></div>
+      </form>
     </section>
     <%-include('../partials/footer')%> <%-include('../partials/bodyscripts')%>
+    <script src="/js/pubcheckout.js"></script>
   </body>
 </html>

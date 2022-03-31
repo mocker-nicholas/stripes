@@ -45,6 +45,7 @@ app.set("views", path.join(__dirname, "views"));
 ////////// request Middlware ///////////////
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(
   session({
@@ -106,6 +107,20 @@ app.get("/api/products/:id", async (req, res) => {
 });
 
 ///////////////// Checkout Route //////////////////
+app.post("/create-payment-intent", async (req, res) => {
+  const products = req.body;
+  // Create a PaymentIntent with the order amount and currency
+  // const paymentIntent = await stripe.paymentIntents.create({
+  //   amount: 100,
+  //   currency: "usd",
+  //   automatic_payment_methods: {
+  //     enabled: true,
+  //   },
+  // });
+
+  res.json(products);
+});
+
 app.get("/checkout", (req, res) => {
   return res.render("checkout/checkout");
 });
