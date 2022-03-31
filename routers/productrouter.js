@@ -10,6 +10,7 @@ import {
 } from "../util/middleware.js";
 import {
   renderProducts,
+  goToCart,
   renderNewProductForm,
   renderProductUpdateForm,
   createNewProduct,
@@ -22,6 +23,8 @@ import {
 const router = express.Router();
 
 router.route("/").get(catchAsync(renderProducts));
+
+router.route("/cart").get(goToCart);
 
 router
   .route("/new")

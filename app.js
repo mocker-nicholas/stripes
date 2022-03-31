@@ -74,10 +74,6 @@ app.get("/", (req, res) => {
 });
 
 ////////////// Shopping Cart ///////////////////
-app.get("/products/cart", (req, res) => {
-  return res.render("products/productscart");
-});
-
 // If we want the cart on the user you can use this code. I will use local storage for now
 // app.get("/cart/:id", async (req, res) => {
 //   const id = req.params.id;

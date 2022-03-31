@@ -5,6 +5,10 @@ export const renderProducts = async (req, res) => {
   return res.render("products/productsindex", { products });
 };
 
+export const goToCart = (req, res) => {
+  return res.render("products/productscart");
+};
+
 export const renderNewProductForm = (req, res) => {
   return res.render("products/productsnew");
 };
