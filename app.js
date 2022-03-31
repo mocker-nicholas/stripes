@@ -8,6 +8,7 @@ import session from "express-session";
 import flash from "connect-flash";
 import methodOverride from "method-override";
 import bcrypt from "bcrypt";
+import Stripe from "stripe";
 import ExpressError from "./util/expresserror.js";
 import User from "./models/userschema.js";
 import Product from "./models/producschema.js";
@@ -26,6 +27,7 @@ dotenv.config();
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const stripe = new Stripe(`${process.env.STRIPE_PRIVATE_KEY}`);
 
 ////////// Connect to the database //////////////
 const connectDb = async () => {
@@ -108,17 +110,16 @@ app.get("/api/products/:id", async (req, res) => {
 
 ///////////////// Checkout Route //////////////////
 app.post("/create-payment-intent", async (req, res) => {
-  const products = req.body;
+  const { products, total } = req.body;
   // Create a PaymentIntent with the order amount and currency
-  // const paymentIntent = await stripe.paymentIntents.create({
-  //   amount: 100,
-  //   currency: "usd",
-  //   automatic_payment_methods: {
-  //     enabled: true,
-  //   },
-  // });
-
-  res.json(products);
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: total * 100,
+    currency: "usd",
+    automatic_payment_methods: {
+      enabled: true,
+    },
+  });
+  res.json(paymentIntent);
 });
 
 app.get("/checkout", (req, res) => {
