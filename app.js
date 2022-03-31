@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import path from "path";
@@ -21,6 +22,7 @@ import {
   validateProduct,
 } from "./util/middleware.js";
 
+dotenv.config();
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

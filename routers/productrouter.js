@@ -1,13 +1,5 @@
 import express from "express";
-import {
-  catchAsync,
-  isLoggedIn,
-  validateUser,
-  validateUpdate,
-  validateEmailForm,
-  isAdmin,
-  validateProduct,
-} from "../util/middleware.js";
+import { catchAsync, isAdmin, validateProduct } from "../util/middleware.js";
 import {
   renderProducts,
   goToCart,
