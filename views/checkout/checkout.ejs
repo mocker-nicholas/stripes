@@ -15,15 +15,25 @@
   <body>
     <header><%-include('../partials/navbar')%></header>
     <section id="checkout">
-      <h1>Checkout Form!!!</h1>
-      <form id="payment-form">
-        <div id="payment-element"></div>
-        <button id="submit">
-          <div class="spinner hidden" id="spinner"></div>
-          <span id="button-text">Pay now</span>
-        </button>
-        <div id="payment-message" class="hidden"></div>
-      </form>
+      <div class="checkout-container">
+        <div class="products-info">
+          <div class="test-data mb">
+            <p>Test CC Number: 4111111111111111</p>
+            <p>Test Exp Date: 12/23</p>
+            <p>Test CVC: 232</p>
+          </div>
+        </div>
+        <div class="card-form">
+          <form id="payment-form">
+            <div id="payment-element"></div>
+            <button id="submit">
+              <div class="spinner hidden" id="spinner"></div>
+              <span id="button-text">Pay now</span>
+            </button>
+            <div id="payment-message" class="hidden"></div>
+          </form>
+        </div>
+      </div>
     </section>
     <%-include('../partials/footer')%> <%-include('../partials/bodyscripts')%>
     <script src="/js/pubcheckout.js"></script>
