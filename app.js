@@ -126,6 +126,10 @@ app.get("/checkout", (req, res) => {
   return res.render("checkout/checkout");
 });
 
+app.get("/checkout/complete", (req, res) => {
+  return res.render("checkout/success");
+});
+
 ////// Add a catch all for misc errors ///////////
 app.all("*", (req, res) => {
   return res.render("pagenotfound");

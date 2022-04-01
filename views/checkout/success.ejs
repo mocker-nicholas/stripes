@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('../partials/headerlinks')%>
+    <link rel="stylesheet" href="/css/success.css" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      const stripePub = "<%=process.env.STRIPE_PUBLIC_KEY%>";
+    </script>
+    <title>Stripes</title>
+  </head>
+  <body>
+    <header><%-include('../partials/navbar')%></header>
+    <section id="success">
+      <div class="img">
+        <a href="/products" class="btn-dark">Continue Shopping</a>
+        <p class="msg success">Your Payment was Successful!</p>
+        <img src="/img/success.svg" alt="" />
+      </div>
+    </section>
+    <%-include('../partials/footer')%> <%-include('../partials/bodyscripts')%>
+    <script src="/js/success.js"></script>
+  </body>
+</html>

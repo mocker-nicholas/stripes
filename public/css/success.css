@@ -1,0 +1,29 @@
+#success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.img {
+    position: relative;
+}
+
+.img img {
+    max-width: 94vw;
+    min-height: 60vh;
+}
+
+.img a {
+    color: var(--white);
+    position: absolute;
+    bottom: 15vh;
+    left: 1rem;
+}
+
+.img p {
+    position: absolute;
+    bottom: 22vh;
+    left: 1rem;
+}
