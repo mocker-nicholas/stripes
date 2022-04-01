@@ -4,6 +4,7 @@ const stripe = Stripe(stripePub);
 
 // Listen for the user to submit the payment method
 submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   return handleSubmit(e);
 });
 
@@ -40,8 +41,11 @@ window.addEventListener("DOMContentLoaded", async () => {
     productDiv.appendChild(sizeP);
     // create product price
     const priceP = document.createElement("p");
-    priceP.innerText = `Price: ${parseFloat(product.price).toFixed(2)}`;
-    priceP.classList.add("success");
+    priceP.classList.add("priceP");
+    const spanP = document.createElement("span");
+    spanP.innerText = `Price: $${parseFloat(product.price).toFixed(2)}`;
+    spanP.classList.add("price");
+    priceP.appendChild(spanP);
     productDiv.appendChild(priceP);
     // Create Divider
     const divide = document.createElement("div");
@@ -75,18 +79,14 @@ window.addEventListener("DOMContentLoaded", async () => {
   paymentElement.mount("#payment-element");
 });
 
-const showMessage = (e) => {
-  console.log(e);
-};
-
 async function handleSubmit(e) {
   e.preventDefault();
-  //   setLoading(true);
+  setLoading(true);
 
   const { error } = await stripe.confirmPayment({
     elements,
     confirmParams: {
-      return_url: "http://localhost:3000/checkout",
+      return_url: "http://localhost:3000/cart",
     },
   });
   if (error.type === "card_error" || error.type === "validation_error") {
@@ -98,4 +98,28 @@ async function handleSubmit(e) {
   }
 
   setLoading(false);
+}
+
+function showMessage(messageText) {
+  const messageContainer = document.querySelector("#payment-message");
+  messageContainer.classList.remove("hidden");
+  messageContainer.textContent = messageText;
+
+  setTimeout(function () {
+    messageContainer.classList.add("hidden");
+    messageText.textContent = "";
+  }, 4000);
+}
+
+function setLoading(isLoading) {
+  if (isLoading) {
+    // Disable the button and show a spinner
+    document.querySelector("#submit").disabled = true;
+    document.querySelector("#spinner").classList.remove("hidden");
+    document.querySelector("#button-text").classList.add("hidden");
+  } else {
+    document.querySelector("#submit").disabled = false;
+    document.querySelector("#spinner").classList.add("hidden");
+    document.querySelector("#button-text").classList.remove("hidden");
+  }
 }
