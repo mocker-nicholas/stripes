@@ -1,19 +1,12 @@
 console.log("in pub checkout");
-const submitBtn = document.getElementById("button-text");
+const stripeForm = document.getElementById("payment-form");
 const stripe = Stripe(stripePub);
-
-// Listen for the user to submit the payment method
-submitBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  return handleSubmit(e);
-});
 
 // Generate Shopping Cart Items and total
 window.addEventListener("DOMContentLoaded", async () => {
   const products = await getCartProducts();
   const total = getTotal(products);
   createProducts(products);
-
   // Create a payment intent for the total of the shopping cart
   const response = await fetch("/create-payment-intent", {
     method: "POST",
@@ -33,6 +26,11 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   const paymentElement = elements.create("payment");
   paymentElement.mount("#payment-element");
+});
+
+//// Listen for form submit
+stripeForm.addEventListener("submit", (e) => {
+  handleSubmit(e);
 });
 
 ///// Send the payment method to stripe
