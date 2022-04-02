@@ -65,7 +65,11 @@
           <%}%> <%}%>
         </div>
         <div class="divide-dark"></div>
+        <%if(cat !== null){%>
+        <h2>All <%=cat%></h2>
+        <%} else {%>
         <h2>All Products</h2>
+        <%}%>
         <div class="divide-dark"></div>
       </div>
       <div class="products-grid">

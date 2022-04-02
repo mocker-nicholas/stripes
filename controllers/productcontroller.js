@@ -1,8 +1,9 @@
 import Product from "../models/producschema.js";
 
 export const renderProducts = async (req, res) => {
+  const cat = null;
   const products = await Product.find({});
-  return res.render("products/productsindex", { products });
+  return res.render("products/productsindex", { products, cat });
 };
 
 export const goToCart = (req, res) => {
@@ -28,7 +29,7 @@ export const renderProductUpdateForm = async (req, res) => {
 export const searchProductCat = async (req, res) => {
   const { cat } = req.params;
   const products = await Product.find({ category: cat });
-  return res.render("products/productsindex", { products });
+  return res.render("products/productsindex", { products, cat });
 };
 
 export const showProduct = async (req, res) => {
