@@ -58,7 +58,9 @@ addEventListener("DOMContentLoaded", async (e) => {
     imgDiv.appendChild(imgLink);
     // bring in image element
     const img = document.createElement("img");
-    img.setAttribute("src", `${product.imgurl}`);
+    setTimeout(() => {
+      return img.setAttribute("src", `${product.imgurl}`);
+    }, 500);
     imgLink.appendChild(img);
     // create item info div
     const itemInfo = document.createElement("div");
