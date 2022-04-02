@@ -103,6 +103,13 @@ form button {
   border-radius: 8px;
   display: none;
   cursor: pointer;
+  transition: 0.1s all;
+  position: relative;
+}
+
+.burger:active {
+  background-color: var(--opink);
+  transform: scale(0.9);
 }
 
 .line {
@@ -110,7 +117,24 @@ form button {
   height: 5px;
   width: 100%;
   border-radius: 4px;
+  transition: 0.2s all;
 }
+
+.mid-line-center {
+ position: absolute;
+ width: 2rem;
+ transform: rotate(45deg);
+ left: 0.5rem;
+ top: 1.35rem;
+}
+
+.bottom-line-center {
+  position: absolute;
+  width: 2rem;
+  transform: rotate(-45deg);
+  left: 0.5rem;
+  top: 1.35rem;
+ }
 
 .small-nav {
   background-color: var(--dark);
