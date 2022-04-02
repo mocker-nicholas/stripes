@@ -10,7 +10,7 @@ addEventListener("DOMContentLoaded", async (e) => {
     });
   }
 
-  // Generate the UI for the items in the cart
+  // Generate the UI for the items in the cart if there are items, if not, show message and shop button
   let indexNum = -1;
   if (prodArr.length < 1) {
     console.log("hey");
@@ -49,10 +49,14 @@ addEventListener("DOMContentLoaded", async (e) => {
     const imgDiv = document.createElement("div");
     imgDiv.classList.add("item-img");
     itemDiv.appendChild(imgDiv);
+    // add image link
+    const imgLink = document.createElement("a");
+    imgLink.setAttribute("href", `/products/${product.id}`);
+    imgDiv.appendChild(imgLink);
     // bring in image element
     const img = document.createElement("img");
     img.setAttribute("src", `${product.imgurl}`);
-    imgDiv.appendChild(img);
+    imgLink.appendChild(img);
     // create item info div
     const itemInfo = document.createElement("div");
     itemInfo.classList.add("item-info");
