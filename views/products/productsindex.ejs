@@ -36,10 +36,12 @@
           <div class="success"><%=success%></div>
           <%}%> <%if(error && error.length > 0) {%>
           <div class="error"><%=error%></div>
-          <%}%>
+          <%}%> <% let i = 0 %> <%for(let product of products) {%>
+          <%if(product.featured) i++%><%}%> <%if(i > 0){%>
           <div class="divide-dark"></div>
           <h1>Featured this season!</h1>
           <div class="divide-dark"></div>
+          <%}%>
         </div>
         <div class="featured-products">
           <% for(let product of products) {%> <%if(product.featured === true){%>
