@@ -123,7 +123,7 @@ form button {
 .mid-line-center {
  position: absolute;
  width: 2rem;
- transform: rotate(45deg);
+ transform: rotate(225deg);
  left: 0.5rem;
  top: 1.35rem;
 }
@@ -131,7 +131,7 @@ form button {
 .bottom-line-center {
   position: absolute;
   width: 2rem;
-  transform: rotate(-45deg);
+  transform: rotate(-225deg);
   left: 0.5rem;
   top: 1.35rem;
  }

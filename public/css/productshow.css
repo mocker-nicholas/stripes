@@ -26,6 +26,12 @@
   max-width: 50%;
 }
 
+/* I could have used id here, but wanted to try using an attribute selector. Im learning! */
+select[name="size"] {
+  font-size: 1rem;
+  padding: 0 0.25rem;
+}
+
 .button {
   min-width: 6rem;
 }
