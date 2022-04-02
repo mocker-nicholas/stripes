@@ -13,18 +13,22 @@ addEventListener("DOMContentLoaded", async (e) => {
   // Generate the UI for the items in the cart if there are items, if not, show message and shop button
   let indexNum = -1;
   if (prodArr.length < 1) {
-    console.log("hey");
     const cartDisplay = document.querySelector("#cart-display");
     cartDisplay.classList.add("center-all");
+    cartDisplay.setAttribute(
+      "style",
+      "background-image: url(../img/emptycart.svg); background-repeat: no-repeat; background-position: center; background-size: contain; margin: 1rem 0; position: relative;"
+    );
+    /// Bring in SVG for backround
     const checkOutInfo = document.querySelector(".cart-container");
     checkOutInfo.classList.add("hide");
     const nothingDiv = document.createElement("div");
-    nothingDiv.textContent = "Looks like there is nothing in here";
+    nothingDiv.textContent = "Nothing is in your cart!";
     nothingDiv.classList.add("nothing");
     cartDisplay.appendChild(nothingDiv);
     // add a shop button
     const shopBtn = document.createElement("a");
-    shopBtn.classList.add("btn-dark");
+    shopBtn.classList.add("btn-dark", "cart-btn");
     shopBtn.innerText = "Go to Shop";
     shopBtn.setAttribute("href", "/products");
     cartDisplay.appendChild(shopBtn);
@@ -36,7 +40,6 @@ addEventListener("DOMContentLoaded", async (e) => {
     indexNum++;
     // Calculate checkout total
     checkoutPrice += parseFloat(product.price);
-
     const cartItems = document.querySelector(".cart-items");
     // const response = await fetch(`/api/products/${product.id}`); Use this if you want the cart on the user
     // const data = await response.json();

@@ -1,5 +1,5 @@
 #cart-display {
-  min-height: 50vh;
+  min-height: 60vh;
 }
 
 .cart-container {
@@ -53,7 +53,14 @@
 }
 
 .nothing {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.75rem;
+  margin-right: 225px;
+}
+
+#cart-display .cart-btn {
+  color: var(--white);
+  margin-bottom: 4rem;
+  margin-right: 225px;
 }
 
 .center-all {
