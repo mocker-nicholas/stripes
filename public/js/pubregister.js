@@ -1,13 +1,5 @@
 console.log("Inside public register");
 
-const showError = (element, message) => {
-  const errorDiv = element.nextElementSibling;
-  element.setAttribute("style", "border: 2px solid red");
-  errorDiv.classList.remove("hide");
-  errorDiv.innerText = `${message}`;
-  return;
-};
-
 const formbtn = document.querySelector("#registerbtn");
 formbtn.addEventListener("click", (e) => {
   const username = document.querySelector("#username");
