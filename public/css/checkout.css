@@ -101,9 +101,11 @@ form {
     box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
     width: 100%;
   }
+
   button:hover {
     filter: contrast(115%);
   }
+
   button:disabled {
     opacity: 0.5;
     cursor: default;
@@ -115,6 +117,7 @@ form {
   .spinner:after {
     border-radius: 50%;
   }
+
   .spinner {
     color: #ffffff;
     font-size: 22px;
@@ -128,11 +131,13 @@ form {
     -ms-transform: translateZ(0);
     transform: translateZ(0);
   }
+
   .spinner:before,
   .spinner:after {
     position: absolute;
     content: "";
   }
+
   .spinner:before {
     width: 10.4px;
     height: 20.4px;
@@ -145,6 +150,7 @@ form {
     -webkit-animation: loading 2s infinite ease 1.5s;
     animation: loading 2s infinite ease 1.5s;
   }
+
   .spinner:after {
     width: 10.4px;
     height: 10.2px;
@@ -168,6 +174,7 @@ form {
       transform: rotate(360deg);
     }
   }
+
   @keyframes loading {
     0% {
       -webkit-transform: rotate(0deg);
@@ -185,3 +192,19 @@ form {
       min-width: initial;
     }
   }
+
+@media screen and (max-width: 1046px) {
+  .checkout-container {
+    flex-direction: column-reverse;
+  }
+
+  form {
+    margin-top: 0;
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .products-info {
+    min-width: 100%;
+  }
+}

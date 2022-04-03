@@ -218,6 +218,34 @@ form button {
   transform: scale(1.1);
 }
 
+.social-icons {
+  margin-top: 0.5rem;
+  display: flex;
+}
+
+.icon {
+  border: 2px solid var(--yellow);
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+.icon:active {
+  transform: scale(0.9);
+}
+
+.linkedin {
+  margin-right: 0.5rem;
+}
+
+.github {
+  margin-left: 0.5rem;
+}
+
 /* 404 page */
 #notfound {
   display: flex;
@@ -434,7 +462,7 @@ form button {
   }
 
   .footer-container {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .footer-column {
@@ -442,14 +470,16 @@ form button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-top: 2px solid var(--yellow);
+    padding: 1rem;
   }
 
-  .footer-column:nth-of-type(1) {
-    display: none;
+  .footer-column ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .footer-column:nth-of-type(2) {
-    display: none;
-  }
+
   .footer-column label {
     font-size: 1.25rem;
   }
