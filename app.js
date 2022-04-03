@@ -22,6 +22,7 @@ import {
   isAdmin,
   validateProduct,
 } from "./util/middleware.js";
+import { renderNewProductForm } from "./controllers/productcontroller.js";
 
 dotenv.config();
 const app = express();
@@ -139,12 +140,13 @@ app.all("*", (req, res) => {
 app.use((err, req, res, next) => {
   if (err.code === 11000) {
     err.message = "Username or email is already being used";
+    req.flash("error", `${err.message}`);
+    return res.redirect(`${req.originalUrl}`);
   }
   const { statusCode = 500, message = "Not found" } = err;
   // the destructured default wont get passed through to our err object, so set that default manually.
   if (!err.message) err.message = "Oh No! Something went wrong!";
   if (err.name === "CastError") {
-    console.log(err.message);
     return res.redirect("/pagenotfound");
   }
   if (req.session.user && req.session.user.isadmin === false) {
