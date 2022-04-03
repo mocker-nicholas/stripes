@@ -19,6 +19,7 @@
 .item {
   background-color: rgba(220, 220, 220, 0.5);
   max-width: 60vw;
+  min-width: 50vw;
   margin: 0.5rem 0;
   display: flex;
   gap: 1rem;
@@ -26,7 +27,7 @@
 
 .item-img {
   min-width: 300px;
-  max-width: 600px;
+  max-width: 350px;
   height: 350px;
 }
 
@@ -112,6 +113,7 @@
   .item {
     display: flex;
     flex-direction: column;
+    width: 100%;
     padding: 0.5rem;
   }
 
