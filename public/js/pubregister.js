@@ -30,3 +30,11 @@ formbtn.addEventListener("click", (e) => {
     return showError(password, message);
   }
 });
+
+const form = document.querySelector("#register-user-form");
+form.addEventListener("click", (e) => {
+  const error = form.firstChild.nextSibling.nextSibling.nextSibling;
+  if (error.classList && error.classList.contains("error")) {
+    error.remove();
+  }
+});

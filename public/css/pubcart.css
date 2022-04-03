@@ -70,6 +70,10 @@
   align-items: center;
 }
 
+#checkout-btn {
+  color: var(--white);
+}
+
 @media screen and (max-width: 1046px) {
   .cart-container {
     flex-direction: column-reverse;
@@ -82,9 +86,18 @@
 }
 
 @media screen and (max-width: 768px) {
+  .cart-container {
+    padding: 0.5rem;
+  }
+
+  .checkout-info {
+    margin-top: 1rem;
+  }
+
   .item {
     display: flex;
     flex-direction: column;
+    padding: 0.5rem;
   }
 
   .item-img {
