@@ -92,4 +92,18 @@ select[name="size"] {
   .prod-info {
     min-width: 90%;
   }
+
+  .buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .button {
+    margin-bottom: 1rem;
+  }
+
+  #updateProduct, #deleteProduct {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
 }

@@ -106,7 +106,7 @@ addEventListener("DOMContentLoaded", async (e) => {
     deleteBtn.classList.add("btn-delete");
     deleteBtn.setAttribute("data-id", `${product.id}`);
     deleteBtn.setAttribute("data-index", `${indexNum}`);
-    deleteBtn.innerText = "Remove Item";
+    deleteBtn.innerText = "Remove";
     btnDiv.appendChild(deleteBtn);
     // Add event handler for removing an item from cart
     deleteBtn.addEventListener("click", (e) => {
