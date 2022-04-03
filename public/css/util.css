@@ -148,6 +148,16 @@ form button {
 .small-nav-item {
   font-size: 2rem;
   margin-bottom: 2.5rem;
+  transition: all 0.2s;
+}
+
+.small-nav-item:hover {
+  color: var(--yellow)
+}
+
+.small-nav-item:active {
+  color: var(--yellow);
+  background-color: var(--opink);
 }
 
 .admin-nav {

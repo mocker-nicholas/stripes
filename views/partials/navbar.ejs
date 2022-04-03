@@ -8,17 +8,42 @@
     <div class="nav-flex-item">
       <div class="nav-ul">
         <% if(!currentUser) { %>
-        <li class="nav-item"><a href="/products">Products</a></li>
-        <li class="nav-item"><a href="/products/cart">Cart</a></li>
-        <li class="nav-item"><a href="/user/register">Sign Up</a></li>
-        <li class="nav-item"><a href="/user/login">Login</a></li>
-        <%} else {%>
-        <li class="nav-item"><a href="/products">Products</a></li>
-        <li class="nav-item"><a href="/products/cart">Cart</a></li>
-        <li class="nav-item"><a href="/user/logout">Logout</a></li>
         <li class="nav-item">
-          <a href="/user/<%=currentUser._id%>"
-            ><%=currentUser.username%> <% if(currentUser.isadmin === true){ %>
+          <a href="/products"
+            ><i class="fa-solid fa-bag-shopping"></i> Products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="/products/cart"
+            ><i class="fa-solid fa-cart-shopping"></i> Cart</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="/user/register"
+            ><i class="fa-solid fa-user-plus"></i> Sign Up</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="/user/login"><i class="fa-solid fa-user"></i> Login</a>
+        </li>
+        <%} else {%>
+        <li class="nav-item">
+          <a href="/products"
+            ><i class="fa-solid fa-bag-shopping"></i> Products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="/products/cart"
+            ><i class="fa-solid fa-cart-shopping"></i> Cart</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="/user/logout"><i class="fa-solid fa-user"></i> Logout</a>
+        </li>
+        <li class="nav-item">
+          <a href="/user/<%=currentUser._id%>">
+            <i class="fa-solid fa-lock"></i>
+            <%=currentUser.username%> <% if(currentUser.isadmin === true){ %>
             ADMIN <%}%>
           </a>
         </li>
@@ -33,19 +58,35 @@
   </nav>
   <nav class="small-nav hide">
     <ul class="small-nav-list">
-      <li class="small-nav-item"><a href="/products">Products</a></li>
-      <li class="small-nav-item"><a href="/products/cart">Cart</a></li>
+      <li class="small-nav-item">
+        <a href="/products">
+          <i class="fa-solid fa-bag-shopping"></i> Products</a
+        >
+      </li>
+      <li class="small-nav-item">
+        <a href="/products/cart"
+          ><i class="fa-solid fa-cart-shopping"></i> Cart</a
+        >
+      </li>
       <% if(!currentUser) { %>
-      <li class="small-nav-item"><a href="/user/register">Sign Up</a></li>
-      <li class="small-nav-item"><a href="/user/login">Login</a></li>
+      <li class="small-nav-item">
+        <a href="/user/register">
+          <i class="fa-solid fa-user-plus"></i> Sign Up</a
+        >
+      </li>
+      <li class="small-nav-item">
+        <a href="/user/login"><i class="fa-solid fa-user"></i> Login</a>
+      </li>
       <%} else {%>
       <li class="small-nav-item">
         <a href="/user/<%=currentUser._id%>"
-          ><%=currentUser.username%> <% if(currentUser.isadmin === true){ %>
-          ADMIN <%}%></a
+          ><i class="fa-solid fa-lock"></i> <%=currentUser.username%> <%
+          if(currentUser.isadmin === true){ %> ADMIN <%}%></a
         >
       </li>
-      <li class="small-nav-item"><a href="/user/logout">Logout</a></li>
+      <li class="small-nav-item">
+        <a href="/user/logout"><i class="fa-solid fa-user"></i> Logout</a>
+      </li>
       <%}%>
     </ul>
   </nav>

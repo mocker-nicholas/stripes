@@ -97,10 +97,11 @@ addEventListener("DOMContentLoaded", async (e) => {
     descriptionDiv.classList.add("description", "mb");
     descriptionDiv.innerText = `${product.description}`;
     itemInfo.appendChild(descriptionDiv);
-    // Bring in button
+    // Bring in button div
     const btnDiv = document.createElement("div");
     btnDiv.classList.add("mb");
     itemInfo.appendChild(btnDiv);
+    // bring in button
     const deleteBtn = document.createElement("a");
     deleteBtn.classList.add("btn-delete");
     deleteBtn.setAttribute("data-id", `${product.id}`);

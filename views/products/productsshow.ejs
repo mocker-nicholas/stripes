@@ -63,12 +63,16 @@
             </div>
             <div class="buttons">
               <div class="button">
-                <a class="btn-update" href="#" id="addToCart">Add to Cart</a>
+                <a class="btn-update" href="#" id="addToCart"
+                  ><i class="fa-solid fa-cart-plus"></i> Add to Cart</a
+                >
               </div>
               <%if(currentUser && currentUser.isadmin === true){%>
               <div>
                 <form action="/products/<%=product._id%>/update" method="GET">
-                  <button id="updateProduct">Update Product</button>
+                  <button id="updateProduct">
+                    <i class="fa-solid fa-pen"></i> Update Product
+                  </button>
                 </form>
               </div>
               <div>
@@ -76,7 +80,9 @@
                   action="/products/<%=product._id%>?_method=DELETE"
                   method="POST"
                 >
-                  <button id="deleteProduct">Delete Product</button>
+                  <button id="deleteProduct">
+                    <i class="fa-solid fa-circle-minus"></i> Delete Product
+                  </button>
                 </form>
               </div>
               <%}%>
