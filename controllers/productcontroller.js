@@ -2,8 +2,11 @@ import Product from "../models/producschema.js";
 
 export const renderProducts = async (req, res) => {
   const cat = null;
-  const products = await Product.find({});
-  return res.render("products/productsindex", { products, cat });
+  const { page = 1, limit = 30 } = req.query;
+  const products = await Product.find({})
+    .limit(limit * 1)
+    .skip((page - 1) * limit);
+  return res.render("products/productsindex", { products, cat, page });
 };
 
 export const goToCart = (req, res) => {

@@ -161,6 +161,41 @@
   color: var(--pink);
 }
 
+.pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.back {
+  background-color: var(--blue);
+  color: var(--white);
+  width: 125px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+}
+
+.next {
+  background-color: var(--pink);
+  color: var(--white);
+  width: 125px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back a:visited, 
+.next a:visited {
+  color: var(--white);
+  text-decoration: none;
+}
+
 @media screen and (max-width: 1300px) {
   .products-grid {
     grid-template-columns: repeat(3, 1fr);

@@ -72,7 +72,7 @@
         <%}%>
         <div class="divide-dark"></div>
       </div>
-      <div class="products-grid">
+      <div class="products-grid mb">
         <% for(let product of products) {%>
         <div class="product">
           <div class="prod-img">
@@ -90,6 +90,17 @@
               <a class="view-prod" href="/products/<%=product._id%>">Shop</a>
             </div>
           </div>
+        </div>
+        <%}%>
+      </div>
+      <div class="pages">
+        <%if(page > 1) {%>
+        <div class="back">
+          <a href="/products?page=<%=parseInt(page) - 1%>">Back</a>
+        </div>
+        <%}%> <%if(products.length === 30) {%>
+        <div class="next">
+          <a href="/products?page=<%=parseInt(page) + 1%>">Next</a>
         </div>
         <%}%>
       </div>
