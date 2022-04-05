@@ -2,7 +2,7 @@ import Product from "../models/producschema.js";
 
 export const renderProducts = async (req, res) => {
   const cat = null;
-  const { page = 1, limit = 30 } = req.query;
+  const { page = 1, limit = 20 } = req.query;
   const products = await Product.find({})
     .limit(limit * 1)
     .skip((page - 1) * limit);
@@ -30,9 +30,12 @@ export const renderProductUpdateForm = async (req, res) => {
 };
 
 export const searchProductCat = async (req, res) => {
+  const { page = 1, limit = 20 } = req.query;
   const { cat } = req.params;
-  const products = await Product.find({ category: cat });
-  return res.render("products/productsindex", { products, cat });
+  const products = await Product.find({ category: cat })
+    .limit(limit * 1)
+    .skip((page - 1) * limit);
+  return res.render("products/productsindex", { products, cat, page });
 };
 
 export const showProduct = async (req, res) => {
