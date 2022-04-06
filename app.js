@@ -7,29 +7,15 @@ import ejs from "ejs";
 import session from "express-session";
 import flash from "connect-flash";
 import methodOverride from "method-override";
-import bcrypt from "bcrypt";
-import Stripe from "stripe";
-import ExpressError from "./util/expresserror.js";
-import User from "./models/userschema.js";
 import Product from "./models/producschema.js";
 import userRouter from "./routers/userrouter.js";
 import productsRouter from "./routers/productrouter.js";
 import checkoutRouter from "./routers/checkoutRouter.js";
-import {
-  catchAsync,
-  validateUser,
-  validateUpdate,
-  isLoggedIn,
-  isAdmin,
-  validateProduct,
-} from "./util/middleware.js";
-import { renderNewProductForm } from "./controllers/productcontroller.js";
 
 dotenv.config();
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-// const stripe = new Stripe(`${process.env.STRIPE_PRIVATE_KEY}`);
 
 ////////// Connect to the database //////////////
 const connectDb = async () => {
