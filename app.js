@@ -14,6 +14,7 @@ import User from "./models/userschema.js";
 import Product from "./models/producschema.js";
 import userRouter from "./routers/userrouter.js";
 import productsRouter from "./routers/productrouter.js";
+import checkoutRouter from "./routers/checkoutRouter.js";
 import {
   catchAsync,
   validateUser,
@@ -28,7 +29,7 @@ dotenv.config();
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const stripe = new Stripe(`${process.env.STRIPE_PRIVATE_KEY}`);
+// const stripe = new Stripe(`${process.env.STRIPE_PRIVATE_KEY}`);
 
 ////////// Connect to the database //////////////
 const connectDb = async () => {
@@ -72,6 +73,7 @@ app.use((req, res, next) => {
 
 app.use("/user", userRouter);
 app.use("/products", productsRouter);
+app.use("/checkout", checkoutRouter);
 
 //////////// Homepage Route ///////////////
 app.get("/", (req, res) => {
@@ -107,28 +109,6 @@ app.get("/api/products/:id", async (req, res) => {
   if (product) {
     return res.json(product);
   } else res.json(null);
-});
-
-///////////////// Checkout Route //////////////////
-app.post("/create-payment-intent", async (req, res) => {
-  const { products, total } = req.body;
-  // Create a PaymentIntent with the order amount and currency
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: total * 100,
-    currency: "usd",
-    automatic_payment_methods: {
-      enabled: true,
-    },
-  });
-  res.json(paymentIntent);
-});
-
-app.get("/checkout", (req, res) => {
-  return res.render("checkout/checkout");
-});
-
-app.get("/checkout/complete", (req, res) => {
-  return res.render("checkout/success");
 });
 
 ////// Add a catch all for misc errors ///////////

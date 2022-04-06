@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   const total = getTotal(products);
   createProducts(products);
   // Create a payment intent for the total of the shopping cart
-  const response = await fetch("/create-payment-intent", {
+  const response = await fetch("/checkout/create-payment-intent", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
