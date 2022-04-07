@@ -173,7 +173,7 @@ body {
 .img-info {
   position: absolute;
   top: 0;
-  left: -90%;
+  left: -98%;
   width: 100%;
   height: 100%;
   background-color: var(--opink);
@@ -183,7 +183,7 @@ body {
   align-items: center;
   transform: rotate(45deg);
   cursor: pointer;
-  transition: 0.4s all;
+  transition: 0.8s all;
 }
 
 .img-info:hover {
