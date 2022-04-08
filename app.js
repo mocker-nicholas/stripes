@@ -1,4 +1,9 @@
 import dotenv from "dotenv";
+
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
+
 import express from "express";
 import mongoose from "mongoose";
 import path from "path";
@@ -12,15 +17,16 @@ import userRouter from "./routers/userrouter.js";
 import productsRouter from "./routers/productrouter.js";
 import checkoutRouter from "./routers/checkoutRouter.js";
 
-dotenv.config();
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// DB Var
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/stripeshop";
 ////////// Connect to the database //////////////
 const connectDb = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/stripeshop");
+    await mongoose.connect(dbUrl);
     console.log("Db connection established!");
   } catch (e) {
     console.log("Connection Error:", e);
