@@ -9,6 +9,7 @@ import { fileURLToPath } from "url";
 import ejs from "ejs";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import mongoSanitize from "express-mongo-sanitize";
 import flash from "connect-flash";
 import methodOverride from "method-override";
 import Product from "./models/producschema.js";
@@ -43,6 +44,12 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
+// Sanitize mongo queries
+app.use(
+  mongoSanitize({
+    replaceWith: "_",
+  })
+);
 // Store
 const store = MongoStore.create({
   mongoUrl: dbUrl,
