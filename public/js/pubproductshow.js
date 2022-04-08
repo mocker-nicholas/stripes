@@ -1,5 +1,3 @@
-console.log("Inside Public Product Show");
-
 const addToCartBtn = document.getElementById("addToCart");
 
 addToCartBtn.addEventListener("mouseover", () => {

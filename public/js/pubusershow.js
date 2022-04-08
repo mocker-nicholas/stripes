@@ -1,4 +1,3 @@
-console.log("inside pubusershow");
 const deleteBtn = document.getElementById("accountdelete");
 const modalBack = document.getElementById("modalBack");
 const modal = document.querySelector(".modal");

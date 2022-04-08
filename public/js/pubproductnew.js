@@ -1,4 +1,3 @@
-console.log("inside public new");
 const createBtn = document.getElementById("createBtn");
 
 createBtn.addEventListener("click", (e) => {

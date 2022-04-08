@@ -1,4 +1,3 @@
-console.log("In Public Homepage");
 const emailBtn = document.getElementById("emailme");
 
 emailBtn.addEventListener("click", (e) => {

@@ -1,15 +1,14 @@
 import dotenv from "dotenv";
-
 if (process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
-
 import express from "express";
 import mongoose from "mongoose";
 import path from "path";
 import { fileURLToPath } from "url";
 import ejs from "ejs";
 import session from "express-session";
+import MongoStore from "connect-mongo";
 import flash from "connect-flash";
 import methodOverride from "method-override";
 import Product from "./models/producschema.js";
@@ -23,6 +22,7 @@ const __dirname = path.dirname(__filename);
 
 // DB Var
 const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/stripeshop";
+const secret = process.env.STORE_SECRET || "developmentenvsecret";
 ////////// Connect to the database //////////////
 const connectDb = async () => {
   try {
@@ -43,17 +43,34 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
-app.use(
-  session({
-    secret: "mysuperbadsecret",
-    resave: false,
-    saveUninitialized: true,
+// Store
+const store = MongoStore.create({
+  mongoUrl: dbUrl,
+  touchAfter: 24 * 60 * 60,
+  crypto: {
+    secret: secret,
+  },
+});
+// Store errors
+store.on("error", function (e) {
+  console.log("Session Store Error:", e);
+});
+// Configure session
+const sessionConfig = {
+  store: store,
+  name: "session",
+  secret: secret,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
     HttpOnly: true,
-    cookie: {
-      expires: Date.now() + 1000 * 60 * 60 * 24,
-    },
-  })
-);
+    // secure: true,
+    expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+    maxAge: 1000 * 60 * 60 * 24 * 7,
+  },
+};
+
+app.use(session(sessionConfig));
 app.use(flash());
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");

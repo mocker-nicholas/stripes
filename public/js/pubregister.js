@@ -1,5 +1,3 @@
-console.log("Inside public register");
-
 const formbtn = document.querySelector("#registerbtn");
 formbtn.addEventListener("click", (e) => {
   const username = document.querySelector("#username");

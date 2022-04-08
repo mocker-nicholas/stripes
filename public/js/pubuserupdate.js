@@ -1,4 +1,3 @@
-console.log("inside pub user update");
 const updateBtn = document.getElementById("update");
 const vals = document.querySelectorAll(".validate");
 

@@ -1,4 +1,3 @@
-console.log("in pub checkout");
 const stripeForm = document.getElementById("payment-form");
 const stripe = Stripe(stripePub);
 

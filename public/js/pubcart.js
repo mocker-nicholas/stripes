@@ -1,5 +1,3 @@
-console.log("inside pub cart js");
-
 addEventListener("DOMContentLoaded", async (e) => {
   let cart = JSON.parse(localStorage.getItem("cart"));
   let prodArr = [];

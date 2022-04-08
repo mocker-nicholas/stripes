@@ -1,5 +1,3 @@
-console.log("Inside public product index");
-
 // If there are no featured products, hide the featured message div
 window.addEventListener("DOMContentLoaded", (e) => {
   const featured = document.querySelector(".featured-products");
