@@ -315,6 +315,7 @@ form button {
   text-align: center;
 }
 
+
 .mt {
   margin-top: 0.25rem;
 }
@@ -395,6 +396,11 @@ form button {
 
 .mb {
   margin-bottom: 1rem;
+}
+
+.inactiveLink {
+  pointer-events: none;
+  cursor: default;
 }
 
 .underline-warning {
