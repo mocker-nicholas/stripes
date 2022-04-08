@@ -14,7 +14,7 @@
     <div class="error">
         <p><%=err.message%></p>
         <p><% if (process.env.NODE_ENV !== "production") { %>
-            <p style="overflow-wrap: break-word"><%=err.stack%></p>
+            <p style="overflow-wrap: break-word"><%=err.message%></p>
             <%}%></p>
     </div>
     <section id="hero">

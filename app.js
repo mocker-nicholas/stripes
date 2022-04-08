@@ -12,6 +12,7 @@ import MongoStore from "connect-mongo";
 import mongoSanitize from "express-mongo-sanitize";
 import flash from "connect-flash";
 import methodOverride from "method-override";
+import helmet from "helmet";
 import Product from "./models/producschema.js";
 import userRouter from "./routers/userrouter.js";
 import productsRouter from "./routers/productrouter.js";
@@ -39,7 +40,51 @@ connectDb();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+/// Helmet Settings
+const scriptSrcUrls = ["https://js.stripe.com/v3/"];
+const styleSrcUrls = [
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/",
+  "https://fonts.googleapis.com/",
+  ,
+];
+const connectSrcUrls = [
+  "https://images.unsplash.com/",
+  "https://js.stripe.com/",
+];
+const fontSrcUrls = [
+  "https://fonts.gstatic.com/",
+  "https://fonts.googleapis.com/",
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/",
+];
+
+const chldSrcUrls = ["https://js.stripe.com/", "", ""];
+
+const defaultSrcUrls = ["http://localhost:3000/img/fav/"];
+
 ////////// request Middlware ///////////////
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: [...defaultSrcUrls],
+      connectSrc: ["'self'", ...connectSrcUrls],
+      scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
+      styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+      workerSrc: ["'self'", "blob:"],
+      objectSrc: [],
+      imgSrc: [
+        "'self'",
+        "blob:",
+        "data:",
+        "https://res.cloudinary.com/dtk2pykqu/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT!
+        "https://images.unsplash.com/",
+      ],
+      fontSrc: ["'self'", ...fontSrcUrls],
+      mediaSrc: ["https://res.cloudinary.com/dv5vm4sqh/"],
+      childSrc: ["blob:", ...chldSrcUrls],
+    },
+  })
+);
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
