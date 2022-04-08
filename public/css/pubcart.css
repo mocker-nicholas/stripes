@@ -81,6 +81,26 @@
   transform: scale(0.9);
 }
 
+.back-to {
+  background-color: var(--blue);
+  color: var(--white);
+  margin-top: 1rem;
+  width: 200px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.back-to:hover {
+  transform: translateY(-4px);
+}
+
+.back-to:active {
+  transform: scale(0.9);
+}
+
 .checkout {
   transition: all 0.2s;
 }
