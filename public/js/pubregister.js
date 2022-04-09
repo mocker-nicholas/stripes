@@ -24,7 +24,7 @@ formbtn.addEventListener("click", (e) => {
   if (!password.value.match(passwordRegex)) {
     e.preventDefault();
     let message =
-      "Password must be 8 character with one number and one special character";
+      "Password must have 8 characters, a capital letter, a number, and a special character";
     return showError(password, message);
   }
 });
