@@ -160,6 +160,14 @@ form button {
   background-color: var(--opink);
 }
 
+.small-nav-item a {
+  color: var(--white);
+}
+
+.small-nav-item a:visited {
+  color: var(--white);
+}
+
 .admin-nav {
   background-color: rgba(124, 124, 124, 0.2);
   max-width: 100%;
@@ -246,6 +254,14 @@ form button {
 
 .icon:active {
   transform: scale(0.9);
+}
+
+.icon a {
+  color: var(--white);
+}
+
+.icon a:visited {
+  color: var(--white);
 }
 
 .linkedin {
