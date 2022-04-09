@@ -104,6 +104,10 @@ export const deleteUser = async (req, res) => {
     console.log("no user");
     return res.redirect(`${req.originalUrl.replace("/delete", "")}`);
   }
+  if (user.isadmin === true) {
+    req.flash("error", "Cannot delete admin user");
+    return res.redirect(`${req.originalUrl.replace("/delete", "")}`);
+  }
   const deletedUser = await User.deleteOne({ _id });
   req.session.user = null;
   req.flash("success", "Your account was successfully deleted");
