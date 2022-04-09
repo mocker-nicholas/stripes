@@ -138,6 +138,7 @@ app.use("/checkout", checkoutRouter);
 
 //////////// Homepage Route ///////////////
 app.get("/", (req, res) => {
+  console.log(req.session.user);
   return res.render("homeindex");
   //// Change the store name to stripes!
 });
@@ -190,7 +191,7 @@ app.use((err, req, res, next) => {
   if (err.name === "CastError") {
     return res.redirect("/pagenotfound");
   }
-  if (req.session.user && req.session.user.isadmin === false) {
+  if (req.session.user === null || req.session.user.isadmin === false) {
     req.flash(
       "error",
       "You do not have the permission needed to perform that action"
