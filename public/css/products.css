@@ -190,6 +190,14 @@
   justify-content: center;
 }
 
+.back a, 
+.next a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+
+
 .back a:visited, 
 .next a:visited {
   color: var(--white);
