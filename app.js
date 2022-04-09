@@ -59,7 +59,10 @@ const fontSrcUrls = [
 
 const chldSrcUrls = ["https://js.stripe.com/", "", ""];
 
-const defaultSrcUrls = ["http://localhost:3000/img/fav/"];
+const defaultSrcUrls = [
+  "http://localhost:3000/img/fav/",
+  "https://rocky-lake-27818.herokuapp.com/img/fav/",
+];
 
 ////////// request Middlware ///////////////
 app.use(
