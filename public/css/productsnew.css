@@ -42,3 +42,16 @@
 .make-blue {
   background-color: var(--blue);
 }
+
+@media screen and (max-width: 768px) {
+  .product-form-container {
+    padding: 0.5rem;
+  }
+
+  #create-product {
+    padding: 0.25rem;
+  }
+  .prod-info {
+    padding: 0.25rem;
+  }
+}

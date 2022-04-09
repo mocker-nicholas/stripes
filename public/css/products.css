@@ -55,13 +55,13 @@
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
 }
 
 .product {
   overflow-y: hidden;
-  width: 300px;
+  width: 280px;
   max-height: 400px;
   background-color: #fff;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
@@ -196,6 +196,12 @@
   text-decoration: none;
 }
 
+@media screen and (max-width: 1500px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media screen and (max-width: 1300px) {
   .products-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -231,5 +237,11 @@
 
   .products-grid {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product {
+    width: 275px;
   }
 }

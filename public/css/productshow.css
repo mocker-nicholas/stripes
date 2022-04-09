@@ -108,3 +108,12 @@ select[name="size"] {
     margin-bottom: 0.5rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  #create-product {
+    padding: 0.25rem;
+  }
+  .prod-info {
+    padding: 0.25rem;
+  }
+}

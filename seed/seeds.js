@@ -1,9 +1,13 @@
 import Product from "../models/producschema.js";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+const prodUrl = process.env.DB_URL;
+const devUrl = "mongodb://localhost:27017/stripeshop";
 
 async function connectDb() {
   try {
-    await mongoose.connect("mongodb://localhost:27017/stripeshop");
+    await mongoose.connect(prodUrl);
     return console.log("DATABASE CONNECTED");
   } catch (e) {
     return console.log("CONNECTION ERROR", e);
@@ -51,18 +55,20 @@ const description = [
   "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias temporibus iusto consequuntur asperiores, accusamus facere dolores ex rem sapiente voluptate quo amet delectus illum necessitatibus natus, unde totam cum nihil.",
 ];
 
-const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 const bool = [true, false, false, false, false, false];
 
+// Local Product creation
 const createProducts = async (prodnum) => {
   await connectDb();
   await Product.deleteMany({});
   for (let i = 0; i < prodnum; i++) {
+    const prodName = pickRand(name);
     const product = await new Product({
-      name: pickRand(name),
+      name: prodName,
       imgurl: pickRand(imgurl),
       price: pickRand(price),
-      category: pickRand(category),
+      category: prodName,
       description: pickRand(description),
       smallinstock: pickRand(num),
       mediuminstock: pickRand(num),

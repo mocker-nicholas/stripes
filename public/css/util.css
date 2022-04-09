@@ -479,6 +479,7 @@ form button {
 
   .footer-container {
     flex-direction: column-reverse;
+    padding-bottom: 0;
   }
 
   .footer-column {
@@ -487,7 +488,8 @@ form button {
     justify-content: center;
     align-items: center;
     border-top: 2px solid var(--yellow);
-    padding: 1rem;
+    padding: 0.25rem;
+    margin-bottom: 0.5rem;
   }
 
   .footer-column ul {
@@ -509,3 +511,4 @@ form button {
     top: 10%;
   }
 }
+
