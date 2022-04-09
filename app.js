@@ -16,7 +16,7 @@ import helmet from "helmet";
 import Product from "./models/producschema.js";
 import userRouter from "./routers/userrouter.js";
 import productsRouter from "./routers/productrouter.js";
-import checkoutRouter from "./routers/checkoutRouter.js";
+import checkoutRouter from "./routers/checkoutrouter.js";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
