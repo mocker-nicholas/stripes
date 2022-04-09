@@ -138,7 +138,6 @@ app.use("/checkout", checkoutRouter);
 
 //////////// Homepage Route ///////////////
 app.get("/", (req, res) => {
-  console.log(req.session.user);
   return res.render("homeindex");
   //// Change the store name to stripes!
 });
@@ -191,14 +190,12 @@ app.use((err, req, res, next) => {
   if (err.name === "CastError") {
     return res.redirect("/pagenotfound");
   }
-  if (req.session.user !== null) {
-    if (req.session.user && req.session.user.isadmin === false) {
-      req.flash(
-        "error",
-        "You do not have the permission needed to perform that action"
-      );
-      return res.redirect("/user/login");
-    }
+  if (req.session.user && req.session.user.isadmin === false) {
+    req.flash(
+      "error",
+      "You do not have the permission needed to perform that action"
+    );
+    return res.redirect("/user/login");
   }
   return res.status(statusCode).render("error", { err });
 });
