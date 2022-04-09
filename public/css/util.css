@@ -181,9 +181,14 @@ form button {
 
 .admin-nav ul li a {
   background-color: var(--blue);
+  color: var(--white);
   margin: 0.25rem;
   padding: 0.25rem;
   border-radius: 10px;
+}
+
+.admin-nav ul li a:visited {
+  color: var(--white);
 }
 
 /* Generic Page footer */
