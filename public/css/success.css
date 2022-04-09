@@ -27,3 +27,21 @@
     bottom: 22vh;
     left: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+    
+    .img a {
+        color: var(--white);
+        position: absolute;
+        bottom: 5vh;
+        left: 0.5rem;
+        padding: 0.75rem;
+    }
+    
+    .img p {
+        position: absolute;
+        font-size: 1rem;
+        bottom: 50vh;
+        left: 0.5rem;
+    }
+}
