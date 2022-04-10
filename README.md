@@ -43,16 +43,8 @@ To check out this app, you can clone a copy for yourself, or you can go [here]('
 - There are a few more things I would like to do with this app, but I am early in my learning journey and want to move on to learning React for now. In the future I hope to add:
   - Business logic on the backend for inventory control when a purchase is made.
   - Adding a carousel for the "featured" products I think would be nice.
-  - I want to add an "Orders" model that would store a user Id on it. If logged in users made a purcharse, they could go to an "orders" page and view all of their previous orders.
+  - I want to add an "Orders" model that would store a user Id on it. If logged in users made a purchase, they could go to an "orders" page and view all of their previous orders.
   - True Image upload. For now, unplash image links are used for the images on the pages. I have experience with cloudinary, but did not want to dedicate too much time to the image portion of this project. I was also concerned with about what kind of images someone might upload if I opened it up too much. It is definitely an upgrade I am considering adding in the feature.
-
-## What's included
-
-StripeShop uses a standard MVC pattern file structure
-
-```
-
-```
 
 ## Bugs and feature requests
 
