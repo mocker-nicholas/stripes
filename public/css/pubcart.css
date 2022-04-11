@@ -18,6 +18,7 @@
 
 .item {
   background-color: rgba(220, 220, 220, 0.5);
+  border-radius: 8px;
   max-width: 60vw;
   min-width: 50vw;
   margin: 0.5rem 0;
