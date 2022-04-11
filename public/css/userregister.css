@@ -82,6 +82,15 @@
   gap: 0.75rem;
 }
 
+.register-form h2 {
+  font-size: 2rem;
+}
+
+#registerbtn {
+  border-radius: 8px;
+  margin-top: 0;
+}
+
 @media screen and (max-width: 768px) {
   .register-container {
     flex-direction: column;

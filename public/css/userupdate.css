@@ -35,6 +35,10 @@
   margin: 0 auto;
 }
 
+#update {
+  margin-top: 0;
+}
+
 /* Modal Styling */
 .modal {
   position: absolute;

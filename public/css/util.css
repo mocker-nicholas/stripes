@@ -344,6 +344,7 @@ form button {
 .btn-update {
   background-color: rgb(65, 105, 225);
   color: var(--white);
+  border-radius: 8px;
   padding: 0.5rem;
   width: 100%;
   text-align: center;
@@ -366,6 +367,7 @@ form button {
 .btn-delete {
   background-color: red;
   color: var(--white);
+  border-radius: 8px;
   padding: 0.5rem;
   width: 100%;
   text-align: center;
@@ -394,11 +396,15 @@ form button {
 .form-group input {
   width: 100%;
   font-size: 1rem;
+  border-radius: 8px;
   padding: 4px;
+  border: 1px solid;
+  margin-bottom: 0.5rem;
 }
 
 .form-group select {
   width: 100%;
+  border-radius: 8px;
   font-size: 1rem;
   padding: 4px;
 }

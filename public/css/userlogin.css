@@ -43,6 +43,7 @@
 .btn-dark {
   margin: 1rem 0;
   width: 100%;
+  border-radius: 8px;
 }
 
 .login-form h1 {
@@ -58,6 +59,7 @@
   background-color: var(--white);
   color: var(--pink);
   border: 2px solid var(--pink);
+  border-radius: 8px;
   text-align: center;
   padding: 0.5rem;
 }
