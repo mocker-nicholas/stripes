@@ -18,6 +18,7 @@
 .img a {
     color: var(--white);
     position: absolute;
+    border-radius: 8px;
     bottom: 15vh;
     left: 1rem;
 }
