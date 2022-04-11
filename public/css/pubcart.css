@@ -97,6 +97,14 @@
   transition: all 0.2s;
 }
 
+back-to a {
+  color: var(--white);
+}
+
+.back-to a:visited {
+  color: var(--white);
+}
+
 .back-to:hover {
   transform: translateY(-4px);
 }
