@@ -73,6 +73,7 @@ body {
 /* Rewards form */
 .rewards-container {
   width: 100%;
+  height: 50vh;
   display: flex;
   margin-bottom: 4rem;
 }
@@ -121,7 +122,6 @@ body {
 .rewards-image {
   height: 100%;
   width: 50%;
-  padding: 0.5rem;
 }
 
 .rewards-image img {
@@ -263,11 +263,11 @@ body {
 
   .rewards-container {
     flex-direction: column;
+    height: 80vh;
   }
 
   .rewards-form {
     width: 100%;
-    margin-bottom: 1rem;
     padding: 0 0.25rem;
   }
 
