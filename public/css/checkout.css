@@ -26,20 +26,20 @@
 }
 
 .priceP {
-    margin: 6px 0;
+    margin: 10px 0;
 }
 
 .price {
     border: 2px solid green;
     background-color: rgba(0, 255, 0, 0.2);
-    margin-bottom: 1rem;
-    padding: 2px;
+    border-radius: 8px;
+    padding: 4px;
 }
 
 .product {
-    background-color: rgba(230, 230, 230, 0.5);
+    background-color: rgba(230, 230, 230, 0.8);
+    border-radius: 8px;
     padding: 0.5rem;
-    border: 1px solid black;
 }
 
 #submit {
