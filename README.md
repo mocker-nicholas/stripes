@@ -33,11 +33,20 @@ To check out this app, you can clone a copy for yourself, or you can go [here]('
 
 - You dont need to create a user to explore the app. You can view products, add them to your cart, and checkout by sending a payment to [Stripe!](https://stripe.com/) Fake credit card details are provided on the checkout page for testing.
 - You can also make your own user for demo purposes! Dont worry, there are no services on the backend that will actually send you any spam. By logging in, there are some more features you can explore:
+
   1. You can add a billing and shipping address for your user.
   2. You can update your billing and shipping information for your user.
   3. You can delete your user entirely.
   4. If you haven't signed up already, you will see a sign up for an email list on your user account page. Again, dont worry, this sign up doesn't actually do anything other than make an update to your user in the Database. That update will remove the email list sign up question from your user page the next time you log in.
-- You can log in as an admin using the following credentials:
+
+- If you dont wish to create your own account, you can log in with the following credentials:
+
+- As a normal user:
+
+  - Username: testing12345
+  - Password: Testing12345!
+
+- As an admin user:
   - Username: testadmin123
   - Password: FakeFake123!
   - Once logged in as an Admin you can update products, remove products, and add products. You will see a new navbar underneath the normal one with the option to "add a product".
